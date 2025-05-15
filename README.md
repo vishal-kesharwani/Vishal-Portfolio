@@ -4,7 +4,8 @@
           
 # Vishal Kesharwani - Portfolio
 
-![Portfolio Preview](https://i.imgur.com/XYZ123.png)
+*#Portfolio Preview* ![image](https://github.com/user-attachments/assets/8ea07bdc-5880-4285-a61f-35d2a4055bcc)
+
 
 A modern, responsive portfolio website built with Next.js, React, and Tailwind CSS. This portfolio showcases my projects, skills, achievements, and educational background.
 
