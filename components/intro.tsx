@@ -61,33 +61,50 @@ export default function Intro() {
         </div>
 
         {/* Text Content */}
-        <div className="w-full md:w-1/2 text-left">
-          <motion.div
-            className="mb-10 mt-4 px-0 sm:px-4 text-lg font-medium !leading-[1.5] sm:text-xl text-white"
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <h1 className="text-3xl sm:text-4xl font-bold mb-4">
-              Hello, I'm Vishal Kesharwani.
-            </h1>
-            
-            
-            <span className="font-bold">Full Stack Developer & Cloud Engineer</span>
-            <span className="font-bold">B.Tech Computer Engineering Student</span> at{" "}
-            <a
-              href="https://mitaoe.ac.in/"
-              className="font-bold underline"
-              target="_blank"
-              style={{ textUnderlineOffset: '4px' }}
-            >
-              MIT Academy of Engineering
-            </a>, {" "}
-            specializing in <span className="font-bold">Cloud-Native Solutions</span> {" "}
-            and <span className="font-bold">AI/ML Development</span>. Currently working with {" "}
-            <span className="font-bold">AWS, Blockchain,</span> and {" "}
-            <span className="font-bold">MERN Stack</span>.
-          </motion.div>
-        </div>
+<div className="w-full md:w-1/2 text-left">
+  <motion.div
+    className="mb-10 mt-4 px-0 sm:px-4 text-base sm:text-lg font-medium leading-relaxed text-slate-200 space-y-5"
+    initial={{ opacity: 0, y: 100 }}
+    animate={{ opacity: 1, y: 0 }}
+  >
+    <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-2">
+      Hi, I'm Vishal Kesharwani 👨‍💻
+    </h1>
+
+    <p>
+      A <span className="text-teal-300 font-semibold">Full Stack Developer</span> &{" "}
+      <span className="text-indigo-300 font-semibold">Cloud Engineer</span> passionate about building scalable web apps and intelligent solutions.
+    </p>
+
+    <p>
+      I'm currently pursuing a <span className="text-yellow-300 font-semibold">B.Tech in Computer Engineering</span> at{" "}
+      <a
+        href="https://mitaoe.ac.in/"
+        className="underline font-semibold text-blue-300 hover:text-blue-200 transition-colors"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textUnderlineOffset: "4px" }}
+      >
+        MIT Academy of Engineering
+      </a>
+      .
+    </p>
+
+    <p>
+      I specialize in <span className="text-purple-300 font-semibold">Cloud-Native Architecture</span>,{" "}
+      <span className="text-pink-300 font-semibold">AI/ML Development</span>, and full-stack technologies like{" "}
+      <span className="text-green-300 font-semibold">AWS</span>,{" "}
+      <span className="text-cyan-300 font-semibold">Blockchain</span>, and the{" "}
+      <span className="text-orange-300 font-semibold">MERN Stack</span>.
+    </p>
+
+    <p>
+      I’m driven to solve real-world problems and always looking to join innovative teams focused on tech that makes an impact.
+    </p>
+  </motion.div>
+</div>
+
+
       </div>
       <motion.div
         className="flex flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
