@@ -73,7 +73,7 @@ export default function Intro() {
 
     <p>
       A <span className="text-teal-300 font-semibold">Full Stack Developer</span> &{" "}
-      <span className="text-indigo-300 font-semibold">Cloud Engineer</span> passionate about building scalable web apps and intelligent solutions.
+      <span className="text-indigo-300 font-semibold">Cloud Engineer</span> 
     </p>
 
     <p>
