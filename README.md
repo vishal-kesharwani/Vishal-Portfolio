@@ -109,4 +109,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 Made with ❤️ by Vishal Kesharwani
 
-        Too many current requests. Your queue position is 2. Please wait for a while or switch to other models for a smoother experience.
