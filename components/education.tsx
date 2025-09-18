@@ -43,7 +43,7 @@ export default function Education() {
             <p className="text-lg font-medium">B.Tech - Computer Engineering</p>
             <p>MIT Academy of Engineering, Pune</p>
             <p className="mt-1">2022 - 2026</p>
-            <p className="my-1">CGPA: 8.36/10</p>
+            <p className="my-1">CGPA: 8.40/10</p>
             <ul className="list-disc pl-6">
               <li>Specialization in Cloud Computing & AI/ML</li>
               <li>Red Hat Certified System Administrator (RHCSA)</li>
