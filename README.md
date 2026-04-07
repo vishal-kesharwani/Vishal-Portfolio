@@ -8,8 +8,8 @@ Vishal Kesharwani
 
 ## Live
 
-- [vishalkesharwani.in](https://vishalkesharwani.in)
-- [Vercel preview](https://vishal-portfolio-flax.vercel.app/)
+- Production: [vishalkesharwani.in](https://vishalkesharwani.in)
+- Preview: [Vercel deployment](https://vishal-portfolio-flax.vercel.app/)
 
 ## Highlights
 
