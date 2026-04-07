@@ -34,9 +34,10 @@ export default function Contact() {
             </h3>
 
             <p className="max-w-xl text-sm leading-6 text-gray-600 dark:text-white/70 sm:text-base">
-              For internship opportunities, project collaborations, freelance
-              work, or a quick hello, send a message and I&apos;ll reply from
-              my inbox at <span className="font-semibold">vishalkes1378@gmail.com</span>.
+              For backend, cloud, DevOps, internship opportunities, project
+              collaborations, freelance work, or a quick hello, send a message
+              and I&apos;ll reply from my inbox at{" "}
+              <span className="font-semibold">vishalkes1378@gmail.com</span>.
             </p>
 
             <div className="grid gap-3 sm:grid-cols-2">

@@ -32,8 +32,9 @@ export default function Skills() {
     >
       <SectionHeading>My Skills</SectionHeading>
       <p className="mx-auto mb-10 max-w-2xl text-sm leading-6 text-gray-600 dark:text-white/70 sm:text-base">
-        A practical stack built around backend systems, frontend delivery, and
-        the tools needed to ship reliable products.
+        I work with backend systems, frontend delivery, cloud tooling, and
+        DevOps basics so I can move an idea from code to deployment with
+        confidence.
       </p>
       <ul className="grid grid-cols-2 gap-3 text-lg text-gray-800 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {skillsData.map((skill, index) => (
@@ -49,8 +50,12 @@ export default function Skills() {
             }}
             custom={index}
           >
-            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-950/5 text-slate-950 dark:bg-white/10 dark:text-white">
-              <Icon icon={skill.icon as string} className="text-[2.6rem] leading-none" />
+            {/* Fixed-size icon wrapper keeps every skill tile visually aligned. */}
+            <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-slate-950/5 text-slate-950 dark:bg-white/10 dark:text-white">
+              <Icon
+                icon={skill.icon as string}
+                className="h-10 w-10 shrink-0"
+              />
             </div>
             <span className="mt-3 text-sm font-medium leading-tight">{skill.name}</span>
           </motion.li>

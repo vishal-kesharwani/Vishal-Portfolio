@@ -5,7 +5,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BsLinkedin } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
-import { FiArrowRight } from "react-icons/fi";
+import { FiArrowRight, FiCloud } from "react-icons/fi";
+import { FaDocker } from "react-icons/fa6";
+import { SiAmazonaws } from "react-icons/si";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import githubdp from "@/public/githubdp.jpg";
@@ -29,14 +31,15 @@ export default function Intro() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(45,212,191,0.22),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(59,130,246,0.18),_transparent_26%),linear-gradient(135deg,rgba(15,23,42,0.96),rgba(15,23,42,0.82))]" />
         <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:36px_36px]" />
 
-        <div className="relative grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="relative grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="space-y-6 text-left">
+            {/* Short tags keep the hero readable while still showing my focus areas. */}
             <div className="flex flex-wrap gap-3">
               <span className="rounded-full border border-teal-300/20 bg-teal-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-200 backdrop-blur">
-                Backend Intern
+                Open for internships
               </span>
               <span className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-100 backdrop-blur">
-                Cloud / AI-ML / Java
+                Cloud / DevOps / Java
               </span>
             </div>
 
@@ -45,13 +48,13 @@ export default function Intro() {
                 Vishal Kesharwani
               </p>
               <h1 className="max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-                Building polished web products with backend depth and a product
-                mindset.
+                I build clean web apps and ship them through cloud-ready
+                environments.
               </h1>
               <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
                 I&apos;m a Computer Engineering student at MIT Academy of
-                Engineering, currently shaping full-stack systems, cloud
-                workflows, and real-world internship deliverables.
+                Engineering. I like full-stack work, AWS EC2, Docker, and
+                deployment workflows that feel like a real environment.
               </p>
             </div>
 
@@ -79,10 +82,10 @@ export default function Intro() {
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                 <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                  Experience
+                  DevOps
                 </p>
                 <p className="mt-2 text-lg font-semibold">
-                  Internship + Hackathons
+                  EC2, Docker, CI/CD
                 </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
@@ -120,55 +123,75 @@ export default function Intro() {
           <div className="relative flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur">
               <div className="absolute inset-x-8 top-0 h-1 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-500" />
-              <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-center">
-                <div className="space-y-4 p-4">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-200">
-                    <span className="h-2 w-2 rounded-full bg-teal-400" />
-                    Available for internships
+              <div className="grid gap-4 p-4">
+                <div className="rounded-[1.5rem] border border-white/10 bg-slate-900/65 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-teal-300/20 bg-teal-300/10 px-3 py-1 text-xs font-medium text-teal-200">
+                      <FiCloud className="text-sm" />
+                      Cloud sandbox
+                    </div>
+                    <div className="text-right text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                      local → cloud
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
-                      Portfolio preview
+
+                  <div className="mt-4 grid gap-3 rounded-[1.25rem] border border-white/10 bg-slate-950/60 p-4 font-mono text-[12px] leading-6 text-slate-200">
+                    <p>
+                      <span className="text-teal-300">$</span> start lab
+                      environment
                     </p>
-                    <h2 className="text-2xl font-semibold leading-tight">
-                      Modern, clean, and built to impress.
-                    </h2>
-                    <p className="text-sm leading-6 text-slate-300">
-                      This is the visual direction I&apos;m using across the
-                      complete site.
+                    <p>
+                      <span className="text-teal-300">$</span> docker build app
+                    </p>
+                    <p>
+                      <span className="text-teal-300">$</span> deploy to ec2
+                    </p>
+                    <p>
+                      <span className="text-teal-300">$</span> connect ci/cd
+                      pipeline
                     </p>
                   </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-3 text-center">
-                      <p className="text-lg font-semibold">4+</p>
-                      <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
-                        Sections
+
+                  <div className="mt-4 grid grid-cols-3 gap-3">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-center">
+                      <SiAmazonaws className="mx-auto text-xl text-cyan-300" />
+                      <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.18em] text-slate-300">
+                        EC2
                       </p>
                     </div>
-                    <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-3 text-center">
-                      <p className="text-lg font-semibold">1</p>
-                      <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
-                        Live domain
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-center">
+                      <FaDocker className="mx-auto text-xl text-cyan-300" />
+                      <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.18em] text-slate-300">
+                        Docker
                       </p>
                     </div>
-                    <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-3 text-center">
-                      <p className="text-lg font-semibold">100%</p>
-                      <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
-                        Customizable
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-center">
+                      <FiArrowRight className="mx-auto text-xl text-cyan-300" />
+                      <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.18em] text-slate-300">
+                        Deploy
                       </p>
                     </div>
                   </div>
                 </div>
-
-                <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-900 shadow-xl sm:h-64 sm:w-64">
-                  <Image
-                    src={githubdp}
-                    alt="Vishal portrait"
-                    fill
-                    priority
-                    quality={95}
-                    className="object-cover"
-                  />
+                <div className="grid grid-cols-[1fr_auto] gap-4 rounded-[1.5rem] border border-white/10 bg-white/5 p-4">
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.24em] text-slate-400">
+                      Currently learning
+                    </p>
+                    <p className="mt-2 text-lg font-semibold">
+                      Linux servers, cloud deployment, and practical DevOps.
+                    </p>
+                  </div>
+                  <div className="relative h-24 w-24 overflow-hidden rounded-2xl border border-white/10 bg-slate-900">
+                    <Image
+                      src={githubdp}
+                      alt="Vishal portrait"
+                      fill
+                      priority
+                      quality={95}
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

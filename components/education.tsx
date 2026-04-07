@@ -54,8 +54,8 @@ export default function Education() {
     >
       <SectionHeading>My Education</SectionHeading>
       <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-gray-600 dark:text-white/70 sm:text-base">
-        A clear academic path with engineering focus, strong fundamentals, and
-        steady specialization in software systems.
+        My academic journey gave me the fundamentals I rely on while building
+        full-stack apps, cloud workflows, and deployment-ready systems.
       </p>
 
       <div className="grid gap-5">

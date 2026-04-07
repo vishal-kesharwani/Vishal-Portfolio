@@ -8,7 +8,7 @@ export default function SectionHeading({ children }: SectionHeadingProps) {
   return (
     <div className="mb-10 text-center">
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.32em] text-teal-600 dark:text-teal-300">
-        Portfolio Section
+        Sandbox Section
       </p>
       <h2 className="text-3xl font-semibold capitalize tracking-tight text-gray-950 dark:text-white sm:text-4xl">
         {children}

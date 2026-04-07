@@ -1,13 +1,10 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { Nunito } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
-
-const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
   metadataBase: new URL("https://vishalkesharwani.in"),
@@ -39,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body
-        className={`${nunito.className} relative bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+        className="relative bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 font-sans"
       >
         <ThemeContextProvider>
           <ActiveSectionContextProvider>

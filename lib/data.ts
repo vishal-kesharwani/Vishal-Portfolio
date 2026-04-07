@@ -8,6 +8,7 @@ import reportImg from "@/public/reportease.jpg";
 // Navigation Links
 export const links = [
   { name: "Home", hash: "#home" },
+  { name: "Cloud Lab", hash: "#cloud-lab" },
   { name: "Projects", hash: "#projects" },
   { name: "Skills", hash: "#skills" },
   { name: "Internships", hash: "#internships" },
@@ -20,28 +21,32 @@ export const links = [
 export const experiencesData = [
   {
     title: "Datathon'25 1st Runner Up (TY Category)",
-    description: "Developed a game-based learning platform using React and Node.js with real-time analytics",
+    description:
+      "I built a game-based learning platform with React, Node.js, and real-time analytics.",
     icon: React.createElement(BiSolidCaretUpCircle),
-    date: "2025 March"
+    date: "2025 March",
   },
   {
     title: "Cavista Tech Hackathon 1st Runner-Up",
-    description: "Created AI/ML based portal for HomeHealth to remotely predict and recommend the best home health care services. AI chatbot for health-related queries.",
+    description:
+      "I worked on an AI/ML portal for HomeHealth with predictions and a health chatbot.",
     icon: React.createElement(BiSolidCaretUpCircle),
-    date: "2025 February"
+    date: "2025 February",
   },
   {
     title: "Smart India Hackathon Grand Finalist",
-    description: "Selected among top nationwide teams for implementation of a cloud-based, AI powered Annual Report Generation Portal",
+    description:
+      "I contributed to a cloud-based annual report generation portal that reached the national finals.",
     icon: React.createElement(BiSolidCaretUpCircle),
-    date: "2024 December"
+    date: "2024 December",
   },
   {
     title: "E-Summit Ideathon 2024 Winner",
-    description: "An AI-powered website to streamline college report generation for better efficiency.",
+    description:
+      "I helped design an AI-powered website to streamline college report generation.",
     icon: React.createElement(BiSolidCaretUpCircle),
-    date: "2024 November"
-  }
+    date: "2024 November",
+  },
 ] as const;
 
 // Internship Data
@@ -53,9 +58,10 @@ export const internshipsData = [
     status: "In progress",
     highlights: [
       "ETL workflows and backend data processing",
-      "Data visualization support for internal dashboards",
+      "Internal dashboard data visualization support",
       "3DX Platform Engineer tasks and integrations",
       "Mail Bridge project development and maintenance",
+      "Deploying and validating services in a production-style flow",
     ],
   },
 ] as const;
@@ -64,15 +70,21 @@ export const internshipsData = [
 export const projectsData = [
   {
     title: "Social Media Performance Analysis",
-    description: "AI-driven analytics platform using Langchain & Astra DB (60% efficiency improvement).",
+    description:
+      "I built an AI-driven analytics platform with LangChain and Astra DB for quick social insights.",
     tags: ["Langchain", "React.js", "Data Visualization"],
-    icons: ["simple-icons:langchain", "skill-icons:react-dark", "vscode-icons:file-type-astro"],
+    icons: [
+      "simple-icons:langchain",
+      "skill-icons:react-dark",
+      "vscode-icons:file-type-astro",
+    ],
     imageUrl: SocialyticsImg,
     githubLink: "https://github.com/HBTK/Social-Media-Performance",
   },
   {
     title: "ReportEase - SaaS Platform",
-    description: "Cloud-based report automation system with RBAC integration (50% effort reduction).",
+    description:
+      "I designed and shipped a cloud-based report automation system with RBAC and deployment-ready structure.",
     tags: ["AWS", "MERN Stack", "RBAC"],
     icons: ["skill-icons:aws-dark", "skill-icons:mongodb", "skill-icons:react-dark"],
     imageUrl: reportImg,
@@ -80,17 +92,20 @@ export const projectsData = [
   },
   {
     title: "Aarogya",
-    description: "AI-powered healthcare platform with multimodal analysis and real-time treatment insights combining Ayurveda & Allopathy",
+    description:
+      "I developed an AI-powered healthcare platform with multimodal analysis and real-time treatment insights.",
     tags: ["Python", "Keras", "AI/ML", "Web Scraping", "HTML", "CSS", "JavaScript", "Healthcare"],
-    icons: ["logos:python", "simple-icons:keras", "skill-icons:javascript", "vscode-icons:file-type-html", "vscode-icons:file-type-css"],
+    icons: [
+      "logos:python",
+      "simple-icons:keras",
+      "skill-icons:javascript",
+      "vscode-icons:file-type-html",
+      "vscode-icons:file-type-css",
+    ],
     imageUrl: ArogyaImg,
     githubLink: "https://github.com/virajmandlik/Temp",
     demoLink: "",
   },
-  
-  
-
-
 ] as const;
 
 // Skills Data
@@ -98,7 +113,7 @@ export const skillsData = [
   { name: "Java", icon: "logos:java" },
   { name: "C++", icon: "skill-icons:cpp" },
   { name: "MongoDB", icon: "skill-icons:mongodb" },
-  { name: "Red Hat Linux", icon: "logos:redhat" },
+  { name: "Red Hat Linux", icon: "simple-icons:redhat" },
   { name: "React", icon: "logos:react" },
   { name: "Node.js", icon: "logos:nodejs-icon" },
   { name: "Python", icon: "logos:python" },
@@ -107,10 +122,12 @@ export const skillsData = [
   { name: "Git", icon: "logos:git-icon" },
   { name: "MySQL", icon: "logos:mysql" },
   { name: "PostgreSQL", icon: "logos:postgresql" },
-  { name: "AWS", icon: "logos:aws" },
-  { name: "Docker", icon: "logos:docker-icon" },
+  { name: "AWS", icon: "simple-icons:amazonaws" },
+  { name: "Docker", icon: "simple-icons:docker" },
+  { name: "EC2", icon: "simple-icons:amazonaws" },
+  { name: "GitHub Actions", icon: "simple-icons:githubactions" },
+  { name: "DevOps", icon: "mdi:pipe" },
+  { name: "CI/CD", icon: "mdi:source-branch" },
   { name: "Selenium", icon: "logos:selenium" },
   { name: "TensorFlow", icon: "logos:tensorflow" },
-
-  
 ] as const;
