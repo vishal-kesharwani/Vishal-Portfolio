@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 import { Nunito } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import ThemeSwitch from "@/components/theme-switch";
@@ -44,7 +45,7 @@ export default function RootLayout({
           <ActiveSectionContextProvider>
             <Header />
             {children}
-
+            <Footer />
             <Toaster position="top-right" />
             <ThemeSwitch />
           </ActiveSectionContextProvider>

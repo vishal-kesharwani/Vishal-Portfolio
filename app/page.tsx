@@ -9,9 +9,9 @@ import Skills from "@/components/skills";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center">
+    <main className="mx-auto flex w-full max-w-6xl flex-col items-center pb-10">
       <Intro />
-      <div className="flex flex-col items-center px-4">
+      <div className="flex w-full flex-col items-center px-4 sm:px-6">
         <SectionDivider />
         <Projects />
         <Skills />

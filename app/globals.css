@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(20, 184, 166, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.10), transparent 26%),
+    linear-gradient(180deg, #f8fafc 0%, #f5f7fb 36%, #eef2ff 100%);
+  background-attachment: fixed;
+}
+
+html {
   --line-color: #e5e7eb;
 }
 
@@ -23,6 +35,17 @@ html.dark {
   overflow: hidden;
 }
 
+.particles-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)),
+    radial-gradient(circle at top, rgba(15, 23, 42, 0.12), transparent 45%);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
 #tsparticles {
   z-index: -1;
   position: absolute !important;
@@ -31,4 +54,8 @@ html.dark {
   bottom: 0 !important;
   width: 100% !important;
   height: 100% !important;
+}
+
+::selection {
+  background: rgba(20, 184, 166, 0.22);
 }

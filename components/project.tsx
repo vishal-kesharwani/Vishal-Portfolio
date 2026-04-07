@@ -43,29 +43,38 @@ export default function Project({
         scale: scaleProgess,
         opacity: opacityProgess,
       }}
-      className="group mb-3 sm:mb-8 last:mb-0"
+      className="group mb-6 sm:mb-10 last:mb-0"
     >
-      <section className="bg-gray-100 max-w-[58rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative lg:min-h-[21rem] hover:bg-gray-200 transition dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
-        <div className="pt-4 pb-7 px-5 md:pl-10 md:pr-2 md:pt-10 lg:max-w-[50%] flex flex-col h-full">
-          <h3 className="text-2xl font-semibold mb-4">{title}</h3>
-          <ul className="flex flex-wrap gap-2 mb-3 sm:mt-auto">
-            <p className="font-bold text-gray-500 dark:text-white/70">
-              Made with:{" "}
-            </p>
-            {icons.map((icon, iconIndex) => (
-              <Icon key={iconIndex} icon={icon} className="mr-3 text-2xl" />
-            ))}
-          </ul>
-          <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70 mb-3">
+      <section className="grid overflow-hidden rounded-[2rem] border border-black/5 bg-white/90 shadow-[0_20px_80px_-25px_rgba(15,23,42,0.3)] backdrop-blur transition hover:-translate-y-1 dark:border-white/10 dark:bg-white/5 dark:shadow-[0_20px_80px_-25px_rgba(0,0,0,0.45)] lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="flex flex-col px-6 py-7 sm:px-8 sm:py-9">
+          <div className="mb-4 inline-flex w-fit rounded-full border border-teal-500/15 bg-teal-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-teal-700 dark:text-teal-200">
+            Featured Project
+          </div>
+          <h3 className="text-2xl font-semibold tracking-tight text-gray-950 dark:text-white">
+            {title}
+          </h3>
+          <p className="mt-4 max-w-xl leading-relaxed text-gray-700 dark:text-white/75">
             {description}
           </p>
-          <div className="flex">
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-black/5 bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:border-white/10 dark:bg-white/10 dark:text-white/75"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3">
             {urlLink && (
               <a
                 href={urlLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center bg-[#111827] text-white py-2 px-4 mr-2 rounded-full hover:scale-105"
+                className="flex items-center rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 py-2 px-4 text-sm font-medium text-white transition hover:scale-105"
               >
                 <BiLinkExternal className="mr-1" /> Live
               </a>
@@ -76,7 +85,7 @@ export default function Project({
                 href={demoLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center bg-[#111827] text-white py-2 px-4 mr-2 rounded-full hover:scale-105"
+                className="flex items-center rounded-full bg-gray-950 py-2 px-4 text-sm font-medium text-white transition hover:scale-105 dark:bg-white dark:text-gray-950"
               >
                 <AiFillYoutube className="mr-1" /> Demo
               </a>
@@ -87,7 +96,7 @@ export default function Project({
                 href={githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center border border-[#111827] py-2 px-4 rounded-full mr-2 text-[#111827] hover:scale-105 dark:border-white dark:text-white dark:border-opacity-40"
+                className="flex items-center rounded-full border border-black/10 py-2 px-4 text-sm font-medium text-gray-900 transition hover:scale-105 dark:border-white/20 dark:text-white"
               >
                 <AiFillGithub className="mr-1 opacity-70" />{" "}
                 <span className="opacity-70">GitHub</span>
@@ -96,15 +105,16 @@ export default function Project({
           </div>
         </div>
 
-        <Image
-          src={imageUrl}
-          alt="Project I worked on"
-          quality={95}
-          className="absolute hidden lg:block top-[60px] -right-10 w-[28.25rem] rounded-t-lg shadow-2xl scale-[1.0]
-          transition
-          lg:scale-[1.1]
-          "
-        />
+        <div className="relative min-h-[18rem] bg-gradient-to-br from-slate-100 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 lg:min-h-full">
+          <Image
+            src={imageUrl}
+            alt="Project I worked on"
+            quality={95}
+            fill
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent" />
+        </div>
       </section>
     </motion.div>
   );

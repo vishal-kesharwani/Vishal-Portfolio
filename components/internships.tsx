@@ -21,20 +21,27 @@ export default function Internships() {
       viewport={{ once: true }}
     >
       <SectionHeading>Internships</SectionHeading>
+      <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-gray-600 dark:text-white/70 sm:text-base">
+        Hands-on industry experience with backend engineering, data workflows,
+        and platform-level tasks.
+      </p>
 
       <div className="grid gap-6">
         {internshipsData.map((item) => (
           <div
             key={`${item.company}-${item.role}`}
-            className="rounded-2xl border border-black/5 bg-gray-100 p-6 shadow-sm transition dark:border-white/10 dark:bg-white/10"
+            className="rounded-3xl border border-black/5 bg-white/80 p-6 shadow-[0_20px_80px_-35px_rgba(15,23,42,0.35)] backdrop-blur transition dark:border-white/10 dark:bg-white/5"
           >
+            <div className="mb-5 h-1.5 w-24 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-500" />
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-950 text-white dark:bg-white dark:text-gray-950">
                   <CgWorkAlt className="text-xl" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold">{item.company}</h3>
+                  <h3 className="text-xl font-semibold text-gray-950 dark:text-white">
+                    {item.company}
+                  </h3>
                   <p className="text-base font-medium text-gray-700 dark:text-white/75">
                     {item.role}
                   </p>
@@ -43,13 +50,13 @@ export default function Internships() {
 
               <div className="text-sm text-gray-600 dark:text-white/60 md:text-right">
                 <p>{item.duration}</p>
-                <p className="font-medium text-teal-600 dark:text-teal-300">
+                <p className="mt-1 inline-flex rounded-full bg-teal-500/10 px-3 py-1 font-medium text-teal-700 dark:bg-teal-300/10 dark:text-teal-200">
                   {item.status}
                 </p>
               </div>
             </div>
 
-            <ul className="mt-5 grid gap-3 pl-1 text-sm leading-relaxed text-gray-700 dark:text-white/75 sm:grid-cols-2">
+            <ul className="mt-6 grid gap-3 pl-1 text-sm leading-relaxed text-gray-700 dark:text-white/75 sm:grid-cols-2">
               {item.highlights.map((highlight) => (
                 <li key={highlight} className="flex gap-2">
                   <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-teal-500" />

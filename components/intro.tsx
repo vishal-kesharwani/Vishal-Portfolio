@@ -5,9 +5,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BsLinkedin } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
+import { FiArrowRight } from "react-icons/fi";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import ParticleContainer from "./particle-container";
 import githubdp from "@/public/githubdp.jpg";
 
 export default function Intro() {
@@ -18,126 +18,162 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-16 w-full scroll-mt-[100rem] px-4 pt-28 pb-14 text-center particles-section sm:mb-0 sm:pt-36 sm:pb-18"
+      className="w-full scroll-mt-[100rem] px-4 pt-24 pb-14 sm:px-6 sm:pt-28"
     >
-      <ParticleContainer />
-      <div className="flex flex-col items-center justify-between gap-8 md:flex-row-reverse">
-        <div className="flex w-full justify-center md:w-1/2 md:justify-end">
-          <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                type: "tween",
-                duration: 0.2,
-              }}
-            >
-              <Image
-                src={githubdp}
-                alt="Vishal portrait"
-                width={320}
-                height={320}
-                quality={95}
-                priority
-                className="h-68 w-68 rounded-full border-[0.35rem] border-white object-cover shadow-xl"
-              />
-            </motion.div>
+      <motion.div
+        className="relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border border-white/10 bg-slate-950 px-6 py-10 text-white shadow-[0_30px_120px_-40px_rgba(15,23,42,0.8)] sm:px-10 sm:py-12"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(45,212,191,0.22),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(59,130,246,0.18),_transparent_26%),linear-gradient(135deg,rgba(15,23,42,0.96),rgba(15,23,42,0.82))]" />
+        <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:36px_36px]" />
 
-            <motion.span
-              className="absolute bottom-[-0.5px] right-[-0.5px] text-4xl"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 125,
-                delay: 0.1,
-                duration: 0.7,
-              }}
-            >
-              👋
-            </motion.span>
-          </div>
-        </div>
+        <div className="relative grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="space-y-6 text-left">
+            <div className="flex flex-wrap gap-3">
+              <span className="rounded-full border border-teal-300/20 bg-teal-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-200 backdrop-blur">
+                Backend Intern
+              </span>
+              <span className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-100 backdrop-blur">
+                Cloud / AI-ML / Java
+              </span>
+            </div>
 
-        <div className="w-full text-left md:w-1/2">
-          <motion.div
-            className="mb-10 mt-4 space-y-5 px-0 text-base font-medium leading-relaxed text-slate-200 sm:px-4 sm:text-lg"
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <h1 className="mb-2 text-3xl font-extrabold text-white sm:text-4xl">
-              Hi, I&apos;m Vishal Kesharwani
-            </h1>
+            <div className="space-y-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal-200/90">
+                Vishal Kesharwani
+              </p>
+              <h1 className="max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                Building polished web products with backend depth and a product
+                mindset.
+              </h1>
+              <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+                I&apos;m a Computer Engineering student at MIT Academy of
+                Engineering, currently shaping full-stack systems, cloud
+                workflows, and real-world internship deliverables.
+              </p>
+            </div>
 
-            <p>
-              I build{" "}
-              <span className="font-semibold text-teal-300">
-                full-stack web apps
-              </span>{" "}
-              and{" "}
-              <span className="font-semibold text-indigo-300">
-                cloud-native systems
-              </span>{" "}
-              with a focus on clean UX and practical outcomes.
-            </p>
-
-            <p>
-              I&apos;m pursuing my{" "}
-              <span className="font-semibold text-yellow-300">
-                B.Tech in Computer Engineering
-              </span>{" "}
-              at{" "}
+            <div className="flex flex-wrap gap-3 pt-2">
               <a
-                href="https://mitaoe.ac.in/"
-                className="font-semibold text-blue-300 underline transition-colors hover:text-blue-200"
+                href="#projects"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                View Projects <FiArrowRight />
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/15"
+              >
+                Contact Me
+              </a>
+            </div>
+
+            <div className="grid gap-3 pt-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                  Focus
+                </p>
+                <p className="mt-2 text-lg font-semibold">Backend + UX</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                  Experience
+                </p>
+                <p className="mt-2 text-lg font-semibold">
+                  Internship + Hackathons
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                  Stack
+                </p>
+                <p className="mt-2 text-lg font-semibold">Java, React, AWS</p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-3 pt-2 text-sm">
+              <a
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:bg-white/10"
+                href="https://github.com/vishal-kesharwani"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ textUnderlineOffset: "4px" }}
+                onClick={() => {
+                  setActiveSection("Home");
+                  setTimeOfLastClick(Date.now());
+                }}
               >
-                MIT Academy of Engineering
+                <FaGithub /> GitHub
               </a>
-              , and I enjoy building products around AI/ML, automation, and
-              scalable web experiences.
-            </p>
+              <a
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:bg-white/10"
+                href="https://www.linkedin.com/in/vishal-kesharwani-76708025b"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BsLinkedin /> LinkedIn
+              </a>
+            </div>
+          </div>
 
-            <p>
-              This portfolio now lives on{" "}
-              <span className="font-semibold text-green-300">
-                vishalkesharwani.in
-              </span>{" "}
-              and highlights my projects, hackathon wins, and the skills I use
-              to ship work end-to-end.
-            </p>
-          </motion.div>
+          <div className="relative flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-md rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur">
+              <div className="absolute inset-x-8 top-0 h-1 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-500" />
+              <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-center">
+                <div className="space-y-4 p-4">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-200">
+                    <span className="h-2 w-2 rounded-full bg-teal-400" />
+                    Available for internships
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
+                      Portfolio preview
+                    </p>
+                    <h2 className="text-2xl font-semibold leading-tight">
+                      Modern, clean, and built to impress.
+                    </h2>
+                    <p className="text-sm leading-6 text-slate-300">
+                      This is the visual direction I&apos;m using across the
+                      complete site.
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-3 text-center">
+                      <p className="text-lg font-semibold">4+</p>
+                      <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                        Sections
+                      </p>
+                    </div>
+                    <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-3 text-center">
+                      <p className="text-lg font-semibold">1</p>
+                      <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                        Live domain
+                      </p>
+                    </div>
+                    <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-3 text-center">
+                      <p className="text-lg font-semibold">100%</p>
+                      <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                        Customizable
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-900 shadow-xl sm:h-64 sm:w-64">
+                  <Image
+                    src={githubdp}
+                    alt="Vishal portrait"
+                    fill
+                    priority
+                    quality={95}
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <motion.div
-        className="flex flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.1,
-        }}
-      >
-        <a
-          className="group flex cursor-pointer items-center gap-2 rounded-full borderBlack bg-white px-7 py-3 text-gray-950 outline-none transition hover:scale-105 active:scale-105 focus:scale-110"
-          href="https://github.com/vishal-kesharwani"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub <FaGithub className="opacity-70" />
-        </a>
-
-        <a
-          className="group flex items-center gap-2 rounded-full border-2 border-white border-opacity-40 bg-gray-950 px-7 py-3 text-white outline-none transition hover:scale-105 active:scale-105 focus:scale-105"
-          href="https://www.linkedin.com/in/vishal-kesharwani-76708025b"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="opacity-70">LinkedIn</span>
-          <BsLinkedin className="opacity-70" />
-        </a>
       </motion.div>
     </section>
   );

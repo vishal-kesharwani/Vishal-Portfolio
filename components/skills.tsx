@@ -21,10 +21,6 @@ const fadeInAnimationVariants = {
   }),
 };
 
-const growOnHover = {
-  scale: 1.2,
-};
-
 export default function Skills() {
   const { ref } = useSectionInView("Skills");
 
@@ -35,23 +31,28 @@ export default function Skills() {
       className="mb-28 max-w-[58rem] scroll-mt-28 text-center sm:mb-40"
     >
       <SectionHeading>My Skills</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
+      <p className="mx-auto mb-10 max-w-2xl text-sm leading-6 text-gray-600 dark:text-white/70 sm:text-base">
+        A practical stack built around backend systems, frontend delivery, and
+        the tools needed to ship reliable products.
+      </p>
+      <ul className="grid grid-cols-2 gap-3 text-lg text-gray-800 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {skillsData.map((skill, index) => (
           <motion.li
-            className="flex flex-col items-center px-4 py-3 dark:text-white/80"
+            className="flex min-h-[150px] flex-col items-center justify-center rounded-2xl border border-black/5 bg-white/80 px-4 py-5 text-center shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-white/80"
             key={index}
             variants={fadeInAnimationVariants}
             initial="initial"
             whileInView="animate"
-            whileHover={growOnHover}
+            whileHover={{ scale: 1.05 }}
             viewport={{
               once: true,
             }}
             custom={index}
           >
-            {/* Change to: */}
-            <Icon icon={skill.icon as string} className="text-5xl md:text-7xl" />
-            <span className="mt-2">{skill.name}</span>
+            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-950/5 text-slate-950 dark:bg-white/10 dark:text-white">
+              <Icon icon={skill.icon as string} className="text-[2.6rem] leading-none" />
+            </div>
+            <span className="mt-3 text-sm font-medium leading-tight">{skill.name}</span>
           </motion.li>
         ))}
       </ul>
