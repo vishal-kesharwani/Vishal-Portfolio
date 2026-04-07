@@ -10,6 +10,7 @@ export const links = [
   { name: "Home", hash: "#home" },
   { name: "Projects", hash: "#projects" },
   { name: "Skills", hash: "#skills" },
+  { name: "Internships", hash: "#internships" },
   { name: "Achievements", hash: "#achievements" },
   { name: "Education", hash: "#education" },
   { name: "Contact", hash: "#contact" },
@@ -41,6 +42,22 @@ export const experiencesData = [
     icon: React.createElement(BiSolidCaretUpCircle),
     date: "2024 November"
   }
+] as const;
+
+// Internship Data
+export const internshipsData = [
+  {
+    company: "SteepGraph System Private Limited",
+    role: "Backend Intern - Java",
+    duration: "9 Feb 2026 - 30 Jun 2026",
+    status: "In progress",
+    highlights: [
+      "ETL workflows and backend data processing",
+      "Data visualization support for internal dashboards",
+      "3DX Platform Engineer tasks and integrations",
+      "Mail Bridge project development and maintenance",
+    ],
+  },
 ] as const;
 
 // Projects Data
