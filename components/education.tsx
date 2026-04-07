@@ -14,7 +14,7 @@ const educationItems = [
     title: "B.Tech - Computer Engineering",
     institution: "MIT Academy of Engineering, Pune",
     period: "2022 - 2026",
-    metric: "CGPA: 8.40/10",
+    metric: "CGPA: 8.53/10",
     points: [
       "Specialization in Cloud Computing and AI/ML",
       "Red Hat Certified System Administrator (RHCSA)",
