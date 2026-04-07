@@ -18,12 +18,11 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-16 sm:mb-0 text-center scroll-mt-[100rem] particles-section pt-28 pb-14 sm:pt-36 sm:pb-18 w-full px-4"
+      className="mb-16 w-full scroll-mt-[100rem] px-4 pt-28 pb-14 text-center particles-section sm:mb-0 sm:pt-36 sm:pb-18"
     >
       <ParticleContainer />
-      <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-8">
-        {/* Image Section */}
-        <div className="w-full pl-1 md:w-1/2 flex justify-center md:justify-end">
+      <div className="flex flex-col items-center justify-between gap-8 md:flex-row-reverse">
+        <div className="flex w-full justify-center md:w-1/2 md:justify-end">
           <div className="relative">
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
@@ -36,11 +35,11 @@ export default function Intro() {
               <Image
                 src={githubdp}
                 alt="Vishal portrait"
-                width="320"
-                height="320"
-                quality="95"
-                priority={true}
-                className="h-68 w-68 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+                width={320}
+                height={320}
+                quality={95}
+                priority
+                className="h-68 w-68 rounded-full border-[0.35rem] border-white object-cover shadow-xl"
               />
             </motion.div>
 
@@ -60,52 +59,59 @@ export default function Intro() {
           </div>
         </div>
 
-        {/* Text Content */}
-<div className="w-full md:w-1/2 text-left">
-  <motion.div
-    className="mb-10 mt-4 px-0 sm:px-4 text-base sm:text-lg font-medium leading-relaxed text-slate-200 space-y-5"
-    initial={{ opacity: 0, y: 100 }}
-    animate={{ opacity: 1, y: 0 }}
-  >
-    <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-2">
-      Hi, I'm Vishal Kesharwani 👨‍💻
-    </h1>
+        <div className="w-full text-left md:w-1/2">
+          <motion.div
+            className="mb-10 mt-4 space-y-5 px-0 text-base font-medium leading-relaxed text-slate-200 sm:px-4 sm:text-lg"
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <h1 className="mb-2 text-3xl font-extrabold text-white sm:text-4xl">
+              Hi, I&apos;m Vishal Kesharwani
+            </h1>
 
-    <p>
-      A <span className="text-teal-300 font-semibold">Full Stack Developer</span> &{" "}
-      <span className="text-indigo-300 font-semibold">Cloud Engineer</span> 
-    </p>
+            <p>
+              I build{" "}
+              <span className="font-semibold text-teal-300">
+                full-stack web apps
+              </span>{" "}
+              and{" "}
+              <span className="font-semibold text-indigo-300">
+                cloud-native systems
+              </span>{" "}
+              with a focus on clean UX and practical outcomes.
+            </p>
 
-    <p>
-      I'm currently pursuing a <span className="text-yellow-300 font-semibold">B.Tech in Computer Engineering</span> at{" "}
-      <a
-        href="https://mitaoe.ac.in/"
-        className="underline font-semibold text-blue-300 hover:text-blue-200 transition-colors"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ textUnderlineOffset: "4px" }}
-      >
-        MIT Academy of Engineering
-      </a>
-      .
-    </p>
+            <p>
+              I&apos;m pursuing my{" "}
+              <span className="font-semibold text-yellow-300">
+                B.Tech in Computer Engineering
+              </span>{" "}
+              at{" "}
+              <a
+                href="https://mitaoe.ac.in/"
+                className="font-semibold text-blue-300 underline transition-colors hover:text-blue-200"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textUnderlineOffset: "4px" }}
+              >
+                MIT Academy of Engineering
+              </a>
+              , and I enjoy building products around AI/ML, automation, and
+              scalable web experiences.
+            </p>
 
-    <p>
-      I specialize in <span className="text-purple-300 font-semibold">Cloud-Native Architecture</span>,{" "}
-      <span className="text-pink-300 font-semibold">AI/ML Development</span>, and full-stack technologies like{" "}
-      <span className="text-green-300 font-semibold">AWS</span>,{" "}
-      <span className="text-cyan-300 font-semibold">Blockchain</span>, and the{" "}
-      <span className="text-orange-300 font-semibold">MERN Stack</span>.
-    </p>
-
-    <p>
-      I’m driven to solve real-world problems and always looking to join innovative teams focused on tech that makes an impact.
-    </p>
-  </motion.div>
-</div>
-
-
+            <p>
+              This portfolio now lives on{" "}
+              <span className="font-semibold text-green-300">
+                vishalkesharwani.in
+              </span>{" "}
+              and highlights my projects, hackathon wins, and the skills I use
+              to ship work end-to-end.
+            </p>
+          </motion.div>
+        </div>
       </div>
+
       <motion.div
         className="flex flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
         initial={{ opacity: 0, y: 100 }}
@@ -115,17 +121,19 @@ export default function Intro() {
         }}
       >
         <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack text-gray-950"
+          className="group flex cursor-pointer items-center gap-2 rounded-full borderBlack bg-white px-7 py-3 text-gray-950 outline-none transition hover:scale-105 active:scale-105 focus:scale-110"
           href="https://github.com/vishal-kesharwani"
           target="_blank"
+          rel="noopener noreferrer"
         >
           GitHub <FaGithub className="opacity-70" />
         </a>
 
         <a
-          className="group bg-gray-950 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 active:scale-105 transition border-2 border-white border-opacity-40"
+          className="group flex items-center gap-2 rounded-full border-2 border-white border-opacity-40 bg-gray-950 px-7 py-3 text-white outline-none transition hover:scale-105 active:scale-105 focus:scale-105"
           href="https://www.linkedin.com/in/vishal-kesharwani-76708025b"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <span className="opacity-70">LinkedIn</span>
           <BsLinkedin className="opacity-70" />

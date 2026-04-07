@@ -8,12 +8,27 @@ import "./globals.css";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
-// ... existing code ...
 export const metadata = {
-  title: "Vishal Kesharwani | Computer Engineering Student",
-  description: "B.Tech in Computer Engineering at MITAOE specializing in Cloud Computing, AI/ML, and Blockchain development",
+  metadataBase: new URL("https://vishalkesharwani.in"),
+  title: {
+    default: "Vishal Kesharwani | Portfolio",
+    template: "%s | Vishal Kesharwani",
+  },
+  description:
+    "Portfolio of Vishal Kesharwani, a Computer Engineering student building full-stack, cloud-native, and AI-powered web apps.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Vishal Kesharwani | Portfolio",
+    description:
+      "Full-stack and cloud-native projects, hackathon achievements, and technical skills.",
+    url: "https://vishalkesharwani.in",
+    siteName: "Vishal Kesharwani Portfolio",
+    locale: "en_IN",
+    type: "website",
+  },
 };
-// ... existing code ...
 
 export default function RootLayout({
   children,
@@ -23,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body
-        className={`${nunito.className} bg-gray-50 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+        className={`${nunito.className} relative bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
       >
         <ThemeContextProvider>
           <ActiveSectionContextProvider>

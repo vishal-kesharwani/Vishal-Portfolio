@@ -21,13 +21,6 @@ module.exports = {
   },
   poweredByHeader: false,
   generateEtags: false,
-  // Disable tracing
-  experimental: {
-    instrumentationHook: false,
-    logging: {
-      level: 'silent'
-    }
-  },
   // Headers cannot be used with output: export
   /*
   headers: async () => [
