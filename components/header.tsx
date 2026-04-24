@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { links } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
@@ -10,20 +10,49 @@ import { useActiveSectionContext } from "@/context/active-section-context";
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
+  const [isCompact, setIsCompact] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsCompact(window.scrollY > 40);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header className="z-[999] relative">
       <motion.div
-        className="fixed left-1/2 top-3 h-[4.9rem] w-[min(94vw,72rem)] -translate-x-1/2 rounded-[1.6rem] border border-white/60 bg-white/75 shadow-[0_18px_70px_-30px_rgba(15,23,42,0.3)] backdrop-blur-2xl sm:top-5 sm:h-[4.7rem] dark:border-white/10 dark:bg-gray-950/70"
+        className="fixed left-1/2 top-3 h-[4.65rem] w-[min(94vw,72rem)] -translate-x-1/2 rounded-[1.6rem] border border-white/60 bg-white/78 shadow-[0_18px_70px_-30px_rgba(15,23,42,0.3)] backdrop-blur-2xl sm:top-5 sm:h-[4.45rem] dark:border-white/10 dark:bg-gray-950/70"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>
 
-      <nav className="fixed left-1/2 top-[0.55rem] flex w-[min(92vw,71rem)] -translate-x-1/2 items-center justify-between gap-3 px-3 sm:top-[1.05rem] sm:px-4">
-        <div className="hidden items-center gap-2 rounded-full border border-black/5 bg-white/85 px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm backdrop-blur sm:flex dark:border-white/10 dark:bg-white/5 dark:text-white">
+      <nav className="fixed left-1/2 top-[0.58rem] flex w-[min(92vw,71rem)] -translate-x-1/2 items-center gap-3 px-3 sm:top-[1.05rem] sm:px-4">
+        <motion.div
+          layout
+          className="hidden shrink-0 items-center gap-2 overflow-hidden rounded-full border border-black/5 bg-white/85 px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm backdrop-blur sm:flex dark:border-white/10 dark:bg-white/5 dark:text-white"
+        >
           <span className="h-2.5 w-2.5 rounded-full bg-teal-400" />
-          Vishal Kesharwani
-        </div>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={isCompact ? "vk" : "vishal"}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className={clsx(
+                "whitespace-nowrap leading-none tracking-tight",
+                isCompact ? "text-base tracking-[0.18em]" : "text-sm"
+              )}
+            >
+              {isCompact ? "VK" : "Vishal Kesharwani"}
+            </motion.span>
+          </AnimatePresence>
+        </motion.div>
 
         <ul className="flex w-full items-center justify-start gap-1 overflow-x-auto rounded-full border border-black/5 bg-white/65 px-2 py-2 text-[0.92rem] font-medium text-gray-500 shadow-inner backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-gray-300 sm:w-auto sm:flex-nowrap sm:gap-1.5">
           {links.map((link) => (
