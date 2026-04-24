@@ -35,7 +35,7 @@ export default function Header() {
         <motion.div
           layout
           animate={{
-            width: isCompact ? 84 : 212,
+            width: isCompact ? 84 : 236,
             paddingLeft: isCompact ? 12 : 16,
             paddingRight: isCompact ? 12 : 16,
           }}
@@ -43,39 +43,31 @@ export default function Header() {
           className="hidden shrink-0 items-center gap-2 overflow-hidden rounded-full border border-black/5 bg-white/85 py-2 text-sm font-semibold text-gray-900 shadow-[0_10px_24px_-16px_rgba(15,23,42,0.35)] backdrop-blur sm:flex dark:border-white/10 dark:bg-white/5 dark:text-white"
         >
           <span className="h-2.5 w-2.5 rounded-full bg-teal-400" />
-          <div className="relative flex-1 overflow-hidden">
-            <AnimatePresence mode="wait" initial={false}>
-              {isCompact ? (
-                <motion.div
-                  key="brand-compact"
-                  className="absolute inset-0 flex items-center"
-                  initial={{ opacity: 0, x: -10, scaleX: 0.55 }}
-                  animate={{ opacity: 1, x: 0, scaleX: 1 }}
-                  exit={{ opacity: 0, x: 8, scaleX: 1.05 }}
-                  transition={{ duration: 0.24, ease: "easeOut" }}
-                  style={{ transformOrigin: "left center" }}
-                >
-                  <span className="whitespace-nowrap text-[0.95rem] font-bold tracking-[0.28em] text-gray-950 dark:text-white">
-                    VK
-                  </span>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="brand-full"
-                  className="absolute inset-0 flex items-center"
-                  initial={{ opacity: 0, x: -10, scaleX: 0.92 }}
-                  animate={{ opacity: 1, x: 0, scaleX: 1 }}
-                  exit={{ opacity: 0, x: 10, scaleX: 0.85 }}
-                  transition={{ duration: 0.24, ease: "easeOut" }}
-                  style={{ transformOrigin: "left center" }}
-                >
-                  <span className="whitespace-nowrap text-[0.95rem] font-semibold tracking-tight text-gray-950 dark:text-white">
-                    Vishal Kesharwani
-                  </span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          <AnimatePresence mode="wait" initial={false}>
+            {isCompact ? (
+              <motion.span
+                key="brand-compact"
+                initial={{ opacity: 0, x: -8, scale: 0.92 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 8, scale: 0.92 }}
+                transition={{ duration: 0.22, ease: "easeOut" }}
+                className="whitespace-nowrap text-[0.95rem] font-bold tracking-[0.28em] text-gray-950 dark:text-white"
+              >
+                VK
+              </motion.span>
+            ) : (
+              <motion.span
+                key="brand-full"
+                initial={{ opacity: 0, x: -10, scale: 0.96 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 10, scale: 0.96 }}
+                transition={{ duration: 0.22, ease: "easeOut" }}
+                className="whitespace-nowrap text-[0.95rem] font-semibold tracking-tight text-gray-950 dark:text-white"
+              >
+                Vishal Kesharwani
+              </motion.span>
+            )}
+          </AnimatePresence>
         </motion.div>
 
         <ul className="flex w-full items-center justify-start gap-1 overflow-x-auto rounded-full border border-black/5 bg-white/70 px-2 py-2 text-[0.92rem] font-medium text-gray-500 shadow-inner backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-gray-300 sm:w-auto sm:flex-nowrap sm:gap-1.5">
