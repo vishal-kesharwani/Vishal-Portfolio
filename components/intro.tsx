@@ -47,8 +47,9 @@ export default function Intro() {
                 Vishal Kesharwani
               </p>
               <p className="max-w-2xl text-sm font-medium leading-6 text-cyan-100/90 sm:text-base">
-                Backend Developer | Java · Spring Boot · Node.js · PostgreSQL ·
-                AWS | MIT AOE &apos;26 | CGPA: 8.53/10
+                Backend Developer | Java &middot; Spring Boot &middot; Node.js
+                &middot; PostgreSQL &middot; AWS | MIT AOE &apos;26 | CGPA:
+                8.53/10
               </p>
               <h1 className="max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
                 I build backend systems, cloud workflows, and deployment-ready
@@ -101,9 +102,14 @@ export default function Intro() {
                 <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
                   Certification
                 </p>
-                <p className="mt-2 text-lg font-semibold">
+                <a
+                  href="https://www.credly.com/badges/f3558204-39b1-43f0-8caa-813873989955/public_url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex text-lg font-semibold text-white transition hover:text-teal-200"
+                >
                   AWS CLF-C02 1000/1000
-                </p>
+                </a>
               </div>
             </div>
 

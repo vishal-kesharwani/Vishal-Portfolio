@@ -95,6 +95,7 @@ export const internshipsData = [
 // Projects Data
 export const projectsData = [
   {
+    // Replace this image and link with your latest project screenshot/repo.
     title: "ReportEase - Annual Report Generation Platform",
     description:
       "I built a cloud-native report generation platform on AWS EC2 and S3 with RBAC, Dockerized deployment, and GitHub Actions CI/CD.",
@@ -109,6 +110,7 @@ export const projectsData = [
     githubLink: "https://github.com/vishal-kesharwani/v_07",
   },
   {
+    // Replace this image and link with your latest project screenshot/repo.
     title: "AI-Based Bone Age Assessment System",
     description:
       "I built a three-model ensemble for X-ray age prediction with preprocessing, checkpoints, and reproducible training runs.",
@@ -123,6 +125,7 @@ export const projectsData = [
     githubLink: "",
   },
   {
+    // Replace this image and link with your latest project screenshot/repo.
     title: "Secure Defense Framework - NGO Donation Portal",
     description:
       "I designed a zero-trust donation portal with authentication, RBAC, CSRF protection, audit logging, and live attack simulation checks.",
