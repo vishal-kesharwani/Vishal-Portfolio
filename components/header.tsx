@@ -14,10 +14,9 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsCompact(window.scrollY > 40);
+      setIsCompact(window.scrollY > 56);
     };
 
-    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -26,7 +25,7 @@ export default function Header() {
   return (
     <header className="z-[999] relative">
       <motion.div
-        className="fixed left-1/2 top-3 h-[4.65rem] w-[min(94vw,72rem)] -translate-x-1/2 rounded-[1.6rem] border border-white/60 bg-white/78 shadow-[0_18px_70px_-30px_rgba(15,23,42,0.3)] backdrop-blur-2xl sm:top-5 sm:h-[4.45rem] dark:border-white/10 dark:bg-gray-950/70"
+        className="fixed left-1/2 top-3 h-[4.65rem] w-[min(94vw,72rem)] -translate-x-1/2 rounded-[1.6rem] border border-white/60 bg-white/80 shadow-[0_18px_70px_-30px_rgba(15,23,42,0.3)] backdrop-blur-2xl sm:top-5 sm:h-[4.45rem] dark:border-white/10 dark:bg-slate-950/75"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>
@@ -35,12 +34,12 @@ export default function Header() {
         <motion.div
           layout
           animate={{
-            width: isCompact ? 116 : 236,
+            width: isCompact ? 104 : 248,
             paddingLeft: isCompact ? 14 : 16,
             paddingRight: isCompact ? 14 : 16,
           }}
           transition={{ type: "spring", stiffness: 360, damping: 34 }}
-          className="hidden shrink-0 items-center gap-2 overflow-hidden rounded-full border border-black/5 bg-white/85 py-2 text-sm font-semibold text-gray-900 shadow-[0_10px_24px_-16px_rgba(15,23,42,0.35)] backdrop-blur sm:flex dark:border-white/10 dark:bg-white/10 dark:text-white dark:shadow-[0_10px_24px_-16px_rgba(0,0,0,0.65)]"
+          className="hidden shrink-0 items-center gap-2 overflow-hidden rounded-full border border-black/5 bg-white/88 py-2 text-sm font-semibold text-gray-900 shadow-[0_10px_24px_-16px_rgba(15,23,42,0.35)] backdrop-blur sm:flex dark:border-white/10 dark:bg-white/10 dark:text-white dark:shadow-[0_10px_24px_-16px_rgba(0,0,0,0.65)]"
         >
           <span className="h-2.5 w-2.5 rounded-full bg-teal-400" />
           <AnimatePresence mode="wait" initial={false}>
@@ -51,7 +50,7 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 8, scale: 0.92 }}
                 transition={{ duration: 0.22, ease: "easeOut" }}
-                className="whitespace-nowrap text-[0.95rem] font-bold tracking-[0.18em] text-gray-950 dark:text-white/95"
+                className="whitespace-nowrap text-[0.95rem] font-bold tracking-[0.18em] text-gray-950 dark:text-white"
               >
                 VK
               </motion.span>
@@ -62,7 +61,7 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 10, scale: 0.96 }}
                 transition={{ duration: 0.22, ease: "easeOut" }}
-                className="whitespace-nowrap text-[0.95rem] font-semibold tracking-tight text-gray-950 dark:text-white/95"
+                className="whitespace-nowrap text-[0.95rem] font-semibold tracking-tight text-gray-950 dark:text-white"
               >
                 Vishal Kesharwani
               </motion.span>
