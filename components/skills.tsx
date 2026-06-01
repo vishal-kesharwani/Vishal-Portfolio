@@ -32,9 +32,8 @@ export default function Skills() {
     >
       <SectionHeading>My Skills</SectionHeading>
       <p className="mx-auto mb-10 max-w-2xl text-sm leading-6 text-gray-600 dark:text-white/70 sm:text-base">
-        I work with backend systems, frontend delivery, cloud tooling, and
-        DevOps basics so I can move an idea from code to deployment with
-        confidence.
+        This is the stack I use most often across backend work, cloud
+        deployment, DevOps, and the projects I list on my resume.
       </p>
       <ul className="grid grid-cols-2 gap-3 text-lg text-gray-800 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {skillsData.map((skill, index) => (

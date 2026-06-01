@@ -5,7 +5,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BsLinkedin } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
-import { FiArrowRight, FiCloud } from "react-icons/fi";
+import { FiArrowRight, FiCloud, FiDownload } from "react-icons/fi";
 import { FaDocker } from "react-icons/fa6";
 import { SiAmazonaws } from "react-icons/si";
 import { useSectionInView } from "@/lib/hooks";
@@ -33,13 +33,12 @@ export default function Intro() {
 
         <div className="relative grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="space-y-6 text-left">
-            {/* Short tags keep the hero readable while still showing my focus areas. */}
             <div className="flex flex-wrap gap-3">
               <span className="rounded-full border border-teal-300/20 bg-teal-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-200 backdrop-blur">
                 Open for internships
               </span>
               <span className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-100 backdrop-blur">
-                Cloud / DevOps / Java
+                Backend Developer
               </span>
             </div>
 
@@ -47,14 +46,19 @@ export default function Intro() {
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal-200/90">
                 Vishal Kesharwani
               </p>
+              <p className="max-w-2xl text-sm font-medium leading-6 text-cyan-100/90 sm:text-base">
+                Backend Developer | Java · Spring Boot · Node.js · PostgreSQL ·
+                AWS | MIT AOE &apos;26 | CGPA: 8.53/10
+              </p>
               <h1 className="max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-                I build clean web apps and ship them through cloud-ready
-                environments.
+                I build backend systems, cloud workflows, and deployment-ready
+                products.
               </h1>
               <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-                I&apos;m a Computer Engineering student at MIT Academy of
-                Engineering. I like full-stack work, AWS EC2, Docker, and
-                deployment workflows that feel like a real environment.
+                I&apos;m a final-year Computer Engineering student at MIT
+                Academy of Engineering with a CGPA of 8.53/10. My focus is on
+                Java, Spring Boot, Node.js, PostgreSQL, AWS, and the systems
+                that take a product from local development to production.
               </p>
             </div>
 
@@ -71,6 +75,13 @@ export default function Intro() {
               >
                 Contact Me
               </a>
+              <a
+                href="/Vishal_Kesharwani_Resume.pdf"
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-teal-300/20 bg-teal-300/10 px-6 py-3 font-semibold text-teal-100 backdrop-blur transition hover:-translate-y-0.5 hover:bg-teal-300/15"
+              >
+                Resume <FiDownload />
+              </a>
             </div>
 
             <div className="grid gap-3 pt-4 sm:grid-cols-3">
@@ -78,21 +89,21 @@ export default function Intro() {
                 <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
                   Focus
                 </p>
-                <p className="mt-2 text-lg font-semibold">Backend + UX</p>
+                <p className="mt-2 text-lg font-semibold">Java + Spring Boot</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                 <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
                   DevOps
                 </p>
-                <p className="mt-2 text-lg font-semibold">
-                  EC2, Docker, CI/CD
-                </p>
+                <p className="mt-2 text-lg font-semibold">EC2, Docker, CI/CD</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                 <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                  Stack
+                  Certification
                 </p>
-                <p className="mt-2 text-lg font-semibold">Java, React, AWS</p>
+                <p className="mt-2 text-lg font-semibold">
+                  AWS CLF-C02 1000/1000
+                </p>
               </div>
             </div>
 
@@ -131,7 +142,7 @@ export default function Intro() {
                       Cloud sandbox
                     </div>
                     <div className="text-right text-[11px] uppercase tracking-[0.2em] text-slate-400">
-                      local → cloud
+                      local to cloud
                     </div>
                   </div>
 
@@ -173,6 +184,7 @@ export default function Intro() {
                     </div>
                   </div>
                 </div>
+
                 <div className="grid grid-cols-[1fr_auto] gap-4 rounded-[1.5rem] border border-white/10 bg-white/5 p-4">
                   <div>
                     <p className="text-sm uppercase tracking-[0.24em] text-slate-400">

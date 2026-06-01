@@ -21,9 +21,9 @@ export default function Experience() {
     >
       <SectionHeading>My Achievements</SectionHeading>
       <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-gray-600 dark:text-white/70 sm:text-base">
-        My achievements reflect the way I like to work: solving real problems,
-        shipping under pressure, and staying curious about cloud and backend
-        systems.
+        These are the outcomes I mention when I want to show how I solve
+        problems, ship under pressure, and keep improving across backend and
+        cloud systems.
       </p>
 
       <div className="grid gap-5 md:grid-cols-2">

@@ -15,6 +15,7 @@ Vishal Kesharwani
 
 - Cloud and DevOps-inspired hero and Cloud Lab section
 - First-person project, internship, education, and achievements content
+- Resume download button with the attached PDF in `public/`
 - Responsive design with subtle motion
 - Contact form wired to `vishalkes1378@gmail.com`
 - Custom domain support for GitHub Pages or Vercel

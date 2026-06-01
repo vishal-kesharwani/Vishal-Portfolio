@@ -22,8 +22,8 @@ export default function Internships() {
     >
       <SectionHeading>Internships</SectionHeading>
       <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-gray-600 dark:text-white/70 sm:text-base">
-        Hands-on industry experience with backend engineering, data workflows,
-        and platform-level tasks.
+        Hands-on industry experience in backend engineering, cloud deployment,
+        ETL workflows, and platform-level delivery.
       </p>
 
       <div className="grid gap-6">
@@ -64,6 +64,17 @@ export default function Internships() {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {item.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-full border border-black/5 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-700 dark:border-white/10 dark:bg-white/10 dark:text-white/75"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         ))}
       </div>

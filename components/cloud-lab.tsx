@@ -107,7 +107,6 @@ export default function CloudLab() {
                     className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-white/5 p-5 backdrop-blur"
                     initial={{ opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.15 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -4 }}
                     animate={{
@@ -117,6 +116,7 @@ export default function CloudLab() {
                     transition={{
                       duration: 0.45,
                       ease: "easeOut",
+                      delay: index * 0.15,
                     }}
                   >
                     {isActive ? (

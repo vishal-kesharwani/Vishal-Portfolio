@@ -13,14 +13,14 @@ export const metadata = {
     template: "%s | Vishal Kesharwani",
   },
   description:
-    "Portfolio of Vishal Kesharwani, a Computer Engineering student building full-stack, cloud-native, and AI-powered web apps.",
+    "Portfolio of Vishal Kesharwani, a Backend Developer focused on Java, Spring Boot, Node.js, PostgreSQL, AWS, DevOps, and AI-powered projects.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Vishal Kesharwani | Portfolio",
     description:
-      "Full-stack and cloud-native projects, hackathon achievements, and technical skills.",
+      "Backend, cloud, DevOps, internship experience, and resume-aligned projects from Vishal Kesharwani.",
     url: "https://vishalkesharwani.in",
     siteName: "Vishal Kesharwani Portfolio",
     locale: "en_IN",

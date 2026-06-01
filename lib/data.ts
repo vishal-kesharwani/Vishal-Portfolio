@@ -1,5 +1,4 @@
 import React from "react";
-import { CgWorkAlt } from "react-icons/cg";
 import { BiSolidCaretUpCircle } from "react-icons/bi";
 import ArogyaImg from "@/public/arogya.png";
 import SocialyticsImg from "@/public/socialytics.jpeg";
@@ -20,32 +19,32 @@ export const links = [
 // Experience Data
 export const experiencesData = [
   {
-    title: "Datathon'25 1st Runner Up (TY Category)",
+    title: "SIH 2024 Grand Finalist",
     description:
-      "I built a game-based learning platform with React, Node.js, and real-time analytics.",
+      "I helped build a cloud-native report generation platform that reached the national finals.",
     icon: React.createElement(BiSolidCaretUpCircle),
-    date: "2025 March",
-  },
-  {
-    title: "Cavista Tech Hackathon 1st Runner-Up",
-    description:
-      "I worked on an AI/ML portal for HomeHealth with predictions and a health chatbot.",
-    icon: React.createElement(BiSolidCaretUpCircle),
-    date: "2025 February",
-  },
-  {
-    title: "Smart India Hackathon Grand Finalist",
-    description:
-      "I contributed to a cloud-based annual report generation portal that reached the national finals.",
-    icon: React.createElement(BiSolidCaretUpCircle),
-    date: "2024 December",
+    date: "2026",
   },
   {
     title: "E-Summit Ideathon 2024 Winner",
     description:
-      "I helped design an AI-powered website to streamline college report generation.",
+      "I designed an AI-powered workflow for streamlining report generation and delivery.",
     icon: React.createElement(BiSolidCaretUpCircle),
-    date: "2024 November",
+    date: "2024",
+  },
+  {
+    title: "Cavista Tech Hackathon Runner-Up",
+    description:
+      "I built a practical AI/ML solution with predictions, product thinking, and fast iteration.",
+    icon: React.createElement(BiSolidCaretUpCircle),
+    date: "2025",
+  },
+  {
+    title: "Datathon '25 Runner-Up",
+    description:
+      "I shipped a data-driven learning experience with React, Node.js, and analytics logic.",
+    icon: React.createElement(BiSolidCaretUpCircle),
+    date: "2025",
   },
 ] as const;
 
@@ -56,12 +55,39 @@ export const internshipsData = [
     role: "Backend Intern - Java",
     duration: "9 Feb 2026 - 30 Jun 2026",
     status: "In progress",
+    techStack: [
+      "Java",
+      "Spring Boot",
+      "AngularJS",
+      "Office.js",
+      "ETL",
+      "PostgreSQL",
+      "3DEXPERIENCE PLM",
+    ],
     highlights: [
-      "ETL workflows and backend data processing",
-      "Internal dashboard data visualization support",
-      "3DX Platform Engineer tasks and integrations",
-      "Mail Bridge project development and maintenance",
-      "Deploying and validating services in a production-style flow",
+      "Optimized ETL validation workflows with debouncing, cutting redundant PostgreSQL queries by about 50%.",
+      "Refactored export/import mapping from single lookup to list-based multi-lookup for faster data resolution.",
+      "Designed a REST API for backend table suggestions to improve frontend usability for new users.",
+      "Moved controller-layer exception handling into service-layer architecture with structured logging.",
+    ],
+  },
+  {
+    company: "SortUs",
+    role: "Cloud & DevOps Intern",
+    duration: "Jun 2025 - Aug 2025",
+    status: "Completed",
+    techStack: [
+      "Node.js",
+      "MongoDB",
+      "AWS Lambda",
+      "GitHub Actions",
+      "REST APIs",
+      "JIRA",
+    ],
+    highlights: [
+      "Built scalable Node.js and MongoDB backend modules with clean REST API documentation.",
+      "Automated serverless deployments using AWS Lambda and GitHub Actions.",
+      "Managed Agile sprint execution and task tracking in JIRA.",
     ],
   },
 ] as const;
@@ -69,65 +95,82 @@ export const internshipsData = [
 // Projects Data
 export const projectsData = [
   {
-    title: "Social Media Performance Analysis",
+    title: "ReportEase - Annual Report Generation Platform",
     description:
-      "I built an AI-driven analytics platform with LangChain and Astra DB for quick social insights.",
-    tags: ["Langchain", "React.js", "Data Visualization"],
+      "I built a cloud-native report generation platform on AWS EC2 and S3 with RBAC, Dockerized deployment, and GitHub Actions CI/CD.",
+    tags: ["MERN", "AWS EC2/S3", "Docker", "GitHub Actions", "SQL"],
     icons: [
-      "simple-icons:langchain",
       "skill-icons:react-dark",
-      "vscode-icons:file-type-astro",
+      "simple-icons:amazonaws",
+      "simple-icons:docker",
+      "simple-icons:githubactions",
     ],
-    imageUrl: SocialyticsImg,
-    githubLink: "https://github.com/HBTK/Social-Media-Performance",
-  },
-  {
-    title: "ReportEase - SaaS Platform",
-    description:
-      "I designed and shipped a cloud-based report automation system with RBAC and deployment-ready structure.",
-    tags: ["AWS", "MERN Stack", "RBAC"],
-    icons: ["skill-icons:aws-dark", "skill-icons:mongodb", "skill-icons:react-dark"],
     imageUrl: reportImg,
     githubLink: "https://github.com/vishal-kesharwani/v_07",
   },
   {
-    title: "Aarogya",
+    title: "AI-Based Bone Age Assessment System",
     description:
-      "I developed an AI-powered healthcare platform with multimodal analysis and real-time treatment insights.",
-    tags: ["Python", "Keras", "AI/ML", "Web Scraping", "HTML", "CSS", "JavaScript", "Healthcare"],
+      "I built a three-model ensemble for X-ray age prediction with preprocessing, checkpoints, and reproducible training runs.",
+    tags: ["Python", "TensorFlow", "EfficientNet", "OpenCV", "CNN"],
     icons: [
       "logos:python",
-      "simple-icons:keras",
-      "skill-icons:javascript",
-      "vscode-icons:file-type-html",
-      "vscode-icons:file-type-css",
+      "logos:tensorflow",
+      "simple-icons:opencv",
+      "mdi:brain",
+    ],
+    imageUrl: SocialyticsImg,
+    githubLink: "",
+  },
+  {
+    title: "Secure Defense Framework - NGO Donation Portal",
+    description:
+      "I designed a zero-trust donation portal with authentication, RBAC, CSRF protection, audit logging, and live attack simulation checks.",
+    tags: ["Python", "SQLite", "RBAC", "CSRF", "Security"],
+    icons: [
+      "logos:python",
+      "mdi:shield-lock-outline",
+      "mdi:bug-outline",
+      "mdi:network-outline",
     ],
     imageUrl: ArogyaImg,
-    githubLink: "https://github.com/virajmandlik/Temp",
-    demoLink: "",
+    githubLink: "",
   },
 ] as const;
 
 // Skills Data
 export const skillsData = [
   { name: "Java", icon: "logos:java" },
-  { name: "C++", icon: "skill-icons:cpp" },
-  { name: "MongoDB", icon: "skill-icons:mongodb" },
-  { name: "Red Hat Linux", icon: "simple-icons:redhat" },
-  { name: "React", icon: "logos:react" },
+  { name: "Spring Boot", icon: "simple-icons:spring" },
   { name: "Node.js", icon: "logos:nodejs-icon" },
+  { name: "Express.js", icon: "mdi:server-outline" },
+  { name: "JavaScript", icon: "skill-icons:javascript" },
   { name: "Python", icon: "logos:python" },
-  { name: "HTML", icon: "vscode-icons:file-type-html" },
-  { name: "CSS", icon: "vscode-icons:file-type-css" },
-  { name: "Git", icon: "logos:git-icon" },
-  { name: "MySQL", icon: "logos:mysql" },
-  { name: "PostgreSQL", icon: "logos:postgresql" },
+  { name: "SQL", icon: "mdi:database-outline" },
+  { name: "C++", icon: "skill-icons:cpp" },
+  { name: "ReactJS", icon: "logos:react" },
+  { name: "AngularJS", icon: "logos:angular-icon" },
   { name: "AWS", icon: "simple-icons:amazonaws" },
+  { name: "EC2", icon: "mdi:cloud-outline" },
+  { name: "S3", icon: "mdi:bucket-outline" },
+  { name: "Lambda", icon: "simple-icons:awslambda" },
   { name: "Docker", icon: "simple-icons:docker" },
-  { name: "EC2", icon: "simple-icons:amazonaws" },
+  { name: "Kubernetes", icon: "simple-icons:kubernetes" },
   { name: "GitHub Actions", icon: "simple-icons:githubactions" },
-  { name: "DevOps", icon: "mdi:pipe" },
-  { name: "CI/CD", icon: "mdi:source-branch" },
+  { name: "Jenkins", icon: "simple-icons:jenkins" },
+  { name: "PostgreSQL", icon: "logos:postgresql" },
+  { name: "MySQL", icon: "logos:mysql" },
+  { name: "MongoDB", icon: "skill-icons:mongodb" },
+  { name: "Git", icon: "logos:git-icon" },
+  { name: "JIRA", icon: "logos:jira" },
+  { name: "SonarQube", icon: "simple-icons:sonarqube" },
   { name: "Selenium", icon: "logos:selenium" },
   { name: "TensorFlow", icon: "logos:tensorflow" },
+  { name: "OpenCV", icon: "simple-icons:opencv" },
+  { name: "EfficientNet", icon: "mdi:layers-outline" },
+  { name: "CNNs", icon: "mdi:network-outline" },
+  { name: "GenAI APIs", icon: "mdi:robot-outline" },
+  { name: "Office.js", icon: "mdi:microsoft-office" },
+  { name: "3DEXPERIENCE PLM", icon: "mdi:cube-outline" },
+  { name: "AWS CLF-C02", icon: "mdi:certificate-outline" },
 ] as const;
