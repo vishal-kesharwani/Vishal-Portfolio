@@ -62,7 +62,7 @@ export default function Education() {
         {educationItems.map((item, index) => (
           <motion.article
             key={item.title}
-            className="overflow-hidden rounded-3xl border border-black/5 bg-white/80 shadow-[0_18px_70px_-38px_rgba(15,23,42,0.45)] backdrop-blur dark:border-white/10 dark:bg-white/5"
+            className="overflow-hidden rounded-3xl border border-black/5 bg-white/85 shadow-[0_18px_70px_-38px_rgba(15,23,42,0.45)] backdrop-blur dark:border-white/10 dark:bg-slate-900/70"
             initial={{ opacity: 0, x: index % 2 === 0 ? -18 : 18 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: index * 0.08 }}
@@ -92,18 +92,18 @@ export default function Education() {
                   </span>
                 </div>
 
-                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-gray-950 dark:text-white">
+                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-base font-medium text-gray-700 dark:text-white/75">
+                <p className="mt-2 text-base font-medium text-slate-700 dark:text-white/75">
                   {item.institution}
                 </p>
 
-                <div className="mt-5 inline-flex rounded-2xl border border-black/5 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 dark:border-white/10 dark:bg-white/5 dark:text-white">
+                <div className="mt-5 inline-flex rounded-2xl border border-black/5 bg-gray-50 px-4 py-3 text-sm font-semibold text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-white">
                   {item.metric}
                 </div>
 
-                <ul className="mt-5 grid gap-2 text-sm leading-6 text-gray-700 dark:text-white/75 sm:grid-cols-2">
+                <ul className="mt-5 grid gap-2 text-sm leading-6 text-slate-700 dark:text-white/75 sm:grid-cols-2">
                   {item.points.map((point) => (
                     <li key={point} className="flex gap-2">
                       <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-teal-500" />

@@ -21,7 +21,7 @@ export default function Contact() {
     >
       <SectionHeading>Contact me</SectionHeading>
 
-      <div className="rounded-[2rem] border border-black/5 bg-white/80 p-6 shadow-[0_20px_80px_-35px_rgba(15,23,42,0.35)] backdrop-blur dark:border-white/10 dark:bg-white/5 sm:p-8">
+      <div className="rounded-[2rem] border border-black/5 bg-white/85 p-6 shadow-[0_20px_80px_-35px_rgba(15,23,42,0.35)] backdrop-blur dark:border-white/10 dark:bg-slate-900/70 sm:p-8">
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-5">
             <div className="inline-flex items-center gap-2 rounded-full border border-teal-500/15 bg-teal-500/10 px-4 py-2 text-sm font-medium text-teal-700 dark:text-teal-200">
@@ -29,11 +29,11 @@ export default function Contact() {
               Open for opportunities
             </div>
 
-            <h3 className="text-2xl font-semibold tracking-tight text-gray-950 dark:text-white sm:text-3xl">
+            <h3 className="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-3xl">
               Let&apos;s build something useful.
             </h3>
 
-            <p className="max-w-xl text-sm leading-6 text-gray-600 dark:text-white/70 sm:text-base">
+            <p className="max-w-xl text-sm leading-6 text-slate-600 dark:text-white/70 sm:text-base">
               For backend, cloud, DevOps, internship opportunities, project
               collaborations, freelance work, or a quick hello, send a message
               and I&apos;ll reply from my inbox at{" "}
@@ -42,18 +42,18 @@ export default function Contact() {
 
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="rounded-2xl border border-black/5 bg-gray-50 p-4 dark:border-white/10 dark:bg-white/5">
-                <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-white/50">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-white/50">
                   Response window
                 </p>
-                <p className="mt-1 font-semibold text-gray-950 dark:text-white">
+                <p className="mt-1 font-semibold text-slate-950 dark:text-white">
                   Usually within 24 hours
                 </p>
               </div>
               <div className="rounded-2xl border border-black/5 bg-gray-50 p-4 dark:border-white/10 dark:bg-white/5">
-                <p className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-white/50">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-white/50">
                   Direct email
                 </p>
-                <p className="mt-1 font-semibold text-gray-950 dark:text-white">
+                <p className="mt-1 font-semibold text-slate-950 dark:text-white">
                   vishalkes1378@gmail.com
                 </p>
               </div>
@@ -74,7 +74,7 @@ export default function Contact() {
             />
 
             <label className="grid gap-2">
-              <span className="text-sm font-medium text-gray-700 dark:text-white/75">
+              <span className="text-sm font-medium text-slate-700 dark:text-white/75">
                 Your name
               </span>
               <input
@@ -87,7 +87,7 @@ export default function Contact() {
             </label>
 
             <label className="grid gap-2">
-              <span className="text-sm font-medium text-gray-700 dark:text-white/75">
+              <span className="text-sm font-medium text-slate-700 dark:text-white/75">
                 Your email
               </span>
               <input
@@ -100,7 +100,7 @@ export default function Contact() {
             </label>
 
             <label className="grid gap-2">
-              <span className="text-sm font-medium text-gray-700 dark:text-white/75">
+              <span className="text-sm font-medium text-slate-700 dark:text-white/75">
                 Message
               </span>
               <textarea

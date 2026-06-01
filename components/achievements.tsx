@@ -30,7 +30,7 @@ export default function Experience() {
         {experiencesData.map((item, index) => (
           <motion.article
             key={index}
-            className="group relative overflow-hidden rounded-3xl border border-black/5 bg-white/80 p-6 shadow-[0_18px_70px_-38px_rgba(15,23,42,0.45)] backdrop-blur dark:border-white/10 dark:bg-white/5"
+            className="group relative overflow-hidden rounded-3xl border border-black/5 bg-white/85 p-6 shadow-[0_18px_70px_-38px_rgba(15,23,42,0.45)] backdrop-blur dark:border-white/10 dark:bg-slate-900/70"
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.08 }}
@@ -50,10 +50,10 @@ export default function Experience() {
                     Achievement
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold tracking-tight text-gray-950 dark:text-white">
+                <h3 className="text-xl font-semibold tracking-tight text-slate-950 dark:text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-white/75">
+                <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-white/75">
                   {item.description}
                 </p>
               </div>
