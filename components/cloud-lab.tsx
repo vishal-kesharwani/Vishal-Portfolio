@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import SectionHeading from "./section-heading";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { FiArrowRight, FiTerminal, FiServer, FiPlay } from "react-icons/fi";
 import { SiAmazonaws, SiDocker, SiGithubactions } from "react-icons/si";
@@ -398,30 +398,6 @@ export default function CloudLab() {
               </div>
             </div>
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={labPhases[activePhase].title}
-                className="rounded-2xl border border-white/10 bg-gradient-to-r from-teal-400/15 via-cyan-400/10 to-indigo-500/15 p-4 text-sm text-slate-200"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.35 }}
-              >
-                <div className="flex items-start gap-3">
-                  <div className="mt-0.5 rounded-full bg-white/10 p-2">
-                    <FiArrowRight className="text-teal-200" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-white">
-                      {labPhases[activePhase].title}
-                    </p>
-                    <p className="mt-1 leading-6 text-slate-300">
-                      {labPhases[activePhase].summary}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
           </div>
         </div>
       </div>
