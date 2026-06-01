@@ -33,7 +33,7 @@ export default function Contact() {
               Let&apos;s build something useful.
             </h3>
 
-            <p className="max-w-xl text-sm leading-6 text-slate-600 dark:text-white/70 sm:text-base">
+            <p className="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
               For backend, cloud, DevOps, internship opportunities, project
               collaborations, freelance work, or a quick hello, send a message
               and I&apos;ll reply from my inbox at{" "}
