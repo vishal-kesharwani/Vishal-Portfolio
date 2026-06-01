@@ -12,6 +12,13 @@ type TerminalLine = {
   value: string;
 };
 
+type QuestStep = {
+  id: string;
+  label: string;
+  hint: string;
+  matchers: readonly string[];
+};
+
 const quickCommands = [
   "help",
   "ls",
@@ -84,6 +91,27 @@ const labPhases = [
   },
 ] as const;
 
+const questSteps = [
+  {
+    id: "inspect",
+    label: "Inspect the environment",
+    hint: "Run ls or pwd to understand the sandbox.",
+    matchers: ["ls", "pwd", "whoami"],
+  },
+  {
+    id: "build",
+    label: "Build the container",
+    hint: "Use docker build . to package the app.",
+    matchers: ["docker build ."],
+  },
+  {
+    id: "deploy",
+    label: "Deploy the service",
+    hint: "Run deploy, aws s3 ls, or kubectl get pods.",
+    matchers: ["deploy", "aws s3 ls", "kubectl get pods", "sudo systemctl status app"],
+  },
+] as const satisfies readonly QuestStep[];
+
 export default function CloudLab() {
   const { ref } = useSectionInView("Cloud Lab", 0.35);
   const [input, setInput] = useState("help");
@@ -91,6 +119,7 @@ export default function CloudLab() {
     { type: "system", value: "Cloud sandbox ready. Type help to see commands." },
   ]);
   const [activePhase, setActivePhase] = useState(0);
+  const [completedSteps, setCompletedSteps] = useState<string[]>([]);
 
   const prompt = useMemo(() => "vishal@cloud-sandbox:~$", []);
 
@@ -108,6 +137,16 @@ export default function CloudLab() {
     if (cmd === "ls" || cmd === "pwd" || cmd === "whoami") {
       setActivePhase(0);
     }
+
+    setCompletedSteps((current) => {
+      const next = new Set(current);
+      questSteps.forEach((step) => {
+        if (step.matchers.some((matcher) => cmd === matcher || cmd.includes(matcher))) {
+          next.add(step.id);
+        }
+      });
+      return Array.from(next);
+    });
   };
 
   const runCommand = (raw: string) => {
@@ -121,6 +160,7 @@ export default function CloudLab() {
       ]);
       setInput("");
       setActivePhase(0);
+      setCompletedSteps([]);
       return;
     }
 
@@ -201,6 +241,56 @@ export default function CloudLab() {
                     {command}
                   </button>
                 ))}
+              </div>
+            </div>
+
+            <div className="rounded-[1.6rem] border border-white/10 bg-white/5 p-4">
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+                  Mini quest
+                </p>
+                <span className="text-xs text-slate-400">
+                  {completedSteps.length}/{questSteps.length} complete
+                </span>
+              </div>
+              <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-500 transition-all duration-300"
+                  style={{
+                    width: `${(completedSteps.length / questSteps.length) * 100}%`,
+                  }}
+                />
+              </div>
+              <div className="mt-4 space-y-3">
+                {questSteps.map((step) => {
+                  const isDone = completedSteps.includes(step.id);
+                  return (
+                    <div
+                      key={step.id}
+                      className={`rounded-2xl border p-3 ${
+                        isDone
+                          ? "border-teal-300/30 bg-teal-300/10"
+                          : "border-white/10 bg-white/5"
+                      }`}
+                    >
+                      <div className="flex items-start gap-3">
+                        <span
+                          className={`mt-1 h-2.5 w-2.5 shrink-0 rounded-full ${
+                            isDone ? "bg-teal-300" : "bg-white/30"
+                          }`}
+                        />
+                        <div>
+                          <p className="text-sm font-semibold text-white">
+                            {step.label}
+                          </p>
+                          <p className="mt-1 text-xs leading-5 text-slate-300">
+                            {step.hint}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

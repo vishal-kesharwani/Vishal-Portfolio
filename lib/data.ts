@@ -7,6 +7,7 @@ import reportImg from "@/public/reportease.jpg";
 // Navigation Links
 export const links = [
   { name: "Home", hash: "#home" },
+  { name: "About", hash: "#about" },
   { name: "Cloud Lab", hash: "#cloud-lab" },
   { name: "Projects", hash: "#projects" },
   { name: "Skills", hash: "#skills" },
@@ -142,26 +143,54 @@ export const projectsData = [
 ] as const;
 
 // Skills Data
-export const skillsData = [
-  { name: "Java", icon: "logos:java" },
-  { name: "Spring Boot", icon: "simple-icons:spring" },
-  { name: "Node.js", icon: "logos:nodejs-icon" },
-  { name: "ReactJS", icon: "logos:react" },
-  { name: "JavaScript", icon: "skill-icons:javascript" },
-  { name: "PostgreSQL", icon: "logos:postgresql" },
-  { name: "MySQL", icon: "logos:mysql" },
-  { name: "AWS", icon: "simple-icons:amazonaws" },
-  { name: "EC2", icon: "mdi:cloud-outline" },
-  { name: "S3", icon: "mdi:bucket-outline" },
-  { name: "Lambda", icon: "simple-icons:awslambda" },
-  { name: "Docker", icon: "simple-icons:docker" },
-  { name: "Kubernetes", icon: "simple-icons:kubernetes" },
-  { name: "GitHub Actions", icon: "simple-icons:githubactions" },
-  { name: "Jenkins", icon: "simple-icons:jenkins" },
-  { name: "MongoDB", icon: "skill-icons:mongodb" },
-  { name: "Git", icon: "logos:git-icon" },
-  { name: "JIRA", icon: "logos:jira" },
-  { name: "Office.js", icon: "mdi:microsoft-office" },
-  { name: "3DEXPERIENCE PLM", icon: "mdi:cube-outline" },
-  { name: "AWS CLF-C02", icon: "mdi:certificate-outline" },
+export const skillGroups = [
+  {
+    title: "Languages",
+    items: [
+      { name: "Java", icon: "logos:java" },
+      { name: "JavaScript", icon: "skill-icons:javascript" },
+      { name: "Python", icon: "logos:python" },
+      { name: "SQL", icon: "mdi:database-outline" },
+    ],
+  },
+  {
+    title: "Backend",
+    items: [
+      { name: "Spring Boot", icon: "simple-icons:spring" },
+      { name: "Node.js", icon: "logos:nodejs-icon" },
+      { name: "ReactJS", icon: "logos:react" },
+      { name: "Express.js", icon: "mdi:server-outline" },
+    ],
+  },
+  {
+    title: "Cloud / DevOps",
+    items: [
+      { name: "AWS", icon: "simple-icons:amazonaws" },
+      { name: "EC2", icon: "mdi:cloud-outline" },
+      { name: "S3", icon: "mdi:bucket-outline" },
+      { name: "Lambda", icon: "simple-icons:awslambda" },
+      { name: "Docker", icon: "simple-icons:docker" },
+      { name: "Kubernetes", icon: "simple-icons:kubernetes" },
+      { name: "GitHub Actions", icon: "simple-icons:githubactions" },
+      { name: "Jenkins", icon: "simple-icons:jenkins" },
+    ],
+  },
+  {
+    title: "Data / DB",
+    items: [
+      { name: "PostgreSQL", icon: "logos:postgresql" },
+      { name: "MySQL", icon: "logos:mysql" },
+      { name: "MongoDB", icon: "skill-icons:mongodb" },
+    ],
+  },
+  {
+    title: "Tools & AI",
+    items: [
+      { name: "Git", icon: "logos:git-icon" },
+      { name: "JIRA", icon: "logos:jira" },
+      { name: "Office.js", icon: "mdi:microsoft-office" },
+      { name: "3DEXPERIENCE PLM", icon: "mdi:cube-outline" },
+      { name: "AWS CLF-C02", icon: "mdi:certificate-outline" },
+    ],
+  },
 ] as const;

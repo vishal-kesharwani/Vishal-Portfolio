@@ -1,5 +1,6 @@
 import Contact from "@/components/contact";
 import Achievements  from "@/components/achievements";
+import About from "@/components/about";
 import CloudLab from "@/components/cloud-lab";
 import Education from "@/components/education";
 import Intro from "@/components/intro";
@@ -13,6 +14,7 @@ export default function Home() {
     <main className="mx-auto flex w-full max-w-6xl flex-col items-center pb-10">
       <Intro />
       <div className="flex w-full flex-col items-center px-4 sm:px-6">
+        <About />
         <CloudLab />
         <SectionDivider />
         <Projects />

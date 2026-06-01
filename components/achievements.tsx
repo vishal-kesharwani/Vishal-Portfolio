@@ -26,19 +26,19 @@ export default function Experience() {
         cloud systems.
       </p>
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {experiencesData.map((item, index) => (
           <motion.article
             key={index}
-            className="group relative overflow-hidden rounded-3xl border border-black/5 bg-white/85 p-6 shadow-[0_18px_70px_-38px_rgba(15,23,42,0.45)] backdrop-blur dark:border-white/10 dark:bg-slate-900/70"
+            className="group relative overflow-hidden rounded-[1.75rem] border border-black/5 bg-white/85 p-5 shadow-[0_18px_70px_-38px_rgba(15,23,42,0.45)] backdrop-blur dark:border-white/10 dark:bg-slate-900/70"
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.08 }}
             viewport={{ once: true }}
           >
             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-500" />
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-lg dark:bg-white dark:text-slate-950">
+            <div className="flex items-start gap-3">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-lg dark:bg-white dark:text-slate-950">
                 {item.icon}
               </div>
               <div className="min-w-0 flex-1">
@@ -50,10 +50,10 @@ export default function Experience() {
                     Achievement
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold tracking-tight text-slate-950 dark:text-white">
+                <h3 className="text-lg font-semibold tracking-tight text-slate-950 dark:text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-white/75">
+                <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
                   {item.description}
                 </p>
               </div>

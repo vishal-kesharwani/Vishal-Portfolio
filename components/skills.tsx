@@ -2,7 +2,7 @@
 
 import React from "react";
 import SectionHeading from "./section-heading";
-import { skillsData } from "@/lib/data";
+import { skillGroups } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
@@ -35,32 +35,47 @@ export default function Skills() {
         I keep this stack focused on the tools I use most for backend work,
         cloud deployment, and shipping production-ready features.
       </p>
-      <ul className="grid grid-cols-2 gap-3 text-lg text-slate-900 dark:text-slate-100 sm:grid-cols-3 lg:grid-cols-4">
-        {skillsData.map((skill, index) => (
-          <motion.li
-            className="flex items-center gap-3 rounded-2xl border border-black/5 bg-white/80 px-4 py-4 text-left shadow-[0_12px_40px_-28px_rgba(15,23,42,0.4)] backdrop-blur transition hover:-translate-y-1 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-100"
-            key={index}
+      <div className="grid gap-5 md:grid-cols-2">
+        {skillGroups.map((group, groupIndex) => (
+          <motion.section
+            key={group.title}
+            className="rounded-[1.75rem] border border-black/5 bg-white/85 p-5 text-left shadow-[0_12px_40px_-28px_rgba(15,23,42,0.4)] backdrop-blur dark:border-white/10 dark:bg-slate-900/80"
             variants={fadeInAnimationVariants}
             initial="initial"
             whileInView="animate"
-            whileHover={{ scale: 1.02 }}
-            viewport={{
-              once: true,
-            }}
-            custom={index}
+            viewport={{ once: true }}
+            custom={groupIndex}
           >
-            <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-slate-950/5 text-slate-950 dark:bg-white/10 dark:text-white">
-              <Icon
-                icon={skill.icon as string}
-                className="h-6 w-6 shrink-0"
-              />
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <h3 className="text-base font-semibold text-slate-950 dark:text-white">
+                {group.title}
+              </h3>
+              <span className="rounded-full border border-black/5 bg-gray-100 px-2.5 py-1 text-[11px] font-medium text-slate-600 dark:border-white/10 dark:bg-white/10 dark:text-slate-300">
+                {group.items.length} items
+              </span>
             </div>
-            <span className="text-sm font-medium leading-tight text-slate-900 dark:text-slate-100">
-              {skill.name}
-            </span>
-          </motion.li>
+
+            <div className="flex flex-wrap gap-2">
+              {group.items.map((skill, index) => (
+                <motion.span
+                  key={`${group.title}-${skill.name}`}
+                  className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white px-3 py-2 text-sm font-medium text-slate-900 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/5 dark:text-slate-100"
+                  variants={fadeInAnimationVariants}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                  custom={index}
+                >
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-950/5 dark:bg-white/10">
+                    <Icon icon={skill.icon as string} className="h-4 w-4" />
+                  </span>
+                  {skill.name}
+                </motion.span>
+              ))}
+            </div>
+          </motion.section>
         ))}
-      </ul>
+      </div>
     </section>
   );
 }
