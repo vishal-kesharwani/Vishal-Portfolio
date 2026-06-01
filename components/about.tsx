@@ -3,7 +3,7 @@
 import React from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
-import { FiArrowRight, FiBriefcase, FiCloud, FiDownload, FiStar } from "react-icons/fi";
+import { FiArrowRight, FiDownload } from "react-icons/fi";
 import { useSectionInView } from "@/lib/hooks";
 
 export default function About() {
@@ -43,36 +43,6 @@ export default function About() {
             PostgreSQL, AWS, and the practical side of shipping software from a
             laptop to a cloud server.
           </p>
-
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-2xl border border-black/5 bg-gray-50 p-4 dark:border-white/10 dark:bg-white/5">
-              <FiBriefcase className="text-xl text-teal-500" />
-              <p className="mt-3 text-sm font-semibold text-slate-950 dark:text-white">
-                Internship ready
-              </p>
-              <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-400">
-                Backend and cloud-focused roles
-              </p>
-            </div>
-            <div className="rounded-2xl border border-black/5 bg-gray-50 p-4 dark:border-white/10 dark:bg-white/5">
-              <FiCloud className="text-xl text-teal-500" />
-              <p className="mt-3 text-sm font-semibold text-slate-950 dark:text-white">
-                Cloud curiosity
-              </p>
-              <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-400">
-                EC2, Docker, CI/CD, Linux
-              </p>
-            </div>
-            <div className="rounded-2xl border border-black/5 bg-gray-50 p-4 dark:border-white/10 dark:bg-white/5">
-              <FiStar className="text-xl text-teal-500" />
-              <p className="mt-3 text-sm font-semibold text-slate-950 dark:text-white">
-                Product mindset
-              </p>
-              <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-400">
-                Build, measure, refine
-              </p>
-            </div>
-          </div>
         </div>
 
         <div className="space-y-6">
@@ -97,10 +67,6 @@ export default function About() {
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-teal-300" />
                 <span>AWS Certified Cloud Practitioner with a 1000/1000 score.</span>
               </li>
-              <li className="flex gap-3">
-                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-teal-300" />
-                <span>4x hackathon finalist/winner with cloud, AI, and product-building experience.</span>
-              </li>
             </ul>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -122,28 +88,20 @@ export default function About() {
             </div>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-[1.6rem] border border-black/5 bg-white/85 p-5 backdrop-blur dark:border-white/10 dark:bg-slate-900/75">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
-                Available for
-              </p>
-              <p className="mt-2 text-lg font-semibold text-slate-950 dark:text-white">
+          <div className="rounded-[1.6rem] border border-black/5 bg-white/85 p-5 backdrop-blur dark:border-white/10 dark:bg-slate-900/75">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+              At a glance
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <span className="rounded-full border border-black/5 bg-gray-100 px-3 py-1 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-white/10 dark:text-slate-200">
                 Backend / Cloud internships
-              </p>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-                I&apos;m open to roles where I can ship, learn, and own real work.
-              </p>
-            </div>
-            <div className="rounded-[1.6rem] border border-black/5 bg-white/85 p-5 backdrop-blur dark:border-white/10 dark:bg-slate-900/75">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
-                Current focus
-              </p>
-              <p className="mt-2 text-lg font-semibold text-slate-950 dark:text-white">
-                Docker, EC2, CI/CD
-              </p>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-                Turning local code into clean deployment flows.
-              </p>
+              </span>
+              <span className="rounded-full border border-black/5 bg-gray-100 px-3 py-1 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-white/10 dark:text-slate-200">
+                Docker + EC2 + CI/CD
+              </span>
+              <span className="rounded-full border border-black/5 bg-gray-100 px-3 py-1 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-white/10 dark:text-slate-200">
+                Deploying from laptop to cloud
+              </span>
             </div>
           </div>
         </div>

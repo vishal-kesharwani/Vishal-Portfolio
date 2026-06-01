@@ -85,32 +85,36 @@ export default function Intro() {
               </a>
             </div>
 
-            <div className="grid gap-3 pt-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+            <div className="mt-4 flex flex-wrap gap-3 rounded-[1.6rem] border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
                   Focus
                 </p>
-                <p className="mt-2 text-lg font-semibold">Java + Spring Boot</p>
+                <p className="mt-1 text-sm font-semibold text-white">
+                  Java + Spring Boot
+                </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+              <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
                   DevOps
                 </p>
-                <p className="mt-2 text-lg font-semibold">EC2, Docker, CI/CD</p>
+                <p className="mt-1 text-sm font-semibold text-white">
+                  EC2, Docker, CI/CD
+                </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+              <a
+                href="https://www.credly.com/badges/f3558204-39b1-43f0-8caa-813873989955/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-teal-300/20 bg-teal-300/10 px-4 py-2 transition hover:bg-teal-300/15"
+              >
+                <p className="text-[11px] uppercase tracking-[0.2em] text-teal-200">
                   Certification
                 </p>
-                <a
-                  href="https://www.credly.com/badges/f3558204-39b1-43f0-8caa-813873989955/public_url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-flex text-lg font-semibold text-white transition hover:text-teal-200"
-                >
+                <p className="mt-1 text-sm font-semibold text-white">
                   AWS CLF-C02 1000/1000
-                </a>
-              </div>
+                </p>
+              </a>
             </div>
 
             <div className="flex flex-wrap gap-3 pt-2 text-sm">
