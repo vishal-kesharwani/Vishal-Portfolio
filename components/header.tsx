@@ -35,12 +35,12 @@ export default function Header() {
         <motion.div
           layout
           animate={{
-            width: isCompact ? 84 : 236,
-            paddingLeft: isCompact ? 12 : 16,
-            paddingRight: isCompact ? 12 : 16,
+            width: isCompact ? 116 : 236,
+            paddingLeft: isCompact ? 14 : 16,
+            paddingRight: isCompact ? 14 : 16,
           }}
           transition={{ type: "spring", stiffness: 360, damping: 34 }}
-          className="hidden shrink-0 items-center gap-2 overflow-hidden rounded-full border border-black/5 bg-white/85 py-2 text-sm font-semibold text-gray-900 shadow-[0_10px_24px_-16px_rgba(15,23,42,0.35)] backdrop-blur sm:flex dark:border-white/10 dark:bg-white/5 dark:text-white"
+          className="hidden shrink-0 items-center gap-2 overflow-hidden rounded-full border border-black/5 bg-white/85 py-2 text-sm font-semibold text-gray-900 shadow-[0_10px_24px_-16px_rgba(15,23,42,0.35)] backdrop-blur sm:flex dark:border-white/10 dark:bg-white/10 dark:text-white dark:shadow-[0_10px_24px_-16px_rgba(0,0,0,0.65)]"
         >
           <span className="h-2.5 w-2.5 rounded-full bg-teal-400" />
           <AnimatePresence mode="wait" initial={false}>
@@ -51,7 +51,7 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 8, scale: 0.92 }}
                 transition={{ duration: 0.22, ease: "easeOut" }}
-                className="whitespace-nowrap text-[0.95rem] font-bold tracking-[0.28em] text-gray-950 dark:text-white"
+                className="whitespace-nowrap text-[0.95rem] font-bold tracking-[0.18em] text-gray-950 dark:text-white/95"
               >
                 VK
               </motion.span>
@@ -62,7 +62,7 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 10, scale: 0.96 }}
                 transition={{ duration: 0.22, ease: "easeOut" }}
-                className="whitespace-nowrap text-[0.95rem] font-semibold tracking-tight text-gray-950 dark:text-white"
+                className="whitespace-nowrap text-[0.95rem] font-semibold tracking-tight text-gray-950 dark:text-white/95"
               >
                 Vishal Kesharwani
               </motion.span>
