@@ -5,24 +5,27 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light;
+  --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
 }
 
 body {
   background:
-    radial-gradient(circle at top left, rgba(20, 184, 166, 0.12), transparent 24%),
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 22%),
-    linear-gradient(180deg, #f8fafc 0%, #f6f8fc 40%, #edf2f7 100%),
-    linear-gradient(rgba(15, 23, 42, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+    radial-gradient(circle at top left, rgba(217, 119, 6, 0.12), transparent 24%),
+    radial-gradient(circle at top right, rgba(13, 148, 136, 0.1), transparent 22%),
+    linear-gradient(180deg, #faf7f2 0%, #f8fafc 38%, #edf2f7 100%),
+    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
   background-size: auto, auto, auto, 40px 40px, 40px 40px;
   background-attachment: fixed;
   color: #0f172a;
+  font-family: var(--font-body);
 }
 
 html.dark body {
   background:
-    radial-gradient(circle at top left, rgba(20, 184, 166, 0.15), transparent 24%),
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 22%),
+    radial-gradient(circle at top left, rgba(217, 119, 6, 0.16), transparent 24%),
+    radial-gradient(circle at top right, rgba(13, 148, 136, 0.14), transparent 22%),
     linear-gradient(180deg, #020617 0%, #0f172a 46%, #111827 100%),
     linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
@@ -42,6 +45,15 @@ html.dark {
 
 .borderBlack {
   @apply border border-black/10;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }
 
 .vertical-timeline {
@@ -75,5 +87,5 @@ html.dark {
 }
 
 ::selection {
-  background: rgba(20, 184, 166, 0.22);
+  background: rgba(217, 119, 6, 0.2);
 }

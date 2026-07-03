@@ -22,8 +22,8 @@ export default function Internships() {
     >
       <SectionHeading>Internships</SectionHeading>
       <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
-        Hands-on industry experience in backend engineering, cloud deployment,
-        ETL workflows, and platform-level delivery.
+        Hands-on industry experience in Java backend engineering, cloud
+        automation, ETL optimization, and platform-level delivery.
       </p>
 
       <div className="grid gap-6">

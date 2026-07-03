@@ -9,18 +9,18 @@ import "./globals.css";
 export const metadata = {
   metadataBase: new URL("https://vishalkesharwani.in"),
   title: {
-    default: "Vishal Kesharwani | Portfolio",
+    default: "Vishal Kesharwani | Backend Developer",
     template: "%s | Vishal Kesharwani",
   },
   description:
-    "Portfolio of Vishal Kesharwani, a Backend Developer focused on Java, Spring Boot, Node.js, PostgreSQL, AWS, DevOps, and AI-powered projects.",
+    "Resume-aligned portfolio of Vishal Kesharwani, a backend developer focused on Java, Spring Boot, PostgreSQL, AWS, Docker, and secure full-stack delivery.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Vishal Kesharwani | Portfolio",
+    title: "Vishal Kesharwani | Backend Developer",
     description:
-      "Backend, cloud, DevOps, internship experience, and resume-aligned projects from Vishal Kesharwani.",
+      "Backend, cloud, research, and internship experience from Vishal Kesharwani.",
     url: "https://vishalkesharwani.in",
     siteName: "Vishal Kesharwani Portfolio",
     locale: "en_IN",
@@ -38,9 +38,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <body
-        className="relative bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 font-sans"
-      >
+      <body className="relative bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90">
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
             <Header />

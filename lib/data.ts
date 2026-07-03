@@ -1,10 +1,9 @@
 import React from "react";
 import { BiSolidCaretUpCircle } from "react-icons/bi";
 import ArogyaImg from "@/public/arogya.png";
-import SocialyticsImg from "@/public/socialytics.jpeg";
-import reportImg from "@/public/reportease.jpg";
+import SocialyticsImg from "@/public/socialytics.png";
+import reportImg from "@/public/reportease.png";
 
-// Navigation Links
 export const links = [
   { name: "Home", hash: "#home" },
   { name: "About", hash: "#about" },
@@ -17,59 +16,87 @@ export const links = [
   { name: "Contact", hash: "#contact" },
 ] as const;
 
-// Experience Data
-export const experiencesData = [
+export const resumeHighlights = [
   {
-    title: "SIH 2024 Grand Finalist",
-    description:
-      "I helped build a cloud-native report generation platform that reached the national finals.",
-    icon: React.createElement(BiSolidCaretUpCircle),
-    date: "2026",
+    label: "APIs shipped",
+    value: "15+",
+    detail: "Production-grade backend endpoints in Java and Spring Boot",
   },
   {
-    title: "E-Summit Ideathon 2024 Winner",
+    label: "ETL reduction",
+    value: "~50%",
+    detail: "Fewer redundant PostgreSQL lookups after debouncing",
+  },
+  {
+    label: "Cloud cert",
+    value: "1000/1000",
+    detail: "AWS Certified Cloud Practitioner",
+  },
+  {
+    label: "Finalist work",
+    value: "SIH + GRID",
+    detail: "National-level hackathon and innovation recognition",
+  },
+] as const;
+
+export const focusPoints = [
+  "Java backend development",
+  "Spring Boot, Spring Security, and Spring Data JPA",
+  "AWS, Docker, and CI/CD",
+  "React, TypeScript, and full-stack delivery",
+] as const;
+
+export const experiencesData = [
+  {
+    title: "AWS Certified Cloud Practitioner",
     description:
-      "I designed an AI-powered workflow for streamlining report generation and delivery.",
+      "Achieved a perfect 1000/1000 score on the CLF-C02 certification and use that foundation in day-to-day cloud work.",
+    icon: React.createElement(BiSolidCaretUpCircle),
+    date: "Certification",
+  },
+  {
+    title: "Smart India Hackathon 2024",
+    description:
+      "Reached the national grand finals with a solution focused on product quality, delivery, and practical problem solving.",
     icon: React.createElement(BiSolidCaretUpCircle),
     date: "2024",
   },
   {
-    title: "Cavista Tech Hackathon Runner-Up",
+    title: "Flipkart Grid 7.0",
     description:
-      "I built a practical AI/ML solution with predictions, product thinking, and fast iteration.",
+      "National finalist in the top 10 out of 1,600+ teams for a computer-vision traffic violation detection platform.",
     icon: React.createElement(BiSolidCaretUpCircle),
-    date: "2025",
+    date: "2024",
   },
   {
-    title: "Datathon '25 Runner-Up",
+    title: "Leadership + Hackathons",
     description:
-      "I shipped a data-driven learning experience with React, Node.js, and analytics logic.",
+      "Won MIT AOE E-Summit Ideathon 2024, placed runner-up at Cavista Tech Hackathon and Datathon 2025, and contributed as ACM design lead.",
     icon: React.createElement(BiSolidCaretUpCircle),
-    date: "2025",
+    date: "2024-2025",
   },
 ] as const;
 
-// Internship Data
 export const internshipsData = [
   {
-    company: "SteepGraph System Private Limited",
-    role: "Backend Intern - Java",
-    duration: "9 Feb 2026 - 30 Jun 2026",
-    status: "In progress",
+    company: "SteepGraph Systems Private Limited",
+    role: "Backend Developer Intern",
+    duration: "Feb 2026 - Jun 2026",
+    status: "Completed",
     techStack: [
       "Java",
       "Spring Boot",
+      "Spring Security",
       "AngularJS",
-      "Office.js",
       "ETL",
       "PostgreSQL",
       "3DEXPERIENCE PLM",
     ],
     highlights: [
-      "Optimized ETL validation workflows with debouncing, cutting redundant PostgreSQL queries by about 50%.",
-      "Refactored export/import mapping from single lookup to list-based multi-lookup for faster data resolution.",
-      "Designed a REST API for backend table suggestions to improve frontend usability for new users.",
-      "Moved controller-layer exception handling into service-layer architecture with structured logging.",
+      "Built 15+ enterprise REST APIs with secure endpoint access and service-layer architecture.",
+      "Implemented debouncing in ETL validation flows to cut redundant PostgreSQL lookups by nearly 50%.",
+      "Contributed to modular service-layer components that follow SOLID and Clean Architecture principles.",
+      "Supported enterprise data migration pipelines and improved controller-to-service error handling.",
     ],
   },
   {
@@ -83,39 +110,41 @@ export const internshipsData = [
       "AWS Lambda",
       "GitHub Actions",
       "REST APIs",
-      "JIRA",
+      "Jira",
     ],
     highlights: [
-      "Built scalable Node.js and MongoDB backend modules with clean REST API documentation.",
-      "Automated serverless deployments using AWS Lambda and GitHub Actions.",
-      "Managed Agile sprint execution and task tracking in JIRA.",
+      "Built scalable Node.js and MongoDB backend modules with documented REST APIs.",
+      "Automated serverless deployments with AWS Lambda and GitHub Actions.",
+      "Managed sprint execution and task tracking in Jira within an Agile/Scrum flow.",
     ],
   },
 ] as const;
 
-// Projects Data
 export const projectsData = [
   {
-    // Replace this image and link with your latest project screenshot/repo.
-    title: "ReportEase - Annual Report Generation Platform",
+    title: "Knowledge Nexus - Full-Stack Mentorship Platform",
     description:
-      "I built a cloud-native report generation platform on AWS EC2 and S3 with RBAC, Dockerized deployment, and GitHub Actions CI/CD.",
-    tags: ["MERN", "AWS EC2/S3", "Docker", "GitHub Actions", "SQL"],
+      "Secure mentorship platform with React, TypeScript, Spring Boot, PostgreSQL, JWT authentication, WebSocket chat, and Google OAuth/Calendar integrations.",
+    tags: ["React", "TypeScript", "Spring Boot", "PostgreSQL", "JWT", "OAuth2"],
     icons: [
       "skill-icons:react-dark",
-      "simple-icons:amazonaws",
-      "simple-icons:docker",
-      "simple-icons:githubactions",
+      "logos:typescript-icon",
+      "simple-icons:spring",
+      "simple-icons:postgresql",
     ],
     imageUrl: reportImg,
-    githubLink: "https://github.com/vishal-kesharwani/v_07",
+    githubLink: "https://github.com/vishal-kesharwani/NEXUS",
+    outcomes: [
+      "JWT and Google OAuth2 authentication",
+      "Realtime chat with WebSocket/STOMP",
+      "Google Calendar scheduling and Meet links",
+    ],
   },
   {
-    // Replace this image and link with your latest project screenshot/repo.
-    title: "AI-Based Bone Age Assessment System",
+    title: "Pediatric Bone Age Assessment",
     description:
-      "I built a three-model ensemble for X-ray age prediction with preprocessing, checkpoints, and reproducible training runs.",
-    tags: ["Python", "TensorFlow", "EfficientNet", "OpenCV", "CNN"],
+      "Deep-learning research pipeline for automated bone age estimation from X-ray images, with ensemble modeling, Grad-CAM interpretability, and reproducible experiments.",
+    tags: ["Python", "TensorFlow/Keras", "CNN Ensembles", "Grad-CAM", "Research"],
     icons: [
       "logos:python",
       "logos:tensorflow",
@@ -124,12 +153,18 @@ export const projectsData = [
     ],
     imageUrl: SocialyticsImg,
     githubLink: "",
+    paperLink:
+      "https://drive.google.com/file/d/1Dnm-DW_VXC2RYdU11xvGRA2hKdlq77Dv/view?usp=sharing",
+    outcomes: [
+      "MAE of 6.79 months",
+      "R2 of 0.951 on an 85/15 split",
+      "Conference paper with faculty supervision",
+    ],
   },
   {
-    // Replace this image and link with your latest project screenshot/repo.
-    title: "Secure Defense Framework - NGO Donation Portal",
+    title: "Secure Defense Framework - Zero Trust Donation Portal",
     description:
-      "I designed a zero-trust donation portal with authentication, RBAC, CSRF protection, audit logging, and live attack simulation checks.",
+      "Security-focused donation portal with authentication, RBAC, CSRF protection, audit logging, and attack simulation coverage for OWASP-style issues.",
     tags: ["Python", "SQLite", "RBAC", "CSRF", "Security"],
     icons: [
       "logos:python",
@@ -138,59 +173,85 @@ export const projectsData = [
       "mdi:network-outline",
     ],
     imageUrl: ArogyaImg,
-    githubLink: "",
+    githubLink: "https://github.com/vishal-kesharwani/ngo-donation-portal",
+    outcomes: [
+      "Simulated BOLA, brute-force, and route tampering attacks",
+      "Audit logging and zero-trust access patterns",
+      "Wireshark and Nmap-based network analysis",
+    ],
   },
 ] as const;
 
-// Skills Data
 export const skillGroups = [
+  {
+    title: "Backend",
+    items: [
+      { name: "Java", icon: "logos:java" },
+      { name: "Spring Boot", icon: "simple-icons:spring" },
+      { name: "Spring Security", icon: "simple-icons:springsecurity" },
+      { name: "Spring Data JPA", icon: "simple-icons:spring" },
+      { name: "Hibernate", icon: "simple-icons:hibernate" },
+      { name: "REST APIs", icon: "mdi:api" },
+      { name: "JWT", icon: "mdi:shield-key-outline" },
+      { name: "OAuth2", icon: "mdi:account-key-outline" },
+      { name: "WebSocket", icon: "mdi:message-processing-outline" },
+      { name: "Node.js", icon: "logos:nodejs-icon" },
+    ],
+  },
   {
     title: "Languages",
     items: [
       { name: "Java", icon: "logos:java" },
-      { name: "JavaScript", icon: "skill-icons:javascript" },
       { name: "Python", icon: "logos:python" },
+      { name: "JavaScript", icon: "skill-icons:javascript" },
+      { name: "TypeScript", icon: "logos:typescript-icon" },
       { name: "SQL", icon: "mdi:database-outline" },
+      { name: "C++", icon: "logos:c-plusplus" },
     ],
   },
   {
-    title: "Backend",
+    title: "Frontend",
     items: [
-      { name: "Spring Boot", icon: "simple-icons:spring" },
-      { name: "Node.js", icon: "logos:nodejs-icon" },
-      { name: "ReactJS", icon: "logos:react" },
-      { name: "Express.js", icon: "mdi:server-outline" },
+      { name: "React.js", icon: "logos:react" },
+      { name: "TypeScript", icon: "logos:typescript-icon" },
+      { name: "AngularJS", icon: "logos:angular-icon" },
+      { name: "Axios", icon: "simple-icons:axios" },
+    ],
+  },
+  {
+    title: "Databases",
+    items: [
+      { name: "PostgreSQL", icon: "logos:postgresql" },
+      { name: "MongoDB", icon: "skill-icons:mongodb" },
+      { name: "MySQL", icon: "logos:mysql" },
+      { name: "SQLite", icon: "logos:sqlite" },
     ],
   },
   {
     title: "Cloud / DevOps",
     items: [
       { name: "AWS", icon: "simple-icons:amazonaws" },
-      { name: "EC2", icon: "mdi:cloud-outline" },
+      { name: "EC2", icon: "mdi:server-outline" },
       { name: "S3", icon: "mdi:bucket-outline" },
       { name: "Lambda", icon: "simple-icons:awslambda" },
       { name: "Docker", icon: "simple-icons:docker" },
-      { name: "Kubernetes", icon: "simple-icons:kubernetes" },
       { name: "GitHub Actions", icon: "simple-icons:githubactions" },
       { name: "Jenkins", icon: "simple-icons:jenkins" },
+      { name: "CI/CD", icon: "mdi:pipe" },
     ],
   },
   {
-    title: "Data / DB",
+    title: "AI / CS / Tools",
     items: [
-      { name: "PostgreSQL", icon: "logos:postgresql" },
-      { name: "MySQL", icon: "logos:mysql" },
-      { name: "MongoDB", icon: "skill-icons:mongodb" },
-    ],
-  },
-  {
-    title: "Tools & AI",
-    items: [
+      { name: "TensorFlow", icon: "logos:tensorflow" },
+      { name: "Keras", icon: "simple-icons:keras" },
+      { name: "Grad-CAM", icon: "mdi:heat-pump-outline" },
+      { name: "JUnit", icon: "simple-icons:junit5" },
+      { name: "Mockito", icon: "simple-icons:mockito" },
+      { name: "Selenium", icon: "simple-icons:selenium" },
       { name: "Git", icon: "logos:git-icon" },
-      { name: "JIRA", icon: "logos:jira" },
-      { name: "Office.js", icon: "mdi:microsoft-office" },
-      { name: "3DEXPERIENCE PLM", icon: "mdi:cube-outline" },
-      { name: "AWS CLF-C02", icon: "mdi:certificate-outline" },
+      { name: "Jira", icon: "logos:jira" },
+      { name: "Postman", icon: "simple-icons:postman" },
     ],
   },
 ] as const;

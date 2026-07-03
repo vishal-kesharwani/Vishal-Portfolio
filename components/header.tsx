@@ -25,7 +25,7 @@ export default function Header() {
   return (
     <header className="z-[999] relative">
       <motion.div
-        className="fixed left-1/2 top-3 h-[4.65rem] w-[min(94vw,72rem)] -translate-x-1/2 rounded-[1.6rem] border border-white/60 bg-white/80 shadow-[0_18px_70px_-30px_rgba(15,23,42,0.3)] backdrop-blur-2xl sm:top-5 sm:h-[4.45rem] dark:border-white/10 dark:bg-slate-950/75"
+        className="fixed left-1/2 top-3 h-[4.65rem] w-[min(94vw,72rem)] -translate-x-1/2 rounded-[1.6rem] border border-white/60 bg-white/82 shadow-[0_18px_70px_-30px_rgba(15,23,42,0.22)] backdrop-blur-2xl sm:top-5 sm:h-[4.45rem] dark:border-white/10 dark:bg-slate-950/78"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>
@@ -41,7 +41,7 @@ export default function Header() {
           transition={{ type: "spring", stiffness: 360, damping: 34 }}
           className="hidden shrink-0 items-center gap-2 overflow-hidden rounded-full border border-black/5 bg-white/88 py-2 text-sm font-semibold text-gray-900 shadow-[0_10px_24px_-16px_rgba(15,23,42,0.35)] backdrop-blur sm:flex dark:border-white/10 dark:bg-white/10 dark:text-white dark:shadow-[0_10px_24px_-16px_rgba(0,0,0,0.65)]"
         >
-          <span className="h-2.5 w-2.5 rounded-full bg-teal-400" />
+              <span className="h-2.5 w-2.5 rounded-full bg-teal-400" />
           <AnimatePresence mode="wait" initial={false}>
             {isCompact ? (
               <motion.span
@@ -54,18 +54,18 @@ export default function Header() {
               >
                 VK
               </motion.span>
-            ) : (
-              <motion.span
-                key="brand-full"
+              ) : (
+                <motion.span
+                  key="brand-full"
                 initial={{ opacity: 0, x: -10, scale: 0.96 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 10, scale: 0.96 }}
-                transition={{ duration: 0.22, ease: "easeOut" }}
-                className="whitespace-nowrap text-[0.95rem] font-semibold tracking-tight text-gray-950 dark:text-white"
-              >
-                Vishal Kesharwani
-              </motion.span>
-            )}
+                  transition={{ duration: 0.22, ease: "easeOut" }}
+                  className="whitespace-nowrap text-[0.95rem] font-semibold tracking-tight text-gray-950 dark:text-white"
+                >
+                  Vishal Kesharwani
+                </motion.span>
+              )}
           </AnimatePresence>
         </motion.div>
 

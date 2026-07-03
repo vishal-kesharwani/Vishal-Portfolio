@@ -12,9 +12,9 @@ export default function Projects() {
   return (
     <section ref={ref} id="projects" className="scroll-mt-28 mb-28">
       <SectionHeading>My projects</SectionHeading>
-      <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
-        These are the projects I lean on in my resume to show backend logic,
-        cloud deployment, AI work, and security-focused problem solving.
+      <p className="mx-auto mb-10 max-w-3xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
+        These are the projects that best reflect the resume: secure full-stack
+        delivery, research-heavy AI work, and security-first product thinking.
       </p>
       <div>
         {projectsData.map((project, index) => (

@@ -33,7 +33,7 @@ export default function Skills() {
       <SectionHeading>Skills</SectionHeading>
       <p className="mx-auto mb-10 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
         I keep this stack focused on the tools I use most for backend work,
-        cloud deployment, and shipping production-ready features.
+        cloud delivery, AI research, and shipping production-ready features.
       </p>
       <div className="grid gap-5 md:grid-cols-2">
         {skillGroups.map((group, groupIndex) => (

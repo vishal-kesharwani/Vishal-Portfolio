@@ -26,17 +26,17 @@ export default function Contact() {
           <div className="space-y-5">
             <div className="inline-flex items-center gap-2 rounded-full border border-teal-500/15 bg-teal-500/10 px-4 py-2 text-sm font-medium text-teal-700 dark:text-teal-200">
               <FaEnvelope />
-              Open for opportunities
+              Open for backend opportunities
             </div>
 
             <h3 className="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-3xl">
-              Let&apos;s build something useful.
+              Let&apos;s talk about backend, cloud, or research work.
             </h3>
 
             <p className="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
-              For backend, cloud, DevOps, internship opportunities, project
-              collaborations, freelance work, or a quick hello, send a message
-              and I&apos;ll reply from my inbox at{" "}
+              For internship opportunities, backend roles, cloud work, project
+              collaborations, or a quick hello, send a message and I&apos;ll
+              reply from my inbox at{" "}
               <span className="font-semibold">vishalkes1378@gmail.com</span>.
             </p>
 

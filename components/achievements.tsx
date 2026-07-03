@@ -21,9 +21,9 @@ export default function Experience() {
     >
       <SectionHeading>My Achievements</SectionHeading>
       <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
-        These are the outcomes I mention when I want to show how I solve
-        problems, ship under pressure, and keep improving across backend and
-        cloud systems.
+        These are the outcomes I mention when I want to show consistency,
+        execution, and the ability to work across backend, cloud, research,
+        and competitive problem solving.
       </p>
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

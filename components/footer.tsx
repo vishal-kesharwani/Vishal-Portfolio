@@ -31,8 +31,8 @@ export default function Footer() {
         Vishal Kesharwani
       </p>
       <p className="mx-auto max-w-xl leading-6 text-slate-600 dark:text-slate-400">
-        Backend-first portfolio with cloud, DevOps, and product-focused
-        projects.
+        Backend-first portfolio shaped around Java, Spring Boot, AWS, and
+        resume-aligned project work.
       </p>
 
       <div className="mt-5 flex flex-wrap justify-center gap-2">
