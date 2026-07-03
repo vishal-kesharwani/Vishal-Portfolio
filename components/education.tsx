@@ -5,6 +5,8 @@ import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import MITLogo from "@/public/MIT-logo.png";
+import bnnLogo from "@/public/bnn-college-logo.png";
+import doaLogo from "@/public/doa-school-logo.jpg";
 import Image from "next/image";
 
 const educationItems = [
@@ -18,6 +20,22 @@ const educationItems = [
       "Consistent problem solving through DSA practice",
     ],
     logo: MITLogo,
+  },
+  {
+    title: "Higher Secondary (12th)",
+    institution: "B.N.N. College, Bhiwandi",
+    period: "2022",
+    metric: "Percentage: 71%",
+    points: ["MSBSHSE Board", "Science Stream"],
+    logo: bnnLogo,
+  },
+  {
+    title: "Secondary School (10th)",
+    institution: "Dr. Omprakash Agarwal English High School, Bhiwandi",
+    period: "2020",
+    metric: "Percentage: 85.20%",
+    points: ["MSBSHSE Board", "State Topper in Mathematics"],
+    logo: doaLogo,
   },
 ] as const;
 
