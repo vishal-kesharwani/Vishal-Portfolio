@@ -81,7 +81,7 @@ export default function About() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="/Vishal_Kesharwani_Resume.pdf"
+                href="/resume"
                 download
                 className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5"
               >

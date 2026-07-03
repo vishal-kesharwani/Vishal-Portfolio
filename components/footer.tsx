@@ -14,7 +14,7 @@ const footerLinks = [
   },
   {
     label: "Resume",
-    href: "/Vishal_Kesharwani_Resume.pdf",
+    href: "/resume",
     icon: FaFilePdf,
   },
   {

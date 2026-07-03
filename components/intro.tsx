@@ -74,7 +74,7 @@ export default function Intro() {
                 Contact Me
               </a>
               <a
-                href="/Vishal_Kesharwani_Resume.pdf"
+                href="/resume"
                 download
                 className="inline-flex items-center gap-2 rounded-full border border-amber-500/15 bg-amber-500/10 px-5 py-2.5 text-sm font-semibold text-amber-800 transition hover:-translate-y-0.5 hover:bg-amber-500/15 dark:text-amber-100"
               >
