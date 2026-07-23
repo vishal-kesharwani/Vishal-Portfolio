@@ -9,6 +9,7 @@ import { FiArrowRight, FiDownload } from "react-icons/fi";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import githubdp from "@/public/githubdp.jpg";
+import DeployPipeline from "./deploy-pipeline";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -36,7 +37,7 @@ export default function Intro() {
                 Backend engineering focus
               </span>
               <span className="rounded-full border border-black/5 bg-white/90 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-700 dark:border-white/10 dark:bg-white/10 dark:text-slate-100">
-                Java, Spring Boot, AWS
+                Java, Spring Boot, Kafka, Kubernetes
               </span>
             </div>
 
@@ -45,7 +46,8 @@ export default function Intro() {
                 Vishal Kesharwani
               </p>
               <p className="max-w-2xl text-[13px] font-medium leading-6 text-slate-600 dark:text-slate-300 sm:text-sm">
-                Backend Developer | MIT AOE '26 | Java, Spring Boot, PostgreSQL, AWS
+                Backend Developer | MIT AOE &apos;26 | Java, Spring Boot, Kafka,
+                Kubernetes, AWS
               </p>
               <h1 className="max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-slate-950 dark:text-white sm:text-4xl lg:text-5xl">
                 I want to build backend platforms that are reliable, scalable,
@@ -54,9 +56,9 @@ export default function Intro() {
               <p className="max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
                 I&apos;m a Computer Engineering student at MIT Academy of Engineering
                 with internship experience in Java backend development and cloud
-                engineering. My long-term goal is to grow into a backend
-                engineer who can design APIs, ship cloud-ready services, and own
-                the quality of the whole delivery path.
+                engineering. I build event-driven services on Kafka, run them on
+                Kubernetes with real observability, and want to own the quality
+                of the whole delivery path.
               </p>
             </div>
 
@@ -130,24 +132,7 @@ export default function Intro() {
                     To grow into a backend engineer building dependable APIs,
                     cloud-native services, and systems teams can rely on.
                   </p>
-                  <div className="mt-4 grid grid-cols-2 gap-2 text-center">
-                    <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
-                      <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400">
-                        Focus
-                      </p>
-                      <p className="mt-1 text-sm font-semibold text-white">
-                        APIs + architecture
-                      </p>
-                    </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
-                      <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400">
-                        Direction
-                      </p>
-                      <p className="mt-1 text-sm font-semibold text-white">
-                        Cloud-ready delivery
-                      </p>
-                    </div>
-                  </div>
+                  <DeployPipeline />
                 </div>
               </div>
             </div>

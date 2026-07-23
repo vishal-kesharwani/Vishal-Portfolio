@@ -39,11 +39,12 @@ export default function About() {
           </h3>
 
           <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
-            My resume centers on Java backend engineering, Spring Boot, Spring
-            Security, PostgreSQL, AWS, Docker, and the engineering habits that
-            make shipping feel dependable. I care about the boring but
-            important details: clean service boundaries, debounced workflows,
-            documented APIs, and cloud deployments that can be repeated.
+            My resume centers on Java backend engineering: Spring Boot, Spring
+            Security, PostgreSQL, and event-driven services on Kafka, shipped to
+            Kubernetes through Docker, ArgoCD, and Terraform. I care about the
+            boring but important details: clean service boundaries, debounced
+            workflows, documented APIs, real observability, and deployments that
+            can be repeated without surprises.
           </p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -104,8 +105,8 @@ export default function About() {
                 Current focus
               </p>
               <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-200">
-                Java backend systems, secure APIs, ETL optimization, and cloud
-                delivery on AWS.
+                Java backend systems, secure APIs, event-driven microservices,
+                and cloud-native delivery on AWS and Kubernetes.
               </p>
             </div>
             <div className="rounded-[1.6rem] border border-black/5 bg-white/85 p-5 backdrop-blur dark:border-white/10 dark:bg-slate-900/75">
@@ -113,8 +114,8 @@ export default function About() {
                 Looking for
               </p>
               <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-200">
-                Backend or platform engineering roles where strong fundamentals
-                and shipping discipline matter.
+                Backend engineering roles in distributed systems and
+                cloud-native platforms.
               </p>
             </div>
           </div>
