@@ -20,7 +20,7 @@ export default function Internships() {
       transition={{ duration: 0.7 }}
       viewport={{ once: true }}
     >
-      <SectionHeading>Internships</SectionHeading>
+      <SectionHeading kicker="Where I have worked">Internships</SectionHeading>
       <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
         Hands-on industry experience in Java backend engineering, cloud
         automation, ETL optimization, and platform-level delivery.

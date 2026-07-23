@@ -52,7 +52,7 @@ export default function Education() {
       transition={{ duration: 0.7 }}
       viewport={{ once: true }}
     >
-      <SectionHeading>My Education</SectionHeading>
+      <SectionHeading kicker="Academic base">My Education</SectionHeading>
       <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-gray-600 dark:text-white/70 sm:text-base">
         My academic base gives me the fundamentals I rely on while building
         backend systems, cloud workflows, and deployment-ready products.

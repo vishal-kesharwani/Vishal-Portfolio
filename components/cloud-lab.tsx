@@ -255,7 +255,7 @@ export default function CloudLab() {
       transition={{ duration: 0.7 }}
       viewport={{ once: true }}
     >
-      <SectionHeading>Cloud Lab</SectionHeading>
+      <SectionHeading kicker="Try it yourself">Cloud Lab</SectionHeading>
 
       <div className="relative overflow-hidden rounded-[1.75rem] border border-black/5 bg-white/88 p-4 shadow-[0_24px_90px_-40px_rgba(15,23,42,0.35)] backdrop-blur dark:border-white/10 dark:bg-slate-900/72 dark:shadow-[0_24px_90px_-40px_rgba(0,0,0,0.7)] sm:rounded-[2rem] sm:p-6 lg:p-8">
         <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-amber-500/60 to-transparent dark:via-teal-300/60" />

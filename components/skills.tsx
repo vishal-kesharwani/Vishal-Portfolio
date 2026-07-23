@@ -76,7 +76,7 @@ export default function Skills() {
       ref={ref}
       className="mb-28 w-full max-w-[58rem] scroll-mt-28 text-slate-900 dark:text-slate-100 sm:mb-40"
     >
-      <SectionHeading>Skills</SectionHeading>
+      <SectionHeading kicker="What I work with">Skills</SectionHeading>
 
       <p className="mx-auto mb-8 max-w-2xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
         Search it, filter it, or jump straight to the core stack. This is the

@@ -17,11 +17,11 @@ export default function Home() {
         <About />
         <SectionDivider />
         <Projects />
+        <CloudLab />
         <Skills />
         <Internships />
         <Achievements />
         <Education />
-        <CloudLab />
         <Contact />
       </div>
     </main>

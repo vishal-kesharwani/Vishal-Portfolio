@@ -10,6 +10,7 @@ import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import githubdp from "@/public/githubdp.jpg";
 import DeployPipeline from "./deploy-pipeline";
+import Highlight from "./highlight";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -49,16 +50,22 @@ export default function Intro() {
                 Backend Developer | MIT AOE &apos;26 | Java, Spring Boot, Kafka,
                 Kubernetes, AWS
               </p>
-              <h1 className="max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-slate-950 dark:text-white sm:text-4xl lg:text-5xl">
-                I want to build backend platforms that are reliable, scalable,
-                and worth trusting in production.
+              <h1 className="max-w-2xl text-3xl font-semibold leading-[1.25] tracking-tight text-slate-950 dark:text-white sm:text-4xl lg:text-5xl">
+                I build <Highlight>backend platforms</Highlight> that are{" "}
+                <Highlight>reliable</Highlight>,{" "}
+                <Highlight>scalable</Highlight>, and worth trusting in
+                production.
               </h1>
               <p className="max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
-                I&apos;m a Computer Engineering student at MIT Academy of Engineering
-                with internship experience in Java backend development and cloud
-                engineering. I build event-driven services on Kafka, run them on
-                Kubernetes with real observability, and want to own the quality
-                of the whole delivery path.
+                I&apos;m a Computer Engineering student at MIT Academy of
+                Engineering with internship experience in{" "}
+                <Highlight variant="text">Java backend development</Highlight>{" "}
+                and cloud engineering. I build{" "}
+                <Highlight variant="text">event-driven services</Highlight> on
+                Kafka, run them on{" "}
+                <Highlight variant="text">Kubernetes</Highlight> with real
+                observability, and want to own the quality of the whole delivery
+                path.
               </p>
             </div>
 

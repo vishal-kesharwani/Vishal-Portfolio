@@ -19,7 +19,7 @@ export default function Experience() {
       transition={{ duration: 0.7 }}
       viewport={{ once: true }}
     >
-      <SectionHeading>My Achievements</SectionHeading>
+      <SectionHeading kicker="Recognition">My Achievements</SectionHeading>
       <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
         These are the outcomes I mention when I want to show consistency,
         execution, and the ability to work across backend, cloud, research,

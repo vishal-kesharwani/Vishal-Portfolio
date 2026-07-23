@@ -3,6 +3,7 @@ import Footer from "@/components/footer";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
+import ScrollProgress from "@/components/scroll-progress";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
@@ -13,14 +14,14 @@ export const metadata = {
     template: "%s | Vishal Kesharwani",
   },
   description:
-    "Resume-aligned portfolio of Vishal Kesharwani, a backend developer focused on Java, Spring Boot, PostgreSQL, AWS, Docker, and secure full-stack delivery.",
+    "Resume-aligned portfolio of Vishal Kesharwani, a Java backend engineer building event-driven microservices with Spring Boot, Kafka, Kubernetes, ArgoCD, and AWS.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Vishal Kesharwani | Backend Developer",
     description:
-      "Backend, cloud, research, and internship experience from Vishal Kesharwani.",
+      "Event-driven microservices, cloud-native delivery, research, and internship experience from Vishal Kesharwani.",
     url: "https://vishalkesharwani.in",
     siteName: "Vishal Kesharwani Portfolio",
     locale: "en_IN",
@@ -41,6 +42,7 @@ export default function RootLayout({
       <body className="relative bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90">
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
+            <ScrollProgress />
             <Header />
             {children}
             <Footer />

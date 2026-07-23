@@ -19,7 +19,7 @@ export default function Contact() {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <SectionHeading>Contact me</SectionHeading>
+      <SectionHeading kicker="Get in touch">Contact me</SectionHeading>
 
       <div className="rounded-[2rem] border border-black/5 bg-white/85 p-6 shadow-[0_20px_80px_-35px_rgba(15,23,42,0.35)] backdrop-blur dark:border-white/10 dark:bg-slate-900/70 sm:p-8">
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">

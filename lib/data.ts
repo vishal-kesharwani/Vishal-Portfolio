@@ -5,11 +5,13 @@ import SocialyticsImg from "@/public/socialytics.png";
 import reportImg from "@/public/reportease.png";
 import jobTrackerImg from "@/public/jobtracker.png";
 
+// Order must match the section order in app/page.tsx so the nav and the
+// scroll-spy highlight stay in sync.
 export const links = [
   { name: "Home", hash: "#home" },
   { name: "About", hash: "#about" },
-  { name: "Cloud Lab", hash: "#cloud-lab" },
   { name: "Projects", hash: "#projects" },
+  { name: "Cloud Lab", hash: "#cloud-lab" },
   { name: "Skills", hash: "#skills" },
   { name: "Internships", hash: "#internships" },
   { name: "Achievements", hash: "#achievements" },
