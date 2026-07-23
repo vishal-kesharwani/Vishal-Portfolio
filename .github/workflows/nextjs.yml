@@ -4,11 +4,12 @@
 #
 name: Deploy Next.js site to Pages
 
+# Disabled on push: "Deploy portfolio" (deploy.yml) is the workflow that ships
+# this site. Two workflows sharing the "pages" concurrency group raced each
+# other, and deploy.yml cancels in-progress runs. This one also sets
+# static_site_generator: next, which injects a basePath that breaks asset URLs
+# on the custom domain. Kept for manual runs only.
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
