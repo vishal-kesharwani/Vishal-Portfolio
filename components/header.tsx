@@ -25,7 +25,7 @@ export default function Header() {
   return (
     <header className="z-[999] relative">
       <motion.div
-        className="fixed left-1/2 top-3 h-[4.65rem] w-[min(94vw,72rem)] -translate-x-1/2 rounded-[1.6rem] border border-white/60 bg-white/82 shadow-[0_18px_70px_-30px_rgba(15,23,42,0.22)] backdrop-blur-2xl sm:top-5 sm:h-[4.45rem] dark:border-white/10 dark:bg-slate-950/78"
+        className="liquid-glass fixed left-1/2 top-3 h-[4.65rem] w-[min(94vw,72rem)] -translate-x-1/2 rounded-[1.6rem] border border-white/60 bg-white/72 shadow-[0_18px_70px_-30px_rgba(15,23,42,0.22)] sm:top-5 sm:h-[4.45rem] dark:border-white/10 dark:bg-slate-950/65"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>

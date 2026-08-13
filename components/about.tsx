@@ -3,11 +3,10 @@
 import React from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
-import { FiArrowRight, FiDownload } from "react-icons/fi";
 import { useSectionInView } from "@/lib/hooks";
-import { focusPoints, resumeHighlights } from "@/lib/data";
-import StatValue from "./stat-value";
+import { focusPoints } from "@/lib/data";
 import Highlight from "./highlight";
+import BentoSnapshot from "./bento-snapshot";
 
 export default function About() {
   const { ref } = useSectionInView("About");
@@ -31,7 +30,7 @@ export default function About() {
               Backend-first
             </span>
             <span className="rounded-full border border-black/5 bg-gray-100 px-3 py-1 text-xs font-medium text-slate-600 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
-              Product-minded
+              Infra-minded
             </span>
           </div>
 
@@ -47,10 +46,12 @@ export default function About() {
             Spring Boot, Spring Security, PostgreSQL, and{" "}
             <Highlight variant="text">event-driven services on Kafka</Highlight>,
             shipped to <Highlight variant="text">Kubernetes</Highlight> through
-            Docker, ArgoCD, and Terraform. I care about the boring but important
-            details: clean service boundaries, debounced workflows, documented
-            APIs, real observability, and deployments that can be repeated
-            without surprises.
+            Docker, ArgoCD, and{" "}
+            <Highlight variant="text">Terraform</Highlight>, with AWS resource
+            management automated in Python and boto3. I care about the boring
+            but important details: clean service boundaries, debounced
+            workflows, documented APIs, real observability, and deployments
+            that can be repeated without surprises.
           </p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -66,55 +67,7 @@ export default function About() {
         </div>
 
         <div className="space-y-6">
-          <div className="rounded-[2rem] border border-black/5 bg-slate-950 p-6 text-white shadow-[0_24px_90px_-45px_rgba(2,6,23,0.9)] dark:border-white/10">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-200">
-              Resume snapshot
-            </p>
-            <h4 className="mt-3 text-2xl font-semibold tracking-tight">
-              A compact view of the work I want to keep doing.
-            </h4>
-
-            <dl className="mt-5 grid grid-cols-2 gap-3">
-              {resumeHighlights.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-3.5 sm:p-4"
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08, duration: 0.45 }}
-                >
-                  <dt className="text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-200">
-                    {item.label}
-                  </dt>
-                  <dd className="mt-1.5 bg-gradient-to-r from-white via-white to-amber-200 bg-clip-text text-2xl font-semibold text-transparent sm:text-[1.75rem]">
-                    <StatValue value={item.value} />
-                  </dd>
-                  <dd className="mt-1.5 text-xs leading-5 text-slate-400">
-                    {item.detail}
-                  </dd>
-                </motion.div>
-              ))}
-            </dl>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="/Vishal_Kesharwani_Resume.pdf"
-                download="Vishal_Kesharwani_Resume.pdf"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5"
-              >
-                Download Resume <FiDownload />
-              </a>
-              <a
-                href="https://www.credly.com/badges/f3558204-39b1-43f0-8caa-813873989955/public_url"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
-              >
-                Credly Badge <FiArrowRight />
-              </a>
-            </div>
-          </div>
+          <BentoSnapshot />
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-[1.6rem] border border-black/5 bg-white/85 p-5 backdrop-blur dark:border-white/10 dark:bg-slate-900/75">
@@ -131,7 +84,7 @@ export default function About() {
                 Looking for
               </p>
               <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-200">
-                Backend engineering roles in distributed systems and
+                Backend / DevOps engineering roles in distributed systems and
                 cloud-native platforms.
               </p>
             </div>

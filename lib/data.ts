@@ -1,9 +1,9 @@
 import React from "react";
 import { BiSolidCaretUpCircle } from "react-icons/bi";
-import ArogyaImg from "@/public/arogya.png";
-import SocialyticsImg from "@/public/socialytics.png";
 import reportImg from "@/public/reportease.png";
 import jobTrackerImg from "@/public/jobtracker.png";
+import sevaImg from "@/public/seva-mahila-udyog.png";
+import cloudlensImg from "@/public/cloudlens-ai.png";
 
 // Order must match the section order in app/page.tsx so the nav and the
 // scroll-spy highlight stay in sync.
@@ -43,12 +43,12 @@ export const resumeHighlights = [
 ] as const;
 
 export const focusPoints = [
-  "Java backend development",
-  "Spring Boot, Spring Security, and Spring Data JPA",
+  "Java backend development with Spring Boot and Spring Security",
   "Event-driven systems with Apache Kafka",
   "Kubernetes, ArgoCD, Terraform, and CI/CD",
-  "Observability with Prometheus, Grafana, and OpenTelemetry",
-  "React, TypeScript, and full-stack delivery",
+  "Infrastructure automation with Python and boto3",
+  "Observability with Prometheus and Grafana",
+  "Owning a system end to end, from API to production monitoring",
 ] as const;
 
 export const experiencesData = [
@@ -91,18 +91,16 @@ export const internshipsData = [
     techStack: [
       "Java",
       "Spring Boot",
+      "Spring MVC",
       "Spring Security",
-      "Angular",
-      "ETL",
-      "gRPC",
       "PostgreSQL",
       "Gradle",
     ],
     highlights: [
-      "Designed 15+ production-grade REST APIs with secure endpoint access via Spring Security, managing builds and dependencies with Gradle.",
-      "Optimized ETL validation with debouncing logic that cut redundant database lookups by 50%, plus a real-time SQL table extractor driven by live DB metadata.",
-      "Managed a modular extract-transform-load pipeline on a master-slave node architecture with gRPC-based inter-node communication.",
-      "Maintained and fixed bugs across 10+ modular service-layer components following SOLID and Clean Architecture, and reviewed merge requests.",
+      "Designed 15+ production-grade REST APIs using Java, Spring MVC, and PostgreSQL for large-scale enterprise applications, secured via Spring Security, managing builds with Gradle.",
+      "Optimized ETL validation with debouncing logic that cut redundant database lookups by 50%, plus a real-time SQL table extractor auto-suggesting table names from live DB metadata.",
+      "Maintained and fixed bugs across 10+ modular service-layer components, reviewed merge requests, and contributed to enterprise data migration pipelines.",
+      "Built an ARAS-to-email bridge as a side project, integrating with the ARAS PLM platform to route and deliver item data through automated email notifications.",
     ],
   },
   {
@@ -110,46 +108,59 @@ export const internshipsData = [
     role: "Cloud & DevOps Intern",
     duration: "Jun 2025 - Aug 2025",
     status: "Completed",
-    techStack: [
-      "Node.js",
-      "MongoDB",
-      "AWS Lambda",
-      "GitHub Actions",
-      "REST APIs",
-      "Jira",
-    ],
+    techStack: ["Node.js", "MongoDB", "AWS Lambda", "GitHub Actions", "REST APIs"],
     highlights: [
-      "Built scalable Node.js and MongoDB backend modules with documented REST APIs.",
-      "Automated serverless deployments with AWS Lambda and GitHub Actions, cutting manual release effort by an estimated 30%.",
-      "Managed sprint execution and task tracking in Jira within an Agile/Scrum flow.",
+      "Automated serverless deployments via AWS Lambda and GitHub Actions in a real production workflow, cutting manual release effort by an estimated 30%.",
+      "Built scalable Node.js and MongoDB backend modules and documented REST APIs for frontend-backend integration.",
     ],
   },
 ] as const;
 
 export const projectsData = [
   {
+    title: "Seva Mahila Udyog - Food Business Management App",
+    description:
+      "Full-stack order-management platform live in production for a home-food business: live payments, order lifecycle, and admin operations across 13 domain modules.",
+    tags: ["REST APIs", "JWT", "bcrypt", "OTP", "Rate Limiting", "2FA"],
+    icons: [
+      "mdi:api",
+      "mdi:shield-key-outline",
+      "mdi:lock-outline",
+      "mdi:cellphone-key",
+      "mdi:credit-card-outline",
+    ],
+    imageUrl: sevaImg,
+    githubLink: "",
+    liveLabel: "Live in production",
+    outcomes: [
+      "60+ customers, 45+ REST endpoints across 13 domain modules",
+      "Stateless auth with JWT and bcrypt-hashed, expiring OTPs",
+      "Rate limiting and two-factor admin authentication",
+      "Found and fixed a critical payment-integrity bug via server-side validation",
+    ],
+  },
+  {
     title: "Cloud-Native Job Application Tracker",
     description:
-      "Event-driven observability platform built from three independent Spring Boot microservices that communicate only through Kafka events, deployed to Kubernetes through ArgoCD GitOps with a full Grafana LGTM observability stack.",
+      "Event-driven microservices platform: three independent Spring Boot services that communicate exclusively through Kafka, deployed to Kubernetes with Terraform-provisioned EKS infrastructure and ArgoCD GitOps delivery.",
     tags: [
-      "Java 21",
+      "Java",
       "Spring Boot",
       "Apache Kafka",
       "Kubernetes",
-      "ArgoCD",
       "Terraform",
+      "ArgoCD",
+      "Flyway",
       "Prometheus",
       "Grafana",
-      "Redis",
-      "PostgreSQL",
     ],
     icons: [
       "logos:java",
       "simple-icons:spring",
       "logos:kafka-icon",
       "logos:kubernetes",
-      "logos:argo-icon",
       "logos:terraform-icon",
+      "logos:argo-icon",
       "logos:prometheus",
       "logos:grafana",
     ],
@@ -157,20 +168,20 @@ export const projectsData = [
     githubLink: "https://github.com/vishal-kesharwani/JOB-APPLICATION-TRACKER",
     outcomes: [
       "Three services, zero direct service-to-service calls",
-      "Redis read-model rebuildable by replaying the event log",
-      "Prometheus, Loki, and Tempo traces via OpenTelemetry",
-      "ArgoCD GitOps reconciliation with Terraform IaC for EKS",
+      "Self-healing under pod failure, verified autoscaling under load",
+      "Terraform-provisioned EKS with ArgoCD GitOps reconciliation",
+      "JWT-secured inter-service calls, schema evolution via Flyway",
     ],
   },
   {
     title: "Knowledge Nexus - Full-Stack Mentorship Platform",
     description:
-      "Secure mentorship platform with React, TypeScript, Spring Boot, PostgreSQL, JWT authentication, WebSocket chat, a Kafka-based notification pipeline, and Google OAuth/Calendar integrations.",
+      "Full-stack mentorship platform with JWT/OAuth2 authentication, mentor discovery, session booking, real-time chat, and a Kafka-based notification pipeline that keeps the booking flow responsive under load.",
     tags: [
       "React",
       "TypeScript",
       "Spring Boot",
-      "PostgreSQL",
+      "Spring Data JPA",
       "Kafka",
       "Docker",
       "JWT",
@@ -180,7 +191,6 @@ export const projectsData = [
       "skill-icons:react-dark",
       "logos:typescript-icon",
       "simple-icons:spring",
-      "simple-icons:postgresql",
       "logos:kafka-icon",
       "logos:docker-icon",
     ],
@@ -188,68 +198,48 @@ export const projectsData = [
     githubLink: "https://github.com/vishal-kesharwani/NEXUS",
     outcomes: [
       "JWT and Google OAuth2 authentication",
-      "Realtime chat with WebSocket/STOMP",
-      "Kafka-decoupled notification lifecycle",
-      "Google Calendar scheduling and Meet links",
+      "Realtime chat with WebSocket",
+      "Kafka-decoupled notifications keep booking responsive under load",
+      "Automated Google Calendar scheduling, containerized via Docker Compose",
     ],
   },
   {
-    title: "Pediatric Bone Age Assessment",
+    title: "CloudLens-AI - Terraform Review & Billing Suggestion Platform",
     description:
-      "Deep-learning research pipeline for automated bone age estimation from X-ray images, with ensemble modeling, Grad-CAM interpretability, and reproducible experiments.",
-    tags: ["Python", "TensorFlow/Keras", "CNN Ensembles", "Grad-CAM", "Research"],
+      "Backend owned end-to-end for a platform that reviews AWS Terraform infrastructure and surfaces billing and cost-optimization suggestions, with database models managed through Alembic migrations.",
+    tags: ["Python", "Terraform", "AWS", "Alembic", "REST APIs"],
     icons: [
       "logos:python",
-      "logos:tensorflow",
-      "simple-icons:opencv",
-      "mdi:brain",
+      "logos:terraform-icon",
+      "simple-icons:amazonaws",
+      "mdi:database-sync-outline",
+      "mdi:api",
     ],
-    imageUrl: SocialyticsImg,
-    githubLink: "",
-    paperLink:
-      "https://drive.google.com/file/d/1Dnm-DW_VXC2RYdU11xvGRA2hKdlq77Dv/view?usp=sharing",
+    imageUrl: cloudlensImg,
+    githubLink: "https://github.com/vidya-bingi-26/cloudlens-ai",
     outcomes: [
-      "MAE of 6.79 months",
-      "R2 of 0.951 on an 85/15 split",
-      "Conference paper with faculty supervision",
-    ],
-  },
-  {
-    title: "Secure Defense Framework - Zero Trust Donation Portal",
-    description:
-      "Security-focused donation portal with authentication, RBAC, CSRF protection, audit logging, and attack simulation coverage for OWASP-style issues.",
-    tags: ["Python", "SQLite", "RBAC", "CSRF", "Security"],
-    icons: [
-      "logos:python",
-      "mdi:shield-lock-outline",
-      "mdi:bug-outline",
-      "mdi:network-outline",
-    ],
-    imageUrl: ArogyaImg,
-    githubLink: "https://github.com/vishal-kesharwani/ngo-donation-portal",
-    outcomes: [
-      "Simulated BOLA, brute-force, and route tampering attacks",
-      "Audit logging and zero-trust access patterns",
-      "Wireshark and Nmap-based network analysis",
+      "6 core backend modules: parser, pipeline, pricing, reviewer, rules, schemas",
+      "Reviews Terraform configs and surfaces pricing suggestions",
+      "Database models and schema migrations managed with Alembic",
     ],
   },
 ] as const;
 
 export const skillGroups = [
   {
-    title: "Backend",
+    title: "Backend & Security",
     blurb: "Where most of my day goes: services, APIs, and auth.",
     accent: "amber",
     items: [
       { name: "Java", icon: "logos:java", core: true },
       { name: "Spring Boot", icon: "simple-icons:spring", core: true },
+      { name: "Spring MVC", icon: "simple-icons:spring" },
       { name: "Spring Security", icon: "simple-icons:springsecurity", core: true },
       { name: "Spring Data JPA", icon: "simple-icons:spring" },
-      { name: "Hibernate", icon: "simple-icons:hibernate" },
       { name: "REST APIs", icon: "mdi:api", core: true },
-      { name: "gRPC", icon: "logos:grpc" },
       { name: "JWT", icon: "mdi:shield-key-outline" },
       { name: "OAuth2", icon: "mdi:account-key-outline" },
+      { name: "Flyway", icon: "mdi:database-sync-outline", core: true },
       { name: "WebSocket", icon: "mdi:message-processing-outline" },
       { name: "Node.js", icon: "logos:nodejs-icon" },
     ],
@@ -260,7 +250,7 @@ export const skillGroups = [
     accent: "slate",
     items: [
       { name: "Java", icon: "logos:java", core: true },
-      { name: "Python", icon: "logos:python" },
+      { name: "Python", icon: "logos:python", core: true },
       { name: "SQL", icon: "mdi:database-outline" },
       { name: "JavaScript", icon: "skill-icons:javascript" },
       { name: "TypeScript", icon: "logos:typescript-icon" },
@@ -268,14 +258,12 @@ export const skillGroups = [
     ],
   },
   {
-    title: "Messaging & Caching",
-    blurb: "Event-driven plumbing behind my microservice work.",
+    title: "Event-Driven Systems",
+    blurb: "The messaging layer behind my microservice work.",
     accent: "orange",
     items: [
       { name: "Apache Kafka", icon: "logos:kafka-icon", core: true },
-      { name: "Redis", icon: "logos:redis" },
       { name: "Event-driven design", icon: "mdi:transit-connection-variant", core: true },
-      { name: "Read models", icon: "mdi:table-eye" },
     ],
   },
   {
@@ -285,65 +273,44 @@ export const skillGroups = [
     items: [
       { name: "AWS", icon: "simple-icons:amazonaws", core: true },
       { name: "EC2", icon: "mdi:server-outline" },
-      { name: "S3", icon: "mdi:bucket-outline" },
       { name: "Lambda", icon: "simple-icons:awslambda" },
       { name: "IAM", icon: "mdi:account-key-outline" },
-      { name: "RDS", icon: "mdi:database-cog-outline" },
-      { name: "Docker", icon: "simple-icons:docker", core: true },
+      { name: "boto3", icon: "mdi:robot-outline" },
+      { name: "Terraform", icon: "logos:terraform-icon", core: true },
       { name: "Kubernetes", icon: "logos:kubernetes", core: true },
       { name: "ArgoCD", icon: "logos:argo-icon", core: true },
-      { name: "Terraform", icon: "logos:terraform-icon" },
+      { name: "Docker", icon: "simple-icons:docker", core: true },
       { name: "GitHub Actions", icon: "simple-icons:githubactions" },
       { name: "CI/CD", icon: "mdi:pipe" },
-      { name: "Maven", icon: "logos:maven" },
       { name: "Gradle", icon: "logos:gradle" },
-    ],
-  },
-  {
-    title: "Observability & Testing",
-    blurb: "Proving a system behaves once it is live.",
-    accent: "violet",
-    items: [
       { name: "Prometheus", icon: "logos:prometheus", core: true },
       { name: "Grafana", icon: "logos:grafana", core: true },
-      { name: "OpenTelemetry", icon: "logos:opentelemetry-icon", core: true },
-      { name: "Loki", icon: "mdi:text-search" },
-      { name: "Tempo", icon: "mdi:timeline-clock-outline" },
-      { name: "JUnit", icon: "simple-icons:junit5" },
-      { name: "Mockito", icon: "mdi:flask-outline" },
-      { name: "TestNG", icon: "mdi:test-tube" },
-      { name: "Selenium", icon: "simple-icons:selenium" },
     ],
   },
   {
-    title: "Frontend & Databases",
+    title: "Databases & Frontend",
     blurb: "Enough full-stack reach to ship a feature end to end.",
     accent: "sky",
     items: [
+      { name: "PostgreSQL", icon: "logos:postgresql", core: true },
+      { name: "MySQL", icon: "logos:mysql" },
+      { name: "MongoDB", icon: "skill-icons:mongodb" },
+      { name: "Alembic", icon: "mdi:database-sync-outline" },
       { name: "React.js", icon: "logos:react" },
       { name: "TypeScript", icon: "logos:typescript-icon" },
-      { name: "Angular", icon: "logos:angular-icon" },
       { name: "Axios", icon: "simple-icons:axios" },
-      { name: "PostgreSQL", icon: "logos:postgresql", core: true },
-      { name: "MongoDB", icon: "skill-icons:mongodb" },
-      { name: "MySQL", icon: "logos:mysql" },
-      { name: "SQLite", icon: "logos:sqlite" },
     ],
   },
   {
-    title: "Core CS & AI",
-    blurb: "The fundamentals and the research side of my work.",
+    title: "Core CS & Tools",
+    blurb: "The fundamentals underneath all of it.",
     accent: "rose",
     items: [
       { name: "DSA", icon: "mdi:graph-outline", core: true },
       { name: "OOP", icon: "mdi:cube-outline" },
       { name: "SOLID", icon: "mdi:shape-outline" },
       { name: "System Design", icon: "mdi:sitemap-outline", core: true },
-      { name: "TensorFlow", icon: "logos:tensorflow" },
-      { name: "Keras", icon: "simple-icons:keras" },
-      { name: "Grad-CAM", icon: "mdi:heat-pump-outline" },
       { name: "Git", icon: "logos:git-icon" },
-      { name: "Jira", icon: "logos:jira" },
       { name: "Postman", icon: "simple-icons:postman" },
     ],
   },

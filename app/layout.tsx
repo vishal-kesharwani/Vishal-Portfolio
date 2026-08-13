@@ -10,16 +10,16 @@ import "./globals.css";
 export const metadata = {
   metadataBase: new URL("https://vishalkesharwani.in"),
   title: {
-    default: "Vishal Kesharwani | Backend Developer",
+    default: "Vishal Kesharwani | Backend / DevOps Engineer",
     template: "%s | Vishal Kesharwani",
   },
   description:
-    "Resume-aligned portfolio of Vishal Kesharwani, a Java backend engineer building event-driven microservices with Spring Boot, Kafka, Kubernetes, ArgoCD, and AWS.",
+    "Resume-aligned portfolio of Vishal Kesharwani, a backend / DevOps engineer building event-driven microservices with Spring Boot and Kafka, and automating cloud infrastructure with Kubernetes, Terraform, and AWS.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Vishal Kesharwani | Backend Developer",
+    title: "Vishal Kesharwani | Backend / DevOps Engineer",
     description:
       "Event-driven microservices, cloud-native delivery, research, and internship experience from Vishal Kesharwani.",
     url: "https://vishalkesharwani.in",

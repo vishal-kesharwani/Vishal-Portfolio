@@ -14,7 +14,7 @@ const educationItems = [
     title: "B.Tech - Computer Engineering",
     institution: "MIT Academy of Engineering, Pune",
     period: "2022 - 2026",
-    metric: "CGPA: 8.53/10",
+    metric: "CGPA: 8.63/10",
     points: [
       "Java, backend systems, and cloud delivery focus",
       "Consistent problem solving through DSA practice",

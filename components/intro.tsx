@@ -5,6 +5,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BsLinkedin } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 import { FiArrowRight, FiDownload } from "react-icons/fi";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
@@ -35,10 +36,10 @@ export default function Intro() {
           <div className="space-y-4 text-left lg:pr-2">
             <div className="flex flex-wrap gap-3">
               <span className="rounded-full border border-amber-500/15 bg-amber-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-amber-700 dark:text-amber-200">
-                Backend engineering focus
+                Backend / DevOps Engineer
               </span>
               <span className="rounded-full border border-black/5 bg-white/90 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-700 dark:border-white/10 dark:bg-white/10 dark:text-slate-100">
-                Java, Spring Boot, Kafka, Kubernetes
+                Java, Kafka, Kubernetes, Terraform
               </span>
             </div>
 
@@ -47,8 +48,8 @@ export default function Intro() {
                 Vishal Kesharwani
               </p>
               <p className="max-w-2xl text-[13px] font-medium leading-6 text-slate-600 dark:text-slate-300 sm:text-sm">
-                Backend Developer | MIT AOE &apos;26 | Java, Spring Boot, Kafka,
-                Kubernetes, AWS
+                Backend / DevOps Engineer | MIT AOE &apos;26 | Java, Kafka,
+                Kubernetes, Terraform, AWS
               </p>
               <h1 className="max-w-2xl text-3xl font-semibold leading-[1.25] tracking-tight text-slate-950 dark:text-white sm:text-4xl lg:text-5xl">
                 I build <Highlight>backend platforms</Highlight> that are{" "}
@@ -60,12 +61,13 @@ export default function Intro() {
                 I&apos;m a Computer Engineering student at MIT Academy of
                 Engineering with internship experience in{" "}
                 <Highlight variant="text">Java backend development</Highlight>{" "}
-                and cloud engineering. I build{" "}
+                and cloud infrastructure automation. I build{" "}
                 <Highlight variant="text">event-driven services</Highlight> on
                 Kafka, run them on{" "}
-                <Highlight variant="text">Kubernetes</Highlight> with real
-                observability, and want to own the quality of the whole delivery
-                path.
+                <Highlight variant="text">Kubernetes</Highlight>, provision
+                infrastructure with{" "}
+                <Highlight variant="text">Terraform</Highlight>, and want to own
+                a system end to end, from API design to production monitoring.
               </p>
             </div>
 
@@ -112,6 +114,14 @@ export default function Intro() {
               >
                 <BsLinkedin /> LinkedIn
               </a>
+              <a
+                className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white/85 px-3.5 py-1.5 text-[13px] font-medium text-slate-700 transition hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10"
+                href="https://leetcode.com/u/vishal-kesharwani"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SiLeetcode /> LeetCode
+              </a>
             </div>
           </div>
 
@@ -136,8 +146,9 @@ export default function Intro() {
                     Career goal
                   </p>
                   <p className="mt-2 text-sm leading-6 text-slate-300">
-                    To grow into a backend engineer building dependable APIs,
-                    cloud-native services, and systems teams can rely on.
+                    To grow into a backend / DevOps engineer who owns systems
+                    end to end: dependable APIs, automated infrastructure, and
+                    production monitoring that catches problems early.
                   </p>
                   <DeployPipeline />
                 </div>

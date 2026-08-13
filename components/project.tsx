@@ -18,6 +18,7 @@ type ProjectProps = {
   urlLink?: string;
   paperLink?: string;
   outcomes?: readonly string[];
+  liveLabel?: string;
 };
 
 export default function Project({
@@ -31,6 +32,7 @@ export default function Project({
   urlLink,
   paperLink,
   outcomes,
+  liveLabel,
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -52,6 +54,15 @@ export default function Project({
       <section className="grid overflow-hidden rounded-[2rem] border border-black/5 bg-white/88 shadow-[0_24px_90px_-35px_rgba(15,23,42,0.28)] backdrop-blur transition hover:-translate-y-1 dark:border-white/10 dark:bg-slate-900/70 dark:shadow-[0_24px_90px_-35px_rgba(0,0,0,0.55)] lg:grid-cols-[1.05fr_0.95fr]">
         <div className="flex flex-col px-6 py-7 sm:px-8 sm:py-9">
           <div className="mb-4 flex flex-wrap items-center gap-2">
+            {liveLabel && (
+              <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-300">
+                <span className="relative flex h-1.5 w-1.5 text-emerald-500 dark:text-emerald-300">
+                  <span className="animate-pulse-ring absolute inset-0 rounded-full" />
+                  <span className="relative h-1.5 w-1.5 rounded-full bg-current" />
+                </span>
+                {liveLabel}
+              </span>
+            )}
             <span className="inline-flex w-fit rounded-full border border-amber-500/15 bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-amber-700 dark:text-amber-200">
               Resume project
             </span>
