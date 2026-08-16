@@ -287,24 +287,24 @@ export default function CloudLab() {
     >
       <SectionHeading kicker="Try it yourself">Cloud Lab</SectionHeading>
 
-      <div className="relative overflow-hidden rounded-[1.75rem] border border-black/5 bg-white/88 p-4 shadow-[0_24px_90px_-40px_rgba(15,23,42,0.35)] backdrop-blur dark:border-white/10 dark:bg-slate-900/72 dark:shadow-[0_24px_90px_-40px_rgba(0,0,0,0.7)] sm:rounded-[2rem] sm:p-6 lg:p-8">
-        <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-amber-500/60 to-transparent dark:via-teal-300/60" />
+      <div className="relative overflow-hidden rounded-[1.75rem] border border-line bg-surface p-4 sm:rounded-[2rem] sm:p-6 lg:p-8">
+        <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
 
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
           <div className="min-w-0 space-y-5">
-            <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/10 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-amber-700 dark:border-teal-300/20 dark:bg-teal-300/10 dark:text-teal-200 sm:text-[11px]">
-              <span className="relative flex h-2 w-2 text-amber-500 dark:text-teal-300">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-accent sm:text-[11px]">
+              <span className="relative flex h-2 w-2">
                 <span className="animate-pulse-ring absolute inset-0 rounded-full" />
                 <span className="relative h-2 w-2 rounded-full bg-current" />
               </span>
               Playable sandbox
             </div>
 
-            <h3 className="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-3xl lg:text-4xl">
+            <h3 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl lg:text-4xl">
               I like cloud work to feel like a small terminal game.
             </h3>
 
-            <p className="text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
+            <p className="text-sm leading-7 text-muted sm:text-base">
               Type a command, watch the output, and walk the path from local
               code to Docker, Kubernetes, and a GitOps deployment.
             </p>
@@ -322,12 +322,12 @@ export default function CloudLab() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-black/5 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5"
+                  className="rounded-2xl border border-line bg-surface-2 p-4"
                 >
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-faint">
                     {item.label}
                   </p>
-                  <p className="mt-2 text-sm font-medium text-slate-900 dark:text-white">
+                  <p className="mt-2 text-sm font-medium text-ink">
                     {item.value}
                   </p>
                 </div>
@@ -335,7 +335,7 @@ export default function CloudLab() {
             </div>
 
             <div className="space-y-3">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400 sm:text-[11px]">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-faint sm:text-[11px]">
                 Try these commands
               </p>
               <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-2 [scrollbar-width:none] sm:flex-wrap sm:overflow-visible sm:pb-0 [&::-webkit-scrollbar]:hidden">
@@ -344,7 +344,7 @@ export default function CloudLab() {
                     key={command}
                     type="button"
                     onClick={() => runCommand(command)}
-                    className="shrink-0 rounded-full border border-black/5 bg-white px-3 py-1.5 font-mono text-[11px] font-medium text-slate-700 transition hover:-translate-y-0.5 hover:border-amber-500/30 hover:bg-amber-500/10 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:border-teal-300/30 dark:hover:bg-teal-300/10 dark:hover:text-white sm:text-xs"
+                    className="shrink-0 rounded-full border border-line bg-surface px-3 py-1.5 font-mono text-[11px] font-medium text-muted transition hover:-translate-y-0.5 hover:border-accent/40 hover:text-ink sm:text-xs"
                   >
                     {command}
                   </button>
@@ -352,19 +352,19 @@ export default function CloudLab() {
               </div>
             </div>
 
-            <div className="rounded-[1.5rem] border border-black/5 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5">
+            <div className="rounded-[1.5rem] border border-line bg-surface-2 p-4">
               <div className="mb-3 flex items-center justify-between gap-3">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400 sm:text-[11px]">
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-faint sm:text-[11px]">
                   Mini quest
                 </p>
-                <span className="font-mono text-xs text-slate-500 dark:text-slate-400">
+                <span className="font-mono text-xs text-faint">
                   {completedSteps.length}/{questSteps.length}
                 </span>
               </div>
 
-              <div className="h-1.5 overflow-hidden rounded-full bg-black/10 dark:bg-white/10">
+              <div className="h-1.5 overflow-hidden rounded-full bg-line">
                 <motion.div
-                  className="h-full rounded-full bg-gradient-to-r from-amber-500 via-teal-400 to-cyan-500"
+                  className="h-full rounded-full bg-accent"
                   animate={{ width: `${progress}%` }}
                   transition={{ type: "spring", stiffness: 160, damping: 24 }}
                 />
@@ -380,23 +380,21 @@ export default function CloudLab() {
                       animate={{ scale: isDone ? 1 : 0.995 }}
                       className={`rounded-2xl border p-3 transition ${
                         isDone
-                          ? "border-teal-500/30 bg-teal-500/10"
-                          : "border-black/5 bg-white/70 dark:border-white/10 dark:bg-white/5"
+                          ? "border-accent/30 bg-accent/10"
+                          : "border-line bg-surface"
                       }`}
                     >
                       <div className="flex items-start gap-3">
                         <span
                           className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full ${
-                            isDone
-                              ? "bg-teal-500 dark:bg-teal-300"
-                              : "bg-slate-300 dark:bg-white/30"
+                            isDone ? "bg-accent" : "bg-faint"
                           }`}
                         />
                         <div>
-                          <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                          <p className="text-sm font-semibold text-ink">
                             {step.label}
                           </p>
-                          <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-300">
+                          <p className="mt-1 text-xs leading-5 text-muted">
                             {step.hint}
                           </p>
                         </div>
@@ -419,8 +417,8 @@ export default function CloudLab() {
                     key={phase.title}
                     className={`rounded-2xl border p-3 transition sm:rounded-[1.25rem] sm:p-4 ${
                       isActive
-                        ? "border-teal-500/30 bg-teal-500/10"
-                        : "border-black/5 bg-white/80 dark:border-white/10 dark:bg-white/5"
+                        ? "border-accent/30 bg-accent/10"
+                        : "border-line bg-surface-2"
                     }`}
                     animate={{ y: isActive ? -3 : 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 22 }}
@@ -428,16 +426,16 @@ export default function CloudLab() {
                     <div
                       className={`inline-flex h-8 w-8 items-center justify-center rounded-xl sm:h-10 sm:w-10 sm:rounded-2xl ${
                         isActive
-                          ? "bg-teal-500/20 text-teal-700 dark:text-teal-200"
-                          : "bg-black/5 text-slate-600 dark:bg-white/10 dark:text-slate-300"
+                          ? "bg-accent/20 text-accent"
+                          : "bg-surface text-muted"
                       }`}
                     >
                       <Icon className="text-base sm:text-xl" />
                     </div>
-                    <h4 className="mt-2 text-sm font-semibold text-slate-900 dark:text-white sm:mt-3 sm:text-base">
+                    <h4 className="mt-2 text-sm font-semibold text-ink sm:mt-3 sm:text-base">
                       {phase.title}
                     </h4>
-                    <p className="mt-1 hidden text-sm leading-6 text-slate-600 dark:text-slate-300 sm:block">
+                    <p className="mt-1 hidden text-sm leading-6 text-muted sm:block">
                       {phase.summary}
                     </p>
                   </motion.div>
@@ -446,7 +444,7 @@ export default function CloudLab() {
             </div>
 
             <div
-              className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950 shadow-[0_24px_90px_-45px_rgba(0,0,0,0.8)] sm:rounded-[1.75rem]"
+              className="overflow-hidden rounded-[1.5rem] border border-line bg-black shadow-[0_24px_90px_-45px_rgba(0,0,0,0.8)] sm:rounded-[1.75rem]"
               onClick={() => inputRef.current?.focus()}
             >
               <div className="flex items-center justify-between gap-2 border-b border-white/10 bg-white/[0.03] px-3 py-2.5 sm:px-4 sm:py-3">
@@ -456,13 +454,13 @@ export default function CloudLab() {
                     <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
                     <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
                   </span>
-                  <FiTerminal className="shrink-0 text-teal-300 sm:hidden" />
+                  <FiTerminal className="shrink-0 text-accent sm:hidden" />
                   <span className="truncate font-mono text-xs text-white/80 sm:ml-2 sm:text-sm">
                     cloud-sandbox
                   </span>
                 </div>
-                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-teal-300/20 bg-teal-300/10 px-2.5 py-1 text-[9px] font-medium uppercase tracking-[0.16em] text-teal-200 sm:text-[10px]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-teal-300" /> ready
+                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-accent/20 bg-accent/10 px-2.5 py-1 text-[9px] font-medium uppercase tracking-[0.16em] text-accent sm:text-[10px]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent" /> ready
                 </span>
               </div>
 
@@ -475,7 +473,7 @@ export default function CloudLab() {
                     key={`${line.type}-${index}`}
                     className={`whitespace-pre-wrap break-words ${
                       line.type === "command"
-                        ? "text-teal-200"
+                        ? "text-accent"
                         : line.type === "output"
                           ? "text-slate-200"
                           : "text-slate-400"
@@ -493,10 +491,10 @@ export default function CloudLab() {
                   runCommand(input);
                 }}
               >
-                <span className="hidden shrink-0 font-mono text-sm text-teal-300 lg:inline">
+                <span className="hidden shrink-0 font-mono text-sm text-accent lg:inline">
                   {prompt}
                 </span>
-                <span className="shrink-0 font-mono text-sm text-teal-300 lg:hidden">
+                <span className="shrink-0 font-mono text-sm text-accent lg:hidden">
                   $
                 </span>
                 <input
@@ -514,7 +512,7 @@ export default function CloudLab() {
                 <button
                   type="submit"
                   aria-label="Run command"
-                  className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-teal-400 px-3 py-1.5 text-xs font-semibold text-slate-950 transition hover:bg-teal-300"
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-xs font-semibold text-accent-ink transition hover:opacity-90"
                 >
                   Run <FiCornerDownLeft />
                 </button>
@@ -522,10 +520,10 @@ export default function CloudLab() {
 
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-white/10 px-3 py-2.5 text-[10px] text-slate-400 sm:px-4 sm:text-xs">
                 <span className="inline-flex items-center gap-1">
-                  <FiZap className="text-teal-300" /> Tab completes
+                  <FiZap className="text-accent" /> Tab completes
                 </span>
                 <span className="inline-flex items-center gap-1">
-                  <FiServer className="text-teal-300" /> Arrow keys recall history
+                  <FiServer className="text-accent" /> Arrow keys recall history
                 </span>
               </div>
             </div>

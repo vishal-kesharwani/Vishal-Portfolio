@@ -15,16 +15,15 @@ export type Skill = {
 };
 
 const accentRing: Record<string, string> = {
-  amber: "border-amber-500/25 bg-amber-500/10 text-amber-700 dark:text-amber-200",
-  teal: "border-teal-500/25 bg-teal-500/10 text-teal-700 dark:text-teal-200",
+  amber: "border-amber-500/25 bg-amber-500/10 text-amber-600 dark:text-amber-300",
+  teal: "border-teal-500/25 bg-teal-500/10 text-teal-600 dark:text-teal-300",
   violet:
-    "border-violet-500/25 bg-violet-500/10 text-violet-700 dark:text-violet-200",
-  sky: "border-sky-500/25 bg-sky-500/10 text-sky-700 dark:text-sky-200",
-  rose: "border-rose-500/25 bg-rose-500/10 text-rose-700 dark:text-rose-200",
+    "border-violet-500/25 bg-violet-500/10 text-violet-600 dark:text-violet-300",
+  sky: "border-sky-500/25 bg-sky-500/10 text-sky-600 dark:text-sky-300",
+  rose: "border-rose-500/25 bg-rose-500/10 text-rose-600 dark:text-rose-300",
   orange:
-    "border-orange-500/25 bg-orange-500/10 text-orange-700 dark:text-orange-200",
-  slate:
-    "border-slate-500/25 bg-slate-500/10 text-slate-700 dark:text-slate-200",
+    "border-orange-500/25 bg-orange-500/10 text-orange-600 dark:text-orange-300",
+  slate: "border-line bg-surface-2 text-muted",
 };
 
 export const allSkills: Skill[] = skillGroups.flatMap((group) =>
@@ -68,8 +67,8 @@ export default function Skills() {
   };
 
   return (
-    <div className="w-full text-slate-900 dark:text-slate-100">
-      <p className="mx-auto mb-8 max-w-2xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
+    <div className="w-full text-ink">
+      <p className="mx-auto mb-8 max-w-2xl text-center text-sm leading-6 text-muted sm:text-base">
         Search it, filter it, or jump straight to the core stack. This is the
         toolkit I actually use for backend services, event-driven systems, and
         cloud delivery.
@@ -81,7 +80,7 @@ export default function Skills() {
           {[...coreSkills, ...coreSkills].map((skill, index) => (
             <span
               key={`${skill.name}-${index}`}
-              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-black/5 bg-white/85 px-3.5 py-1.5 text-xs font-medium text-slate-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-medium text-muted"
             >
               <Icon icon={skill.icon} className="h-4 w-4" />
               {skill.name}
@@ -91,16 +90,16 @@ export default function Skills() {
       </div>
 
       {/* controls */}
-      <div className="mb-6 rounded-[1.75rem] border border-black/5 bg-white/85 p-4 shadow-[0_16px_60px_-40px_rgba(15,23,42,0.5)] backdrop-blur dark:border-white/10 dark:bg-slate-900/70 sm:p-5">
+      <div className="mb-6 rounded-[1.75rem] border border-line bg-surface p-4 sm:p-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <label className="relative flex-1">
-            <FiSearch className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+            <FiSearch className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-faint" />
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Search Kafka, Spring, Kubernetes..."
               aria-label="Search skills"
-              className="w-full rounded-full border border-black/5 bg-white py-2.5 pl-11 pr-4 text-sm text-slate-800 outline-none transition focus:border-amber-500/40 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:placeholder:text-slate-500"
+              className="w-full rounded-full border border-line bg-surface-2 py-2.5 pl-11 pr-4 text-sm text-ink outline-none transition focus:border-accent/50"
             />
           </label>
 
@@ -110,8 +109,8 @@ export default function Skills() {
             aria-pressed={coreOnly}
             className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition ${
               coreOnly
-                ? "border-amber-500/30 bg-amber-500/15 text-amber-800 dark:text-amber-100"
-                : "border-black/5 bg-white text-slate-700 hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
+                ? "border-accent/30 bg-accent/15 text-accent"
+                : "border-line bg-surface-2 text-muted hover:-translate-y-0.5 hover:text-ink"
             }`}
           >
             <FiStar className={coreOnly ? "fill-current" : ""} /> Core stack
@@ -128,15 +127,13 @@ export default function Skills() {
                 type="button"
                 onClick={() => setActiveGroup(filter)}
                 className={`relative rounded-full px-3.5 py-1.5 text-xs font-semibold transition sm:text-[13px] ${
-                  isActive
-                    ? "text-white dark:text-slate-950"
-                    : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+                  isActive ? "text-accent-ink" : "text-muted hover:text-ink"
                 }`}
               >
                 {isActive && (
                   <motion.span
                     layoutId="skill-filter-pill"
-                    className="absolute inset-0 rounded-full bg-slate-950 dark:bg-white"
+                    className="absolute inset-0 rounded-full bg-ink"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
@@ -146,13 +143,13 @@ export default function Skills() {
           })}
         </div>
 
-        <div className="mt-4 flex items-center justify-between gap-3 border-t border-black/5 pt-3 text-xs text-slate-500 dark:border-white/10 dark:text-slate-400">
+        <div className="mt-4 flex items-center justify-between gap-3 border-t border-line pt-3 text-xs text-faint">
           <p className="font-mono">
             <motion.span
               key={filtered.length}
               initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-block font-semibold text-slate-900 dark:text-white"
+              className="inline-block font-semibold text-ink"
             >
               {filtered.length}
             </motion.span>{" "}
@@ -164,7 +161,7 @@ export default function Skills() {
             <button
               type="button"
               onClick={reset}
-              className="inline-flex items-center gap-1 rounded-full border border-black/5 px-3 py-1 font-medium transition hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/10"
+              className="inline-flex items-center gap-1 rounded-full border border-line px-3 py-1 font-medium transition hover:bg-surface-2"
             >
               <FiX /> Reset
             </button>
@@ -190,9 +187,9 @@ export default function Skills() {
               }}
               transition={{ type: "spring", stiffness: 320, damping: 26 }}
               whileHover={{ y: -3 }}
-              className="group relative overflow-hidden rounded-full border border-black/5 bg-white px-3 py-2 text-sm font-medium text-slate-900 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-slate-100"
+              className="group relative overflow-hidden rounded-full border border-line bg-surface px-3 py-2 text-sm font-medium text-ink"
             >
-              <span className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:animate-sheen dark:via-white/15" />
+              <span className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:animate-sheen" />
               <span className="relative flex items-center gap-2">
                 <span
                   className={`flex h-7 w-7 items-center justify-center rounded-full border ${
@@ -203,7 +200,7 @@ export default function Skills() {
                 </span>
                 {skill.name}
                 {skill.core && (
-                  <span className="ml-0.5 h-1.5 w-1.5 rounded-full bg-amber-500" />
+                  <span className="ml-0.5 h-1.5 w-1.5 rounded-full bg-accent" />
                 )}
               </span>
             </motion.li>
@@ -214,7 +211,7 @@ export default function Skills() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="mt-8 text-center font-mono text-sm text-slate-500 dark:text-slate-400"
+          className="mt-8 text-center font-mono text-sm text-faint"
         >
           No skill matches &quot;{query}&quot; — try Kafka, Spring, or AWS.
         </motion.p>
@@ -229,19 +226,17 @@ export default function Skills() {
             onClick={() => setActiveGroup(group.title)}
             className={`rounded-[1.35rem] border p-4 text-left transition hover:-translate-y-0.5 ${
               activeGroup === group.title
-                ? "border-amber-500/30 bg-amber-500/10"
-                : "border-black/5 bg-white/70 dark:border-white/10 dark:bg-white/5"
+                ? "border-accent/30 bg-accent/10"
+                : "border-line bg-surface"
             }`}
           >
             <div className="flex items-center justify-between gap-2">
-              <p className="text-sm font-semibold text-slate-950 dark:text-white">
-                {group.title}
-              </p>
-              <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
+              <p className="text-sm font-semibold text-ink">{group.title}</p>
+              <span className="font-mono text-[11px] text-faint">
                 {group.items.length}
               </span>
             </div>
-            <p className="mt-1.5 text-xs leading-5 text-slate-600 dark:text-slate-300">
+            <p className="mt-1.5 text-xs leading-5 text-muted">
               {group.blurb}
             </p>
           </button>

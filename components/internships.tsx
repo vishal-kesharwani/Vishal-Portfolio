@@ -1,14 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import SectionHeading from "./section-heading";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { CgWorkAlt } from "react-icons/cg";
 import { internshipsData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 
 export default function Internships() {
   const { ref } = useSectionInView("Internships", 0.4);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.75", "end 0.4"],
+  });
+  const lineScale = useTransform(scrollYProgress, (value) =>
+    Math.min(Math.max(value, 0), 1),
+  );
 
   return (
     <motion.section
@@ -20,63 +28,88 @@ export default function Internships() {
       transition={{ duration: 0.7 }}
       viewport={{ once: true }}
     >
-      <SectionHeading kicker="Where I have worked">Internships</SectionHeading>
-      <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
+      <SectionHeading kicker="Where I have worked">Experience</SectionHeading>
+      <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-muted sm:text-base">
         Hands-on industry experience in Java backend engineering, cloud
         automation, ETL optimization, and platform-level delivery.
       </p>
 
-      <div className="grid gap-6">
-        {internshipsData.map((item) => (
-          <div
-            key={`${item.company}-${item.role}`}
-            className="rounded-3xl border border-black/5 bg-white/85 p-6 shadow-[0_20px_80px_-35px_rgba(15,23,42,0.35)] backdrop-blur transition dark:border-white/10 dark:bg-slate-900/70"
-          >
-            <div className="mb-5 h-1.5 w-24 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-500" />
-            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white dark:bg-white dark:text-slate-950">
-                  <CgWorkAlt className="text-xl" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-slate-950 dark:text-white">
-                    {item.company}
-                  </h3>
-                  <p className="text-base font-medium text-slate-700 dark:text-white/75">
-                    {item.role}
-                  </p>
-                </div>
+      <div ref={containerRef} className="relative">
+        <div className="absolute bottom-3 left-[19px] top-3 w-px bg-line sm:left-6" />
+        <motion.div
+          style={{ scaleY: lineScale }}
+          className="absolute bottom-3 left-[19px] top-3 w-px origin-top bg-accent sm:left-6"
+        />
+
+        <div className="space-y-8">
+          {internshipsData.map((item) => (
+            <div
+              key={`${item.company}-${item.role}`}
+              className="relative flex gap-5 pl-0 sm:gap-6"
+            >
+              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line bg-surface text-ink sm:h-12 sm:w-12">
+                <CgWorkAlt className="text-lg sm:text-xl" />
               </div>
 
-              <div className="text-sm text-slate-600 dark:text-white/60 md:text-right">
-                <p>{item.duration}</p>
-                <p className="mt-1 inline-flex rounded-full bg-teal-500/10 px-3 py-1 font-medium text-teal-700 dark:bg-teal-300/10 dark:text-teal-200">
-                  {item.status}
-                </p>
+              <div className="min-w-0 flex-1 rounded-3xl border border-line bg-surface p-5 sm:p-6">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <h3 className="text-lg font-semibold text-ink sm:text-xl">
+                      {item.company}
+                    </h3>
+                    <p className="text-sm font-medium text-muted sm:text-base">
+                      {item.role}
+                    </p>
+                  </div>
+
+                  <div className="font-mono text-xs text-faint sm:text-right">
+                    <p>{item.duration}</p>
+                    <p className="mt-1 inline-flex rounded-full border border-accent/20 bg-accent/10 px-3 py-1 font-medium text-accent">
+                      {item.status}
+                    </p>
+                  </div>
+                </div>
+
+                <ul className="mt-5 grid gap-3 text-sm leading-relaxed text-muted sm:grid-cols-2">
+                  {item.highlights.map((highlight) => (
+                    <li key={highlight} className="flex gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {item.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-line bg-surface-2 px-3 py-1 font-mono text-xs font-medium text-muted"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
+          ))}
 
-            <ul className="mt-6 grid gap-3 pl-1 text-sm leading-relaxed text-slate-700 dark:text-white/75 sm:grid-cols-2">
-              {item.highlights.map((highlight) => (
-                <li key={highlight} className="flex gap-2">
-                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-teal-500" />
-                  <span>{highlight}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              {item.techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-black/5 bg-gray-50 px-3 py-1 text-xs font-medium text-slate-700 dark:border-white/10 dark:bg-white/10 dark:text-white/75"
-                >
-                  {tech}
-                </span>
-              ))}
+          <div className="relative flex items-center gap-5 sm:gap-6">
+            <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent bg-surface sm:h-12 sm:w-12">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-pulse-ring absolute inset-0 rounded-full text-accent" />
+                <span className="relative h-2 w-2 rounded-full bg-accent" />
+              </span>
+            </div>
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">
+                Now
+              </p>
+              <p className="text-sm font-semibold text-ink sm:text-base">
+                Building backend and cloud systems, one project at a time.
+              </p>
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </motion.section>
   );

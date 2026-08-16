@@ -14,19 +14,19 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="flex min-h-[60vh] items-center justify-center px-6 text-slate-900">
-      <div className="max-w-xl rounded-3xl border border-slate-200 bg-white p-8 shadow-xl dark:border-white/10 dark:bg-white/5 dark:text-white">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-teal-600 dark:text-teal-300">
+    <div className="flex min-h-[60vh] items-center justify-center px-6 text-ink">
+      <div className="max-w-xl rounded-3xl border border-line bg-surface p-8 shadow-xl">
+        <p className="mb-3 font-mono text-sm font-semibold uppercase tracking-[0.24em] text-accent">
           Something went wrong
         </p>
         <h2 className="text-3xl font-bold">Portfolio temporarily hit an error.</h2>
-        <p className="mt-4 text-slate-600 dark:text-white/70">
+        <p className="mt-4 text-muted">
           Please try refreshing the page. If the issue continues, I&apos;ll
           inspect the component causing it.
         </p>
         <button
           onClick={() => reset()}
-          className="mt-6 rounded-full bg-slate-950 px-5 py-3 font-medium text-white transition hover:scale-105 dark:bg-white dark:text-slate-950"
+          className="mt-6 rounded-full bg-accent px-5 py-3 font-medium text-accent-ink transition hover:scale-105"
         >
           Try again
         </button>

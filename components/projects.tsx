@@ -11,8 +11,8 @@ export default function Projects() {
 
   return (
     <section ref={ref} id="projects" className="scroll-mt-28 mb-28">
-      <SectionHeading kicker="Things I have built">My projects</SectionHeading>
-      <p className="mx-auto mb-10 max-w-3xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
+      <SectionHeading kicker="Selected systems">My projects</SectionHeading>
+      <p className="mx-auto mb-10 max-w-3xl text-center text-sm leading-6 text-muted sm:text-base">
         These are the projects that best reflect the resume: a live production
         product, event-driven microservices on Kubernetes, and backend
         infrastructure automation.

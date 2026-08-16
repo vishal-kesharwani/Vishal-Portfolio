@@ -19,8 +19,8 @@ export default function Experience() {
       transition={{ duration: 0.7 }}
       viewport={{ once: true }}
     >
-      <SectionHeading kicker="Recognition">My Achievements</SectionHeading>
-      <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
+      <SectionHeading kicker="Proof of work">Achievements</SectionHeading>
+      <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-muted sm:text-base">
         These are the outcomes I mention when I want to show consistency,
         execution, and the ability to work across backend, cloud, research,
         and competitive problem solving.
@@ -30,34 +30,24 @@ export default function Experience() {
         {experiencesData.map((item, index) => (
           <motion.article
             key={index}
-            className="group relative overflow-hidden rounded-[1.75rem] border border-black/5 bg-white/85 p-5 shadow-[0_18px_70px_-38px_rgba(15,23,42,0.45)] backdrop-blur dark:border-white/10 dark:bg-slate-900/70"
+            className="group flex flex-col items-center rounded-[1.75rem] border border-line bg-surface p-6 text-center transition hover:-translate-y-1 hover:border-accent/40"
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.08 }}
             viewport={{ once: true }}
           >
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-500" />
-            <div className="flex items-start gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-lg dark:bg-white dark:text-slate-950">
-                {item.icon}
-              </div>
-              <div className="min-w-0 flex-1">
-                <div className="mb-2 flex flex-wrap items-center gap-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-teal-600 dark:text-teal-300">
-                    {item.date}
-                  </p>
-                  <span className="rounded-full border border-black/5 bg-gray-100 px-2.5 py-1 text-[11px] font-medium text-gray-600 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
-                    Achievement
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold tracking-tight text-slate-950 dark:text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
-                  {item.description}
-                </p>
-              </div>
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-line bg-surface-2 text-2xl text-accent transition group-hover:border-accent/40 group-hover:bg-accent/10">
+              {item.icon}
             </div>
+            <h3 className="mt-4 text-base font-semibold tracking-tight text-ink">
+              {item.title}
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              {item.description}
+            </p>
+            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-faint">
+              {item.date}
+            </p>
           </motion.article>
         ))}
       </div>

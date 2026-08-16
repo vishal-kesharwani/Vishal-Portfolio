@@ -44,7 +44,7 @@ export default function DeployPipeline() {
         <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400">
           Delivery pipeline
         </p>
-        <span className="font-mono text-[10px] text-teal-300">
+        <span className="font-mono text-[10px] text-accent">
           {stages[active].label}
         </span>
       </div>
@@ -68,7 +68,7 @@ export default function DeployPipeline() {
             y1="0"
             x2="100%"
             y2="0"
-            stroke="rgba(45,212,191,0.9)"
+            stroke="rgba(124,255,178,0.9)"
             strokeWidth="2"
           />
         </svg>
@@ -87,15 +87,15 @@ export default function DeployPipeline() {
                 animate={{
                   scale: isActive ? 1.14 : 1,
                   backgroundColor: isActive
-                    ? "rgba(45,212,191,0.22)"
+                    ? "rgba(124,255,178,0.22)"
                     : isDone
-                      ? "rgba(45,212,191,0.1)"
+                      ? "rgba(124,255,178,0.1)"
                       : "rgba(255,255,255,0.06)",
                 }}
                 transition={{ type: "spring", stiffness: 320, damping: 20 }}
                 className={`flex h-8 w-8 items-center justify-center rounded-full border ${
                   isActive || isDone
-                    ? "border-teal-300/40 text-teal-200"
+                    ? "border-accent/40 text-accent"
                     : "border-white/10 text-slate-400"
                 }`}
               >
@@ -103,7 +103,7 @@ export default function DeployPipeline() {
               </motion.span>
               <span
                 className={`font-mono text-[9px] ${
-                  isActive ? "text-teal-200" : "text-slate-500"
+                  isActive ? "text-accent" : "text-slate-500"
                 }`}
               >
                 {stage.label}

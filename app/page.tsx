@@ -11,6 +11,7 @@ import CloudLab from "@/components/cloud-lab";
 import KpiBar from "@/components/kpi-bar";
 import SystemStatus from "@/components/system-status";
 import ProductionSimulation from "@/components/production-simulation";
+import BuildLog from "@/components/build-log";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <Internships />
         <Achievements />
         <Education />
+        <BuildLog />
         <Contact />
       </div>
     </main>

@@ -40,7 +40,7 @@ const educationItems = [
 ] as const;
 
 export default function Education() {
-  const { ref } = useSectionInView("Education");
+  const { ref } = useSectionInView("Education", 0.3);
 
   return (
     <motion.section
@@ -52,8 +52,8 @@ export default function Education() {
       transition={{ duration: 0.7 }}
       viewport={{ once: true }}
     >
-      <SectionHeading kicker="Academic base">My Education</SectionHeading>
-      <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-gray-600 dark:text-white/70 sm:text-base">
+      <SectionHeading kicker="Academic base">Education</SectionHeading>
+      <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-muted sm:text-base">
         My academic base gives me the fundamentals I rely on while building
         backend systems, cloud workflows, and deployment-ready products.
       </p>
@@ -62,15 +62,15 @@ export default function Education() {
         {educationItems.map((item, index) => (
           <motion.article
             key={item.title}
-            className="overflow-hidden rounded-3xl border border-black/5 bg-white/85 shadow-[0_18px_70px_-38px_rgba(15,23,42,0.45)] backdrop-blur dark:border-white/10 dark:bg-slate-900/70"
+            className="overflow-hidden rounded-3xl border border-line bg-surface"
             initial={{ opacity: 0, x: index % 2 === 0 ? -18 : 18 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: index * 0.08 }}
             viewport={{ once: true }}
           >
             <div className="grid gap-0 md:grid-cols-[220px_1fr]">
-              <div className="relative flex min-h-[180px] items-center justify-center bg-gradient-to-br from-slate-950 to-slate-800 p-6">
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-500" />
+              <div className="relative flex min-h-[180px] items-center justify-center bg-gradient-to-br from-neutral-950 to-neutral-800 p-6">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-accent/40 to-transparent" />
                 <div className="relative h-32 w-32 overflow-hidden rounded-[1.75rem] bg-white/10 p-4 backdrop-blur">
                   <Image
                     src={item.logo}
@@ -84,29 +84,29 @@ export default function Education() {
 
               <div className="p-6 sm:p-8">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-full border border-teal-500/15 bg-teal-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-teal-700 dark:text-teal-200">
+                  <span className="rounded-full border border-accent/20 bg-accent/10 px-3 py-1 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-accent">
                     {item.period}
                   </span>
-                  <span className="rounded-full border border-black/5 bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
+                  <span className="rounded-full border border-line bg-surface-2 px-3 py-1 font-mono text-xs font-medium text-muted">
                     Education
                   </span>
                 </div>
 
-                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">
+                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-base font-medium text-slate-700 dark:text-white/75">
+                <p className="mt-2 text-base font-medium text-muted">
                   {item.institution}
                 </p>
 
-                <div className="mt-5 inline-flex rounded-2xl border border-black/5 bg-gray-50 px-4 py-3 text-sm font-semibold text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-white">
+                <div className="mt-5 inline-flex rounded-2xl border border-line bg-surface-2 px-4 py-3 font-mono text-sm font-semibold text-ink">
                   {item.metric}
                 </div>
 
-                <ul className="mt-5 grid gap-2 text-sm leading-6 text-slate-700 dark:text-white/75 sm:grid-cols-2">
+                <ul className="mt-5 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
                   {item.points.map((point) => (
                     <li key={point} className="flex gap-2">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-teal-500" />
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                       <span>{point}</span>
                     </li>
                   ))}

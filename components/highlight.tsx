@@ -19,16 +19,12 @@ export default function Highlight({
   variant = "mark",
 }: HighlightProps) {
   if (variant === "text") {
-    return (
-      <span className="font-semibold text-slate-950 dark:text-white">
-        {children}
-      </span>
-    );
+    return <span className="font-semibold text-ink">{children}</span>;
   }
 
   return (
     <span
-      className="inline bg-gradient-to-r from-amber-300/70 via-amber-200/60 to-teal-200/50 bg-no-repeat font-semibold text-slate-950 dark:from-amber-400/40 dark:via-amber-300/30 dark:to-teal-300/30 dark:text-white"
+      className="inline bg-gradient-to-r from-accent/60 via-accent/35 to-transparent bg-no-repeat font-semibold text-ink"
       style={{
         backgroundSize: "100% 0.42em",
         backgroundPosition: "0 82%",

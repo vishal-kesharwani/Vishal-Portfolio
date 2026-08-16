@@ -1,5 +1,5 @@
 import React from "react";
-import { BiSolidCaretUpCircle } from "react-icons/bi";
+import { FiCloud, FiAward, FiTarget, FiUsers } from "react-icons/fi";
 import reportImg from "@/public/reportease.png";
 import jobTrackerImg from "@/public/jobtracker.png";
 import sevaImg from "@/public/seva-mahila-udyog.png";
@@ -17,6 +17,7 @@ export const links = [
   { name: "Internships", hash: "#internships" },
   { name: "Achievements", hash: "#achievements" },
   { name: "Education", hash: "#education" },
+  { name: "Build Log", hash: "#build-log" },
   { name: "Contact", hash: "#contact" },
 ] as const;
 
@@ -34,7 +35,7 @@ export const navLinks = [
 export const navGroups: Record<string, ReadonlyArray<(typeof links)[number]["name"]>> = {
   Work: ["Projects"],
   Systems: ["Cloud Lab", "Production", "Skills"],
-  Experience: ["Internships", "Achievements", "Education"],
+  Experience: ["Internships", "Achievements", "Education", "Build Log"],
   About: ["About"],
 };
 
@@ -71,13 +72,25 @@ export const resumeHighlights = [
   },
 ] as const;
 
-export const focusPoints = [
-  "Java backend development with Spring Boot and Spring Security",
-  "Event-driven systems with Apache Kafka",
-  "Kubernetes, ArgoCD, Terraform, and CI/CD",
-  "Infrastructure automation with Python and boto3",
-  "Observability with Prometheus and Grafana",
-  "Owning a system end to end, from API to production monitoring",
+export const howIThink = [
+  {
+    step: "01",
+    title: "Build",
+    tagline: "APIs that are predictable.",
+    tags: ["Java", "Spring Boot", "Spring Security", "PostgreSQL", "REST"],
+  },
+  {
+    step: "02",
+    title: "Connect",
+    tagline: "Systems that communicate asynchronously.",
+    tags: ["Kafka", "WebSocket", "Event-driven design", "Microservices"],
+  },
+  {
+    step: "03",
+    title: "Ship",
+    tagline: "Infrastructure that doesn't need babysitting.",
+    tags: ["Docker", "Kubernetes", "Terraform", "ArgoCD", "AWS"],
+  },
 ] as const;
 
 export const experiencesData = [
@@ -85,28 +98,28 @@ export const experiencesData = [
     title: "AWS Certified Cloud Practitioner",
     description:
       "Achieved a perfect 1000/1000 score on the CLF-C02 certification and use that foundation in day-to-day cloud work.",
-    icon: React.createElement(BiSolidCaretUpCircle),
+    icon: React.createElement(FiCloud),
     date: "Certification",
   },
   {
     title: "Smart India Hackathon 2024",
     description:
       "Reached the national grand finals with a solution focused on product quality, delivery, and practical problem solving.",
-    icon: React.createElement(BiSolidCaretUpCircle),
+    icon: React.createElement(FiAward),
     date: "2024",
   },
   {
     title: "Flipkart Grid 7.0",
     description:
       "Reached Round 2 with Drishaak, an edge-based traffic-violation detection system, ranking 1582 of 10,000+ submissions.",
-    icon: React.createElement(BiSolidCaretUpCircle),
+    icon: React.createElement(FiTarget),
     date: "2024",
   },
   {
     title: "Leadership + Hackathons",
     description:
       "Won MITAOE E-Summit Ideathon 2024, first runner-up at Cavista Tech Hackathon, runner-up at Datathon 2025, and Core Member and Design Lead of the ACM Student Chapter.",
-    icon: React.createElement(BiSolidCaretUpCircle),
+    icon: React.createElement(FiUsers),
     date: "2024-2025",
   },
 ] as const;
