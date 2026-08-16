@@ -1,17 +1,17 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { BsLinkedin } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
-import { FiArrowRight, FiDownload } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import githubdp from "@/public/githubdp.jpg";
-import DeployPipeline from "./deploy-pipeline";
-import Highlight from "./highlight";
+import HeroArchitecture from "./hero-architecture";
+import ResumePrint from "./resume-print";
+
+const stackLine = ["Java", "Spring Boot", "Kafka", "Kubernetes", "AWS", "Terraform"];
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -21,142 +21,116 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="w-full scroll-mt-[100rem] px-4 pt-24 pb-10 sm:px-6 sm:pt-24"
+      className="w-full px-4 pb-14 pt-28 sm:px-6 sm:pt-32"
     >
-      <motion.div
-        className="relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] border border-white/65 bg-white/80 px-5 py-6 shadow-[0_30px_120px_-45px_rgba(15,23,42,0.22)] backdrop-blur-xl sm:px-7 sm:py-8 dark:border-white/10 dark:bg-slate-950/70 dark:shadow-[0_30px_120px_-45px_rgba(0,0,0,0.7)]"
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(217,119,6,0.14),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(13,148,136,0.14),_transparent_26%),linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.78))] dark:bg-[radial-gradient(circle_at_top_left,_rgba(217,119,6,0.16),_transparent_26%),radial-gradient(circle_at_top_right,_rgba(13,148,136,0.18),_transparent_24%),linear-gradient(135deg,rgba(2,6,23,0.96),rgba(15,23,42,0.82))]" />
-        <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(rgba(15,23,42,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.05)_1px,transparent_1px)] [background-size:34px_34px] dark:[background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)]" />
+      <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+        <div className="text-left">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-4 font-mono text-[11px] uppercase tracking-[0.28em] text-muted"
+          >
+            Backend Engineer who thinks in systems
+          </motion.p>
 
-        <div className="relative grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="space-y-4 text-left lg:pr-2">
-            <div className="flex flex-wrap gap-3">
-              <span className="rounded-full border border-amber-500/15 bg-amber-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-amber-700 dark:text-amber-200">
-                Backend / DevOps Engineer
-              </span>
-              <span className="rounded-full border border-black/5 bg-white/90 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-700 dark:border-white/10 dark:bg-white/10 dark:text-slate-100">
-                Java, Kafka, Kubernetes, Terraform
-              </span>
-            </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="text-[3.4rem] font-extrabold leading-[0.95] tracking-tight text-ink sm:text-7xl lg:text-8xl"
+          >
+            VISHAL
+            <br />
+            KESHARWANI
+          </motion.h1>
 
-            <div className="space-y-3">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-slate-500 dark:text-slate-300">
-                Vishal Kesharwani
-              </p>
-              <p className="max-w-2xl text-[13px] font-medium leading-6 text-slate-600 dark:text-slate-300 sm:text-sm">
-                Backend / DevOps Engineer | MIT AOE &apos;26 | Java, Kafka,
-                Kubernetes, Terraform, AWS
-              </p>
-              <h1 className="max-w-2xl text-3xl font-semibold leading-[1.25] tracking-tight text-slate-950 dark:text-white sm:text-4xl lg:text-5xl">
-                I build <Highlight>backend platforms</Highlight> that are{" "}
-                <Highlight>reliable</Highlight>,{" "}
-                <Highlight>scalable</Highlight>, and worth trusting in
-                production.
-              </h1>
-              <p className="max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
-                I&apos;m a Computer Engineering student at MIT Academy of
-                Engineering with internship experience in{" "}
-                <Highlight variant="text">Java backend development</Highlight>{" "}
-                and cloud infrastructure automation. I build{" "}
-                <Highlight variant="text">event-driven services</Highlight> on
-                Kafka, run them on{" "}
-                <Highlight variant="text">Kubernetes</Highlight>, provision
-                infrastructure with{" "}
-                <Highlight variant="text">Terraform</Highlight>, and want to own
-                a system end to end, from API design to production monitoring.
-              </p>
-            </div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="mt-6 max-w-xl font-mono text-sm text-muted sm:text-base"
+          >
+            {stackLine.join(" · ")}
+          </motion.p>
 
-            <div className="flex flex-wrap gap-3 pt-2">
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100"
-              >
-                View Projects <FiArrowRight />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-5 py-2.5 text-sm font-semibold text-slate-800 backdrop-blur transition hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
-              >
-                Contact Me
-              </a>
-              <a
-                href="/Vishal_Kesharwani_Resume.pdf"
-                download="Vishal_Kesharwani_Resume.pdf"
-                className="inline-flex items-center gap-2 rounded-full border border-amber-500/15 bg-amber-500/10 px-5 py-2.5 text-sm font-semibold text-amber-800 transition hover:-translate-y-0.5 hover:bg-amber-500/15 dark:text-amber-100"
-              >
-                Resume <FiDownload />
-              </a>
-            </div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-3 max-w-xl text-sm leading-7 text-muted sm:text-base"
+          >
+            I build event-driven services on Kafka, ship them to Kubernetes,
+            and provision the infrastructure underneath with Terraform. The
+            diagram on the right is the real shape of my Job Application
+            Tracker project — not a stock graphic.
+          </motion.p>
 
-            <div className="flex flex-wrap gap-3 pt-1.5 text-sm">
-              <a
-                className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white/85 px-3.5 py-1.5 text-[13px] font-medium text-slate-700 transition hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10"
-                href="https://github.com/vishal-kesharwani"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
-                  setActiveSection("Home");
-                  setTimeOfLastClick(Date.now());
-                }}
-              >
-                <FaGithub /> GitHub
-              </a>
-              <a
-                className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white/85 px-3.5 py-1.5 text-[13px] font-medium text-slate-700 transition hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10"
-                href="https://www.linkedin.com/in/vishal-kesharwani-76708025b"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <BsLinkedin /> LinkedIn
-              </a>
-              <a
-                className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white/85 px-3.5 py-1.5 text-[13px] font-medium text-slate-700 transition hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10"
-                href="https://leetcode.com/u/vishal-kesharwani"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <SiLeetcode /> LeetCode
-              </a>
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.28 }}
+            className="mt-8 flex flex-wrap items-center gap-3"
+          >
+            <a
+              href="#projects"
+              onClick={() => {
+                setActiveSection("Projects");
+                setTimeOfLastClick(Date.now());
+              }}
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition hover:-translate-y-0.5"
+            >
+              Explore Systems <FiArrowRight />
+            </a>
+            <ResumePrint
+              compact
+              label="Resume"
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-5 py-2.5 text-sm font-semibold text-ink transition hover:-translate-y-0.5"
+            />
+          </motion.div>
 
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="w-full max-w-lg sm:max-w-xl">
-              <div className="relative overflow-hidden rounded-[2rem] border border-black/5 bg-white/90 p-4 shadow-[0_24px_90px_-38px_rgba(15,23,42,0.35)] backdrop-blur dark:border-white/10 dark:bg-white/5 dark:shadow-[0_24px_90px_-38px_rgba(0,0,0,0.55)]">
-                <div className="absolute inset-x-6 top-0 h-1 rounded-full bg-gradient-to-r from-amber-500 via-teal-400 to-slate-900 dark:from-amber-300 dark:via-teal-300 dark:to-white" />
-
-                <div className="relative mx-auto mt-2 h-72 w-72 overflow-hidden rounded-[1.8rem] border border-black/5 bg-slate-900 shadow-lg dark:border-white/10 sm:h-80 sm:w-80">
-                  <Image
-                    src={githubdp}
-                    alt="Vishal portrait"
-                    fill
-                    priority
-                    quality={95}
-                    className="object-cover object-center"
-                  />
-                </div>
-
-                <div className="mt-4 rounded-[1.5rem] border border-black/5 bg-slate-950 p-4 text-white dark:border-white/10">
-                  <p className="text-[11px] uppercase tracking-[0.24em] text-amber-200">
-                    Career goal
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">
-                    To grow into a backend / DevOps engineer who owns systems
-                    end to end: dependable APIs, automated infrastructure, and
-                    production monitoring that catches problems early.
-                  </p>
-                  <DeployPipeline />
-                </div>
-              </div>
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.34 }}
+            className="mt-6 flex flex-wrap gap-2.5 text-sm"
+          >
+            <a
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-[13px] font-medium text-muted transition hover:text-ink"
+              href="https://github.com/vishal-kesharwani"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub /> GitHub
+            </a>
+            <a
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-[13px] font-medium text-muted transition hover:text-ink"
+              href="https://www.linkedin.com/in/vishal-kesharwani-76708025b"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <BsLinkedin /> LinkedIn
+            </a>
+            <a
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-[13px] font-medium text-muted transition hover:text-ink"
+              href="https://leetcode.com/u/vishal-kesharwani"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SiLeetcode /> LeetCode
+            </a>
+          </motion.div>
         </div>
-      </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mx-auto w-full max-w-md lg:max-w-none"
+        >
+          <HeroArchitecture />
+        </motion.div>
+      </div>
     </section>
   );
 }

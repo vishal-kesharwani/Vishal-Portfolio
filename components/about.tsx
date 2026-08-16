@@ -1,12 +1,15 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { focusPoints } from "@/lib/data";
 import Highlight from "./highlight";
 import BentoSnapshot from "./bento-snapshot";
+import DeployPipeline from "./deploy-pipeline";
+import githubdp from "@/public/githubdp.jpg";
 
 export default function About() {
   const { ref } = useSectionInView("About");
@@ -67,6 +70,32 @@ export default function About() {
         </div>
 
         <div className="space-y-6">
+          <div className="flex items-center gap-4 rounded-[2rem] border border-black/5 bg-white/88 p-5 shadow-[0_20px_80px_-35px_rgba(15,23,42,0.28)] backdrop-blur dark:border-white/10 dark:bg-slate-900/72">
+            <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-black/5 bg-slate-900 dark:border-white/10">
+              <Image
+                src={githubdp}
+                alt="Vishal Kesharwani"
+                fill
+                quality={95}
+                className="object-cover object-center"
+              />
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700 dark:text-amber-200">
+                Career goal
+              </p>
+              <p className="mt-1.5 text-sm leading-6 text-slate-700 dark:text-slate-200">
+                To grow into a backend / DevOps engineer who owns systems end
+                to end: dependable APIs, automated infrastructure, and
+                production monitoring that catches problems early.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] border border-black/5 bg-slate-950 p-5 dark:border-white/10">
+            <DeployPipeline />
+          </div>
+
           <BentoSnapshot />
 
           <div className="grid gap-4 sm:grid-cols-2">

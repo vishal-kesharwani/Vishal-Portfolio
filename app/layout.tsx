@@ -5,7 +5,22 @@ import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import ScrollProgress from "@/components/scroll-progress";
 import { Toaster } from "react-hot-toast";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata = {
   metadataBase: new URL("https://vishalkesharwani.in"),
@@ -38,8 +53,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth">
-      <body className="relative bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90">
+    <html
+      lang="en"
+      className={`dark !scroll-smooth ${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="relative antialiased">
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
             <ScrollProgress />

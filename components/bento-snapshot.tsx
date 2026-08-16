@@ -3,29 +3,23 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiDownload } from "react-icons/fi";
-import { resumeHighlights } from "@/lib/data";
-import StatValue from "./stat-value";
 
 /**
  * A bento grid in the style of github.com/hubeiqiao/apple-bento-grid:
  * mixed card sizes on one grid, tight radius, restrained shadow. The
  * layout mechanics are borrowed; the palette stays the site's own
  * amber/teal rather than Apple's blue/black so it doesn't clash.
+ *
+ * The stat tiles that used to live here moved up to the site-wide KPI bar
+ * right under the hero, so this card is now just the resume CTA, the core
+ * stack, and two badges — no duplicated numbers.
  */
 
 const areas = `
-  "hero hero stat1"
-  "hero hero stat2"
-  "stat3 stat4 badge1"
-  "cat  cat  badge2"
+  "hero hero badge1"
+  "hero hero badge2"
+  "cat  cat  cat"
 `;
-
-const statAccents = [
-  { area: "stat1", from: "from-amber-400", to: "to-amber-200" },
-  { area: "stat2", from: "from-teal-400", to: "to-cyan-200" },
-  { area: "stat3", from: "from-sky-400", to: "to-sky-200" },
-  { area: "stat4", from: "from-violet-400", to: "to-violet-200" },
-];
 
 const coreStack = ["Java", "Spring Boot", "Kafka", "Kubernetes", "Terraform"];
 
@@ -36,7 +30,7 @@ export default function BentoSnapshot() {
       style={{
         gridTemplateAreas: areas,
         gridTemplateColumns: "repeat(3, 1fr)",
-        gridTemplateRows: "repeat(4, minmax(64px, auto))",
+        gridTemplateRows: "repeat(3, minmax(64px, auto))",
       }}
       initial="rest"
       whileInView="show"
@@ -79,30 +73,6 @@ export default function BentoSnapshot() {
           </a>
         </div>
       </motion.div>
-
-      {/* stats */}
-      {resumeHighlights.map((item, index) => {
-        const accent = statAccents[index];
-        if (!accent) return null;
-
-        return (
-          <motion.div
-            key={item.label}
-            style={{ gridArea: accent.area }}
-            variants={{ rest: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}
-            className="flex flex-col justify-center rounded-[16px] border border-black/5 bg-white p-4 shadow-[0_1px_8px_rgba(15,23,42,0.05)] dark:border-white/10 dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-900"
-          >
-            <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
-              {item.label}
-            </p>
-            <p
-              className={`mt-1 bg-gradient-to-br bg-clip-text text-xl font-bold leading-none tracking-[-0.02em] text-transparent sm:text-2xl ${accent.from} ${accent.to}`}
-            >
-              <StatValue value={item.value} />
-            </p>
-          </motion.div>
-        );
-      })}
 
       {/* category */}
       <motion.div

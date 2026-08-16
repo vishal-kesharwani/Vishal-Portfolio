@@ -19,26 +19,54 @@ export const links = [
   { name: "Contact", hash: "#contact" },
 ] as const;
 
+// What the header actually renders: fewer, grouped labels. Decoupled from
+// `links` above so the full scroll-spy section list can stay granular while
+// the nav itself stays minimal. navGroups maps each nav label to the real
+// section names (from `links`) that should light it up as active.
+export const navLinks = [
+  { name: "Work", hash: "#projects" },
+  { name: "Systems", hash: "#cloud-lab" },
+  { name: "Experience", hash: "#internships" },
+  { name: "About", hash: "#about" },
+] as const;
+
+export const navGroups: Record<string, ReadonlyArray<(typeof links)[number]["name"]>> = {
+  Work: ["Projects"],
+  Systems: ["Cloud Lab", "Skills"],
+  Experience: ["Internships", "Achievements", "Education"],
+  About: ["About"],
+};
+
 export const resumeHighlights = [
   {
-    label: "APIs shipped",
-    value: "15+",
-    detail: "Production-grade backend endpoints in Java and Spring Boot",
+    label: "Customers",
+    value: "60+",
+    detail: "Live on Seva Mahila Udyog, an order-management platform in production",
   },
   {
-    label: "ETL reduction",
-    value: "~50%",
-    detail: "Fewer redundant PostgreSQL lookups after debouncing",
+    label: "REST APIs",
+    value: "45+",
+    detail: "Endpoints across 13 domain modules on Seva Mahila Udyog",
   },
   {
-    label: "Cloud cert",
+    label: "Microservices",
+    value: "3",
+    detail: "Kafka-only event-driven services on Kubernetes with GitOps delivery",
+  },
+  {
+    label: "DB lookups",
+    value: "-50%",
+    detail: "Cut via debouncing logic in ETL validation at SteepGraph",
+  },
+  {
+    label: "AWS score",
     value: "1000/1000",
-    detail: "AWS Certified Cloud Practitioner",
+    detail: "AWS Certified Cloud Practitioner (CLF-C02)",
   },
   {
-    label: "Event-driven",
-    value: "3 services",
-    detail: "Kafka microservices on Kubernetes with GitOps delivery",
+    label: "Internships",
+    value: "2",
+    detail: "SteepGraph Systems and SortUs",
   },
 ] as const;
 

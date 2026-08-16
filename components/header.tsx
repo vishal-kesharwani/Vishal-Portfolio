@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { links } from "@/lib/data";
+import { motion } from "framer-motion";
+import { navLinks, navGroups } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import ResumePrint from "./resume-print";
 
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
@@ -25,89 +26,71 @@ export default function Header() {
   return (
     <header className="z-[999] relative">
       <motion.div
-        className="liquid-glass fixed left-1/2 top-3 h-[4.65rem] w-[min(94vw,72rem)] -translate-x-1/2 rounded-[1.6rem] border border-white/60 bg-white/72 shadow-[0_18px_70px_-30px_rgba(15,23,42,0.22)] sm:top-5 sm:h-[4.45rem] dark:border-white/10 dark:bg-slate-950/65"
+        className="liquid-glass fixed left-1/2 top-3 h-[3.6rem] w-[min(94vw,52rem)] -translate-x-1/2 rounded-full border border-line bg-surface/70 shadow-[0_18px_70px_-30px_rgba(0,0,0,0.55)] sm:top-5"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>
 
-      <nav className="fixed left-1/2 top-[0.58rem] flex w-[min(92vw,71rem)] -translate-x-1/2 items-center gap-3 px-3 sm:top-[1.05rem] sm:px-4">
-        <motion.div
-          layout
-          animate={{
-            width: isCompact ? 104 : 248,
-            paddingLeft: isCompact ? 14 : 16,
-            paddingRight: isCompact ? 14 : 16,
+      <nav className="fixed left-1/2 top-3 flex h-[3.6rem] w-[min(94vw,52rem)] -translate-x-1/2 items-center justify-between gap-2 px-2.5 sm:top-5 sm:gap-3">
+        <Link
+          href="#home"
+          onClick={() => {
+            setActiveSection("Home");
+            setTimeOfLastClick(Date.now());
           }}
-          transition={{ type: "spring", stiffness: 360, damping: 34 }}
-          className="hidden shrink-0 items-center gap-2 overflow-hidden rounded-full border border-black/5 bg-white/88 py-2 text-sm font-semibold text-gray-900 shadow-[0_10px_24px_-16px_rgba(15,23,42,0.35)] backdrop-blur sm:flex dark:border-white/10 dark:bg-white/10 dark:text-white dark:shadow-[0_10px_24px_-16px_rgba(0,0,0,0.65)]"
+          className="flex shrink-0 items-center gap-2 rounded-full px-2.5 py-2 text-sm font-semibold tracking-tight text-ink sm:px-3"
         >
-              <span className="h-2.5 w-2.5 rounded-full bg-teal-400" />
-          <AnimatePresence mode="wait" initial={false}>
-            {isCompact ? (
-              <motion.span
-                key="brand-compact"
-                initial={{ opacity: 0, x: -8, scale: 0.92 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: 8, scale: 0.92 }}
-                transition={{ duration: 0.22, ease: "easeOut" }}
-                className="whitespace-nowrap text-[0.95rem] font-bold tracking-[0.18em] text-gray-950 dark:text-white"
-              >
-                VK
-              </motion.span>
-              ) : (
-                <motion.span
-                  key="brand-full"
-                initial={{ opacity: 0, x: -10, scale: 0.96 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: 10, scale: 0.96 }}
-                  transition={{ duration: 0.22, ease: "easeOut" }}
-                  className="whitespace-nowrap text-[0.95rem] font-semibold tracking-tight text-gray-950 dark:text-white"
+          <span className="relative flex h-2 w-2">
+            <span className="animate-pulse-ring absolute inset-0 rounded-full text-accent" />
+            <span className="relative h-2 w-2 rounded-full bg-accent" />
+          </span>
+          <span className="hidden sm:inline">VISHAL</span>
+        </Link>
+
+        <ul className="flex min-w-0 flex-1 items-center justify-start gap-0.5 overflow-x-auto rounded-full border border-line bg-surface-2/60 px-1 py-1.5 text-[0.8rem] font-medium text-muted [scrollbar-width:none] sm:flex-none sm:justify-center sm:px-1.5 sm:text-[0.88rem] [&::-webkit-scrollbar]:hidden">
+          {navLinks.map((link) => {
+            const isActive = navGroups[link.name]?.includes(activeSection);
+
+            return (
+              <li key={link.hash} className="relative shrink-0">
+                <Link
+                  className={clsx(
+                    "relative flex items-center justify-center whitespace-nowrap rounded-full px-2.5 py-2 transition duration-200 hover:text-ink sm:px-4",
+                    { "font-semibold text-ink": isActive },
+                  )}
+                  href={link.hash}
+                  onClick={() => {
+                    setActiveSection(
+                      (navGroups[link.name]?.[0] ?? "Home") as typeof activeSection,
+                    );
+                    setTimeOfLastClick(Date.now());
+                  }}
                 >
-                  Vishal Kesharwani
-                </motion.span>
-              )}
-          </AnimatePresence>
-        </motion.div>
+                  {link.name}
 
-        <ul className="flex w-full items-center justify-start gap-1 overflow-x-auto rounded-full border border-black/5 bg-white/70 px-2 py-2 text-[0.92rem] font-medium text-gray-500 shadow-inner backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-gray-300 sm:w-auto sm:flex-nowrap sm:gap-1.5">
-          {links.map((link) => (
-            <motion.li
-              className="relative flex shrink-0 items-center justify-center"
-              key={link.hash}
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-            >
-              <Link
-                className={clsx(
-                  "relative flex min-w-fit items-center justify-center rounded-full px-4 py-2.5 transition duration-200 hover:-translate-y-0.5 hover:text-gray-950 dark:hover:text-white",
-                  {
-                    "font-semibold text-gray-950 dark:text-white":
-                      activeSection === link.name,
-                  }
-                )}
-                href={link.hash}
-                onClick={() => {
-                  setActiveSection(link.name);
-                  setTimeOfLastClick(Date.now());
-                }}
-              >
-                {link.name}
-
-                {link.name === activeSection && (
-                  <motion.span
-                    className="absolute inset-0 -z-10 rounded-full border border-black/5 bg-gradient-to-b from-white to-gray-100 shadow-[0_10px_26px_-18px_rgba(15,23,42,0.35)] dark:border-white/10 dark:from-white/10 dark:to-white/5"
-                    layoutId="activeSection"
-                    transition={{
-                      type: "spring",
-                      stiffness: 440,
-                      damping: 32,
-                    }}
-                  ></motion.span>
-                )}
-              </Link>
-            </motion.li>
-          ))}
+                  {isActive && (
+                    <motion.span
+                      className="absolute inset-0 -z-10 rounded-full border border-line bg-surface"
+                      layoutId="activeNav"
+                      transition={{ type: "spring", stiffness: 440, damping: 32 }}
+                    ></motion.span>
+                  )}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
+
+        <div className="flex shrink-0 items-center gap-2">
+          <span className="hidden items-center gap-1.5 rounded-full border border-line bg-surface-2/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted lg:flex">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-pulse-ring absolute inset-0 rounded-full text-accent" />
+              <span className="relative h-1.5 w-1.5 rounded-full bg-accent" />
+            </span>
+            Available
+          </span>
+          <ResumePrint compact label="Resume" />
+        </div>
       </nav>
     </header>
   );

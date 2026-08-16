@@ -8,12 +8,16 @@ import Projects from "@/components/projects";
 import SectionDivider from "@/components/section-divider";
 import Skills from "@/components/skills";
 import CloudLab from "@/components/cloud-lab";
+import KpiBar from "@/components/kpi-bar";
+import SystemStatus from "@/components/system-status";
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-col items-center pb-10">
+    <main className="mx-auto flex w-full flex-col items-center pb-10">
       <Intro />
-      <div className="flex w-full flex-col items-center px-4 sm:px-6">
+      <KpiBar />
+      <SystemStatus />
+      <div className="mt-16 flex w-full flex-col items-center px-4 sm:mt-20 sm:px-6">
         <About />
         <SectionDivider />
         <Projects />
