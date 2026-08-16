@@ -6,10 +6,11 @@ import Intro from "@/components/intro";
 import Internships from "@/components/internships";
 import Projects from "@/components/projects";
 import SectionDivider from "@/components/section-divider";
-import Skills from "@/components/skills";
+import TechRadar from "@/components/tech-radar";
 import CloudLab from "@/components/cloud-lab";
 import KpiBar from "@/components/kpi-bar";
 import SystemStatus from "@/components/system-status";
+import ProductionSimulation from "@/components/production-simulation";
 
 export default function Home() {
   return (
@@ -22,7 +23,8 @@ export default function Home() {
         <SectionDivider />
         <Projects />
         <CloudLab />
-        <Skills />
+        <ProductionSimulation />
+        <TechRadar />
         <Internships />
         <Achievements />
         <Education />

@@ -12,6 +12,7 @@ export const links = [
   { name: "About", hash: "#about" },
   { name: "Projects", hash: "#projects" },
   { name: "Cloud Lab", hash: "#cloud-lab" },
+  { name: "Production", hash: "#production" },
   { name: "Skills", hash: "#skills" },
   { name: "Internships", hash: "#internships" },
   { name: "Achievements", hash: "#achievements" },
@@ -32,7 +33,7 @@ export const navLinks = [
 
 export const navGroups: Record<string, ReadonlyArray<(typeof links)[number]["name"]>> = {
   Work: ["Projects"],
-  Systems: ["Cloud Lab", "Skills"],
+  Systems: ["Cloud Lab", "Production", "Skills"],
   Experience: ["Internships", "Achievements", "Education"],
   About: ["About"],
 };

@@ -1,14 +1,12 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import SectionHeading from "./section-heading";
 import { skillGroups } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { FiSearch, FiStar, FiX } from "react-icons/fi";
 
-type Skill = {
+export type Skill = {
   name: string;
   icon: string;
   core?: boolean;
@@ -29,7 +27,7 @@ const accentRing: Record<string, string> = {
     "border-slate-500/25 bg-slate-500/10 text-slate-700 dark:text-slate-200",
 };
 
-const allSkills: Skill[] = skillGroups.flatMap((group) =>
+export const allSkills: Skill[] = skillGroups.flatMap((group) =>
   group.items.map((item) => ({
     name: item.name,
     icon: item.icon,
@@ -42,7 +40,6 @@ const allSkills: Skill[] = skillGroups.flatMap((group) =>
 const coreSkills = allSkills.filter((skill) => skill.core);
 
 export default function Skills() {
-  const { ref } = useSectionInView("Skills");
   const [activeGroup, setActiveGroup] = useState<string>("All");
   const [query, setQuery] = useState("");
   const [coreOnly, setCoreOnly] = useState(false);
@@ -71,13 +68,7 @@ export default function Skills() {
   };
 
   return (
-    <section
-      id="skills"
-      ref={ref}
-      className="mb-28 w-full max-w-[58rem] scroll-mt-28 text-slate-900 dark:text-slate-100 sm:mb-40"
-    >
-      <SectionHeading kicker="What I work with">Skills</SectionHeading>
-
+    <div className="w-full text-slate-900 dark:text-slate-100">
       <p className="mx-auto mb-8 max-w-2xl text-center text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
         Search it, filter it, or jump straight to the core stack. This is the
         toolkit I actually use for backend services, event-driven systems, and
@@ -256,6 +247,6 @@ export default function Skills() {
           </button>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
