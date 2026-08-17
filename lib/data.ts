@@ -4,6 +4,11 @@ import reportImg from "@/public/reportease.png";
 import jobTrackerImg from "@/public/jobtracker.png";
 import sevaImg from "@/public/seva-mahila-udyog.png";
 import cloudlensImg from "@/public/cloudlens-ai.png";
+import awsCertPhoto from "@/public/achievements/aws-cert.jpg";
+import sih2024Photo from "@/public/achievements/sih-2024.jpg";
+import cavistaPhoto from "@/public/achievements/cavista-hackathon.jpg";
+import datathonPhoto from "@/public/achievements/datathon.jpg";
+import ideathonPhoto from "@/public/achievements/ideathon.jpg";
 
 // Order must match the section order in app/page.tsx so the nav and the
 // scroll-spy highlight stay in sync.
@@ -100,13 +105,37 @@ export const experiencesData = [
       "Achieved a perfect 1000/1000 score on the CLF-C02 certification and use that foundation in day-to-day cloud work.",
     icon: React.createElement(FiCloud),
     date: "Certification",
+    photo: awsCertPhoto,
   },
   {
     title: "Smart India Hackathon 2024",
     description:
-      "Reached the national grand finals with a solution focused on product quality, delivery, and practical problem solving.",
+      "Grand Finalist at the national-level SIH 2024 software edition, on stage at the valedictory function.",
     icon: React.createElement(FiAward),
     date: "2024",
+    photo: sih2024Photo,
+  },
+  {
+    title: "Cavista Tech Hackathon",
+    description:
+      "First Runner-Up, awarded a cash prize of ₹50,000 with the team.",
+    icon: React.createElement(FiAward),
+    date: "2025",
+    photo: cavistaPhoto,
+  },
+  {
+    title: "Datathon 2025",
+    description: "Runner-Up among competing teams at the campus datathon.",
+    icon: React.createElement(FiAward),
+    date: "2025",
+    photo: datathonPhoto,
+  },
+  {
+    title: "MITAOE E-Summit Ideathon",
+    description: "Winner, awarded a subscription voucher with the team.",
+    icon: React.createElement(FiAward),
+    date: "2024",
+    photo: ideathonPhoto,
   },
   {
     title: "Flipkart Grid 7.0",
@@ -116,9 +145,9 @@ export const experiencesData = [
     date: "2024",
   },
   {
-    title: "Leadership + Hackathons",
+    title: "Leadership",
     description:
-      "Won MITAOE E-Summit Ideathon 2024, first runner-up at Cavista Tech Hackathon, runner-up at Datathon 2025, and Core Member and Design Lead of the ACM Student Chapter.",
+      "Core Member and Design Lead, ACM Student Chapter, MITAOE.",
     icon: React.createElement(FiUsers),
     date: "2024-2025",
   },
