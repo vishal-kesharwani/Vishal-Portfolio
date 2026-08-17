@@ -126,6 +126,17 @@ export const experiencesData = [
 
 export const internshipsData = [
   {
+    company: "SortUs",
+    role: "Cloud & DevOps Intern",
+    duration: "Jun 2025 - Aug 2025",
+    status: "Completed",
+    techStack: ["Node.js", "MongoDB", "AWS Lambda", "GitHub Actions", "REST APIs"],
+    highlights: [
+      "Automated serverless deployments via AWS Lambda and GitHub Actions in a real production workflow, cutting manual release effort by an estimated 30%.",
+      "Built scalable Node.js and MongoDB backend modules and documented REST APIs for frontend-backend integration.",
+    ],
+  },
+  {
     company: "SteepGraph Systems Private Limited",
     role: "Backend Developer Intern",
     duration: "Feb 2026 - Jun 2026",
@@ -143,17 +154,6 @@ export const internshipsData = [
       "Optimized ETL validation with debouncing logic that cut redundant database lookups by 50%, plus a real-time SQL table extractor auto-suggesting table names from live DB metadata.",
       "Maintained and fixed bugs across 10+ modular service-layer components, reviewed merge requests, and contributed to enterprise data migration pipelines.",
       "Built an ARAS-to-email bridge as a side project, integrating with the ARAS PLM platform to route and deliver item data through automated email notifications.",
-    ],
-  },
-  {
-    company: "SortUs",
-    role: "Cloud & DevOps Intern",
-    duration: "Jun 2025 - Aug 2025",
-    status: "Completed",
-    techStack: ["Node.js", "MongoDB", "AWS Lambda", "GitHub Actions", "REST APIs"],
-    highlights: [
-      "Automated serverless deployments via AWS Lambda and GitHub Actions in a real production workflow, cutting manual release effort by an estimated 30%.",
-      "Built scalable Node.js and MongoDB backend modules and documented REST APIs for frontend-backend integration.",
     ],
   },
 ] as const;

@@ -105,7 +105,8 @@ export default function Internships() {
                 Now
               </p>
               <p className="text-sm font-semibold text-ink sm:text-base">
-                Building backend and cloud systems, one project at a time.
+                Freelancing and building for community and society —
+                open to full-time backend / DevOps roles.
               </p>
             </div>
           </div>

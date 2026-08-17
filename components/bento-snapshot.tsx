@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FiArrowRight, FiDownload } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 
 /**
  * A bento grid in the style of github.com/hubeiqiao/apple-bento-grid:
@@ -57,19 +57,12 @@ export default function BentoSnapshot() {
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
           <a
-            href="/Vishal_Kesharwani_Resume.pdf"
-            download="Vishal_Kesharwani_Resume.pdf"
-            className="inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-xs font-semibold text-canvas transition hover:-translate-y-0.5"
-          >
-            Resume <FiDownload />
-          </a>
-          <a
             href="https://www.credly.com/badges/f3558204-39b1-43f0-8caa-813873989955/public_url"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-4 py-2 text-xs font-semibold text-ink transition hover:bg-surface"
+            className="inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-xs font-semibold text-canvas transition hover:-translate-y-0.5"
           >
-            Credly <FiArrowRight />
+            Credly Badge <FiArrowRight />
           </a>
         </div>
       </motion.div>

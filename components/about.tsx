@@ -66,13 +66,14 @@ export default function About() {
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
         <div className="space-y-6">
-          <div className="flex items-center gap-4 rounded-[2rem] border border-line bg-surface p-5">
-            <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-line bg-surface-2">
+          <div className="flex flex-col items-center gap-5 rounded-[2rem] border border-line bg-surface p-5 text-center sm:flex-row sm:items-center sm:text-left">
+            <div className="relative h-36 w-36 shrink-0 overflow-hidden rounded-[1.75rem] border border-line bg-surface-2 sm:h-32 sm:w-32">
               <Image
                 src={githubdp}
                 alt="Vishal Kesharwani"
                 fill
                 quality={95}
+                sizes="144px"
                 className="object-cover object-center"
               />
             </div>

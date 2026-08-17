@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { navLinks, navGroups } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import ResumePrint from "./resume-print";
 
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
@@ -40,11 +39,22 @@ export default function Header() {
           }}
           className="flex shrink-0 items-center gap-2 rounded-full px-2.5 py-2 text-sm font-semibold tracking-tight text-ink sm:px-3"
         >
-          <span className="relative flex h-2 w-2">
+          <span className="relative flex h-2 w-2 shrink-0">
             <span className="animate-pulse-ring absolute inset-0 rounded-full text-accent" />
             <span className="relative h-2 w-2 rounded-full bg-accent" />
           </span>
-          <span className="hidden sm:inline">VISHAL</span>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={isCompact ? "compact" : "full"}
+              initial={{ opacity: 0, x: -6 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 6 }}
+              transition={{ duration: 0.2 }}
+              className="whitespace-nowrap"
+            >
+              {isCompact ? "VK" : "Vishal Kesharwani"}
+            </motion.span>
+          </AnimatePresence>
         </Link>
 
         <ul className="flex min-w-0 flex-1 items-center justify-start gap-0.5 overflow-x-auto rounded-full border border-line bg-surface-2/60 px-1 py-1.5 text-[0.8rem] font-medium text-muted [scrollbar-width:none] sm:flex-none sm:justify-center sm:px-1.5 sm:text-[0.88rem] [&::-webkit-scrollbar]:hidden">
@@ -82,14 +92,13 @@ export default function Header() {
         </ul>
 
         <div className="flex shrink-0 items-center gap-2">
-          <span className="hidden items-center gap-1.5 rounded-full border border-line bg-surface-2/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted lg:flex">
+          <span className="hidden items-center gap-1.5 rounded-full border border-line bg-surface-2/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted sm:flex">
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-pulse-ring absolute inset-0 rounded-full text-accent" />
               <span className="relative h-1.5 w-1.5 rounded-full bg-accent" />
             </span>
             Available
           </span>
-          <ResumePrint compact label="Resume" />
         </div>
       </nav>
     </header>
