@@ -77,25 +77,36 @@ export default function TechRadar() {
           const isActive = active === skill.name;
 
           return (
-            <motion.button
+            <div
               key={skill.name}
-              type="button"
-              onMouseEnter={() => setActive(skill.name)}
-              onFocus={() => setActive(skill.name)}
-              onClick={() => setActive(isActive ? null : skill.name)}
+              // Positioning and centering live on this plain wrapper. The
+              // motion.button below animates scale/opacity, and Framer Motion
+              // takes over the whole `transform` property via inline style
+              // to do that - if the Tailwind -translate-1/2 centering classes
+              // were on the same element, Framer would silently discard them,
+              // anchoring every node by its top-left corner instead of its
+              // center and throwing the whole ring off.
+              className="absolute -translate-x-1/2 -translate-y-1/2"
               style={{ left: `${x}%`, top: `${y}%` }}
-              className={`absolute flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-surface transition sm:h-12 sm:w-12 ${
-                isActive
-                  ? "border-accent shadow-[0_0_0_3px_rgba(124,255,178,0.18)]"
-                  : "border-line hover:border-accent/50"
-              }`}
-              initial={{ opacity: 0, scale: 0.6 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.03, type: "spring", stiffness: 300, damping: 22 }}
             >
-              <Icon icon={skill.icon} className="h-5 w-5" />
-            </motion.button>
+              <motion.button
+                type="button"
+                onMouseEnter={() => setActive(skill.name)}
+                onFocus={() => setActive(skill.name)}
+                onClick={() => setActive(isActive ? null : skill.name)}
+                className={`flex h-10 w-10 items-center justify-center rounded-full border bg-surface transition sm:h-12 sm:w-12 ${
+                  isActive
+                    ? "border-accent shadow-[0_0_0_3px_rgba(124,255,178,0.18)]"
+                    : "border-line hover:border-accent/50"
+                }`}
+                initial={{ opacity: 0, scale: 0.6 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.03, type: "spring", stiffness: 300, damping: 22 }}
+              >
+                <Icon icon={skill.icon} className="h-4 w-4 sm:h-5 sm:w-5" />
+              </motion.button>
+            </div>
           );
         })}
       </div>
