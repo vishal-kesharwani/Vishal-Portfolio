@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { navLinks, navGroups } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import MorphingBrand from "./morphing-brand";
 
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
@@ -43,18 +44,7 @@ export default function Header() {
             <span className="animate-pulse-ring absolute inset-0 rounded-full text-accent" />
             <span className="relative h-2 w-2 rounded-full bg-accent" />
           </span>
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={isCompact ? "compact" : "full"}
-              initial={{ opacity: 0, x: -6 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 6 }}
-              transition={{ duration: 0.2 }}
-              className="whitespace-nowrap"
-            >
-              {isCompact ? "VK" : "Vishal Kesharwani"}
-            </motion.span>
-          </AnimatePresence>
+          <MorphingBrand isCompact={isCompact} />
         </Link>
 
         <ul className="flex min-w-0 flex-1 items-center justify-start gap-0.5 overflow-x-auto rounded-full border border-line bg-surface-2/60 px-1 py-1.5 text-[0.8rem] font-medium text-muted [scrollbar-width:none] sm:flex-none sm:justify-center sm:px-1.5 sm:text-[0.88rem] [&::-webkit-scrollbar]:hidden">
