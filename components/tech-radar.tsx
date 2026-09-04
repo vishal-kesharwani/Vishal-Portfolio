@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { FiArrowDown } from "react-icons/fi";
 import SectionHeading from "./section-heading";
@@ -51,54 +51,23 @@ export default function TechRadar() {
       id="skills"
       ref={ref}
       className="mb-28 w-full max-w-[58rem] scroll-mt-28 sm:mb-40"
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, type: "spring", stiffness: 60 }}
-      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
     >
       <SectionHeading kicker="What I work with">Tech Radar</SectionHeading>
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-        className="mx-auto mb-8 max-w-xl text-center text-sm leading-6 text-muted sm:text-base"
-      >
+      <p className="mx-auto mb-8 max-w-xl text-center text-sm leading-6 text-muted sm:text-base">
         The {coreNodes.length} technologies I reach for most, and why. Hover
         or tap a node.
-      </motion.p>
+      </p>
 
       <div className="relative mx-auto aspect-square w-full max-w-md">
-        <motion.div
-          className="absolute inset-[8%] rounded-full border border-dashed border-line"
-          initial={{ scale: 0, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        />
-        <motion.div
-          className="absolute inset-[26%] rounded-full border border-dashed border-line"
-          initial={{ scale: 0, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        />
+        <div className="absolute inset-[8%] rounded-full border border-dashed border-line" />
+        <div className="absolute inset-[26%] rounded-full border border-dashed border-line" />
 
-        <div
-          className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2"
-        >
-          <motion.div
-            className="h-full w-full rounded-full border border-accent/30 bg-surface"
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.6, type: "spring", stiffness: 200 }}
-            animate={{ boxShadow: ["0 0 20px -10px var(--accent)", "0 0 40px -10px var(--accent)", "0 0 20px -10px var(--accent)"] }}
-            style={{ animationDuration: "3s", animationIterationCount: "infinite" }}
-          />
-          <span className="absolute inset-0 flex items-center justify-center font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-accent">
-            Vishal
-          </span>
+        <div className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-accent/30 bg-surface font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-accent shadow-[0_0_40px_-10px_var(--accent)]">
+          Vishal
         </div>
 
         {coreNodes.map((skill, index) => {
@@ -110,6 +79,13 @@ export default function TechRadar() {
           return (
             <div
               key={skill.name}
+              // Positioning and centering live on this plain wrapper. The
+              // motion.button below animates scale/opacity, and Framer Motion
+              // takes over the whole `transform` property via inline style
+              // to do that - if the Tailwind -translate-1/2 centering classes
+              // were on the same element, Framer would silently discard them,
+              // anchoring every node by its top-left corner instead of its
+              // center and throwing the whole ring off.
               className="absolute -translate-x-1/2 -translate-y-1/2"
               style={{ left: `${x}%`, top: `${y}%` }}
             >
@@ -118,110 +94,59 @@ export default function TechRadar() {
                 onMouseEnter={() => setActive(skill.name)}
                 onFocus={() => setActive(skill.name)}
                 onClick={() => setActive(isActive ? null : skill.name)}
-                className={`relative flex h-11 w-11 items-center justify-center rounded-full border bg-surface transition-all duration-200 sm:h-12 sm:w-12 ${
+                className={`flex h-10 w-10 items-center justify-center rounded-full border bg-surface transition sm:h-12 sm:w-12 ${
                   isActive
-                    ? "border-accent shadow-[0_0_0_3px_rgba(124,255,178,0.15)]"
-                    : "border-line hover:border-accent/40 hover:shadow-lg"
+                    ? "border-accent shadow-[0_0_0_3px_rgba(124,255,178,0.18)]"
+                    : "border-line hover:border-accent/50"
                 }`}
-                initial={{ opacity: 0, scale: 0 }}
+                initial={{ opacity: 0, scale: 0.6 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{
-                  delay: 0.7 + index * 0.04,
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 20,
-                }}
-                whileHover={{
-                  scale: 1.15,
-                  transition: { type: "spring", stiffness: 400, damping: 15 },
-                }}
-                whileTap={{ scale: 0.9 }}
+                transition={{ delay: index * 0.03, type: "spring", stiffness: 300, damping: 22 }}
               >
-                {isActive && (
-                  <motion.div
-                    className="absolute inset-0 rounded-full border-2 border-accent"
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1.5, opacity: 0 }}
-                    transition={{ duration: 1.2, repeat: Infinity }}
-                  />
-                )}
-                <Icon
-                  icon={skill.icon}
-                  className={`h-5 w-5 transition-colors duration-200 ${
-                    isActive ? "text-accent" : "text-muted"
-                  }`}
-                  onError={() => {}}
-                />
+                <Icon icon={skill.icon} className="h-4 w-4 sm:h-5 sm:w-5" />
               </motion.button>
             </div>
           );
         })}
       </div>
 
-      <motion.div
-        className="mx-auto mt-6 min-h-[4.5rem] max-w-md rounded-2xl border border-line bg-surface px-4 py-3 text-center"
-        layout
-      >
-        <AnimatePresence mode="wait">
-          {activeSkill ? (
-            <motion.div
-              key={activeSkill.name}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-            >
-              <p className="text-sm font-semibold text-ink">{activeSkill.name}</p>
-              <p className="mt-1 text-xs leading-5 text-muted">
-                {descriptions[activeSkill.name] ?? activeSkill.group}
-              </p>
-            </motion.div>
-          ) : (
-            <motion.p
-              key="placeholder"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="text-xs text-faint"
-            >
-              Hover a node above to see how I actually use it.
-            </motion.p>
-          )}
-        </AnimatePresence>
-      </motion.div>
-
-      <div className="mt-6 text-center">
-        <motion.button
-          type="button"
-          onClick={() => setExpanded((value) => !value)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="magnetic-btn inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-accent"
-        >
-          {expanded ? "Hide the full list" : `${allSkills.length} technologies explored`}
-          <motion.span
-            animate={{ rotate: expanded ? 180 : 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          >
-            <FiArrowDown />
-          </motion.span>
-        </motion.button>
+      <div className="mx-auto mt-6 min-h-[4.5rem] max-w-md rounded-2xl border border-line bg-surface px-4 py-3 text-center">
+        {activeSkill ? (
+          <>
+            <p className="text-sm font-semibold text-ink">{activeSkill.name}</p>
+            <p className="mt-1 text-xs leading-5 text-muted">
+              {descriptions[activeSkill.name] ?? activeSkill.group}
+            </p>
+          </>
+        ) : (
+          <p className="text-xs text-faint">
+            Hover a node above to see how I actually use it.
+          </p>
+        )}
       </div>
 
-      <AnimatePresence>
-        {expanded && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="mt-8 overflow-hidden"
-          >
-            <Skills />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="mt-6 text-center">
+        <button
+          type="button"
+          onClick={() => setExpanded((value) => !value)}
+          className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-accent transition hover:opacity-80"
+        >
+          {expanded ? "Hide the full list" : `${allSkills.length} technologies explored`}
+          <FiArrowDown className={`transition-transform ${expanded ? "rotate-180" : ""}`} />
+        </button>
+      </div>
+
+      {expanded && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          transition={{ duration: 0.35 }}
+          className="mt-8 overflow-hidden"
+        >
+          <Skills />
+        </motion.div>
+      )}
     </motion.section>
   );
 }
