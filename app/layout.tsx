@@ -4,6 +4,7 @@ import ActiveSectionContextProvider from "@/context/active-section-context";
 import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import ScrollProgress from "@/components/scroll-progress";
+import PageLoader from "@/components/page-loader";
 import { Toaster } from "react-hot-toast";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
@@ -55,9 +56,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark !scroll-smooth ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`!scroll-smooth ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body className="relative antialiased">
+        <PageLoader />
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
             <ScrollProgress />

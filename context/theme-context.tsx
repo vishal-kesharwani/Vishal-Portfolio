@@ -21,14 +21,16 @@ export default function ThemeContextProvider({
   const [theme, setTheme] = useState<Theme>("dark");
 
   const toggleTheme = () => {
-    if (theme === "light") {
+    if (theme === "dark") {
+      setTheme("light");
+      window.localStorage.setItem("theme", "light");
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+    } else {
       setTheme("dark");
       window.localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
-    } else {
-      setTheme("light");
-      window.localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove("light");
     }
   };
 
@@ -37,6 +39,7 @@ export default function ThemeContextProvider({
 
     if (localTheme) {
       setTheme(localTheme);
+      document.documentElement.classList.toggle("light", localTheme === "light");
       document.documentElement.classList.toggle("dark", localTheme === "dark");
     }
   }, []);
