@@ -72,7 +72,7 @@ export default function Education() {
                   
                   <div className="flex items-baseline gap-2 mb-3">
                     <span className="font-mono text-[8px] uppercase tracking-wider text-faint">
-                      CGPA
+                      {edu.degree.includes("B.Tech") ? "CGPA" : "PERCENTAGE"}
                     </span>
                     <span className="font-display text-lg font-bold text-accent">
                       {edu.cgpa}
