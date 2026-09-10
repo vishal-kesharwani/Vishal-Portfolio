@@ -1,388 +1,377 @@
 import React from "react";
-import { FiCloud, FiAward, FiTarget, FiUsers } from "react-icons/fi";
-import reportImg from "@/public/reportease.png";
-import jobTrackerImg from "@/public/jobtracker.png";
-import sevaImg from "@/public/seva-mahila-udyog.png";
-import cloudlensImg from "@/public/cloudlens-ai.png";
-import awsCertPhoto from "@/public/achievements/aws-cert.jpg";
-import sih2024Photo from "@/public/achievements/sih-2024.jpg";
-import cavistaPhoto from "@/public/achievements/cavista-hackathon.jpg";
-import datathonPhoto from "@/public/achievements/datathon.jpg";
-import ideathonPhoto from "@/public/achievements/ideathon.jpg";
 
-// Order must match the section order in app/page.tsx so the nav and the
-// scroll-spy highlight stay in sync.
-export const links = [
-  { name: "Home", hash: "#home" },
-  { name: "About", hash: "#about" },
-  { name: "Projects", hash: "#projects" },
-  { name: "Cloud Lab", hash: "#cloud-lab" },
-  { name: "Production", hash: "#production" },
-  { name: "Skills", hash: "#skills" },
-  { name: "Internships", hash: "#internships" },
-  { name: "Achievements", hash: "#achievements" },
-  { name: "Education", hash: "#education" },
-  { name: "Build Log", hash: "#build-log" },
-  { name: "Contact", hash: "#contact" },
-] as const;
-
-// What the header actually renders: fewer, grouped labels. Decoupled from
-// `links` above so the full scroll-spy section list can stay granular while
-// the nav itself stays minimal. navGroups maps each nav label to the real
-// section names (from `links`) that should light it up as active.
 export const navLinks = [
-  { name: "Work", hash: "#projects" },
-  { name: "Systems", hash: "#cloud-lab" },
-  { name: "Experience", hash: "#internships" },
-  { name: "About", hash: "#about" },
+  { num: "01", name: "HOME", hash: "#home" },
+  { num: "02", name: "WORK", hash: "#work" },
+  { num: "03", name: "LAB", hash: "#lab" },
+  { num: "04", name: "SYSTEMS", hash: "#systems" },
+  { num: "05", name: "JOURNAL", hash: "#log" },
+  { num: "06", name: "ABOUT", hash: "#about" },
 ] as const;
 
-export const navGroups: Record<string, ReadonlyArray<(typeof links)[number]["name"]>> = {
-  Work: ["Projects"],
-  Systems: ["Cloud Lab", "Production", "Skills"],
-  Experience: ["Internships", "Achievements", "Education", "Build Log"],
-  About: ["About"],
-};
+export const statusMessages = [
+  "BUILDING",
+  "LEARNING",
+  "SHIPPED",
+  "EXPLORING",
+  "TESTING",
+];
 
-export const resumeHighlights = [
-  {
-    label: "Customers",
-    value: "60+",
-    detail: "Live on Seva Mahila Udyog, an order-management platform in production",
-  },
-  {
-    label: "REST APIs",
-    value: "45+",
-    detail: "Endpoints across 13 domain modules on Seva Mahila Udyog",
-  },
-  {
-    label: "Microservices",
-    value: "3",
-    detail: "Kafka-only event-driven services on Kubernetes with GitOps delivery",
-  },
-  {
-    label: "DB lookups",
-    value: "-50%",
-    detail: "Cut via debouncing logic in ETL validation at SteepGraph",
-  },
-  {
-    label: "AWS score",
-    value: "1000/1000",
-    detail: "AWS Certified Cloud Practitioner (CLF-C02)",
-  },
-  {
-    label: "Internships",
-    value: "2",
-    detail: "SteepGraph Systems and SortUs",
-  },
-] as const;
+export const stackLine = ["JAVA", "SPRING BOOT", "KAFKA", "KUBERNETES", "AWS", "AI"];
 
-export const howIThink = [
+export const heroStats = [
+  { value: "4+", label: "Major Projects" },
+  { value: "2", label: "Internships" },
+  { value: "6+", label: "Technologies in Depth" },
+  { value: "1000/1000", label: "AWS Certified" },
+  { value: "\u221E", label: "Curiosity" },
+];
+
+export const currentlyExploring = [
+  {
+    id: "01",
+    title: "DISTRIBUTED SYSTEMS",
+    description: "Can event-driven systems remain predictable when everything becomes asynchronous?",
+    status: "DEEP" as const,
+    tags: ["Kafka", "Consistency", "Fault Tolerance"],
+  },
+  {
+    id: "02",
+    title: "AI SYSTEMS",
+    description: "Can coding agents reason about an unfamiliar codebase instead of just generating code?",
+    status: "EXPLORING" as const,
+    tags: ["Agents", "Tool Calling", "Evaluation"],
+  },
+  {
+    id: "03",
+    title: "CLOUD INFRASTRUCTURE",
+    description: "How much infrastructure can be automated before it becomes invisible?",
+    status: "BUILDING" as const,
+    tags: ["AWS", "Kubernetes", "Terraform"],
+  },
+  {
+    id: "04",
+    title: "DEVELOPER TOOLING",
+    description: "Can software remove the boring parts of software engineering?",
+    status: "CURIOUS" as const,
+    tags: ["CLI", "Automation", "Code Intelligence"],
+  },
+];
+
+export const thinkingProcess = [
   {
     step: "01",
-    title: "Build",
-    tagline: "APIs that are predictable.",
-    tags: ["Java", "Spring Boot", "Spring Security", "PostgreSQL", "REST"],
+    title: "UNDERSTAND",
+    description: "Before using a technology, I want to know what\u2019s happening underneath.",
   },
   {
     step: "02",
-    title: "Connect",
-    tagline: "Systems that communicate asynchronously.",
-    tags: ["Kafka", "WebSocket", "Event-driven design", "Microservices"],
+    title: "BUILD",
+    description: "The fastest way for me to learn is to build the thing.",
   },
   {
     step: "03",
-    title: "Ship",
-    tagline: "Infrastructure that doesn't need babysitting.",
-    tags: ["Docker", "Kubernetes", "Terraform", "ArgoCD", "AWS"],
-  },
-] as const;
-
-export const experiencesData = [
-  {
-    title: "AWS Certified Cloud Practitioner",
-    description:
-      "Achieved a perfect 1000/1000 score on the CLF-C02 certification and use that foundation in day-to-day cloud work.",
-    icon: React.createElement(FiCloud),
-    date: "Certification",
-    photo: awsCertPhoto,
+    title: "BREAK",
+    description: "Failure exposes what diagrams hide.",
   },
   {
-    title: "Smart India Hackathon 2024",
-    description:
-      "Grand Finalist at the national-level SIH 2024 software edition, on stage at the valedictory function.",
-    icon: React.createElement(FiAward),
-    date: "2024",
-    photo: sih2024Photo,
+    step: "04",
+    title: "SHIP",
+    description: "A project isn\u2019t complete until it survives outside localhost.",
   },
-  {
-    title: "Cavista Tech Hackathon",
-    description:
-      "First Runner-Up, awarded a cash prize of ₹50,000 with the team.",
-    icon: React.createElement(FiAward),
-    date: "2025",
-    photo: cavistaPhoto,
-  },
-  {
-    title: "Datathon 2025",
-    description: "Runner-Up among competing teams at the campus datathon.",
-    icon: React.createElement(FiAward),
-    date: "2025",
-    photo: datathonPhoto,
-  },
-  {
-    title: "MITAOE E-Summit Ideathon",
-    description: "Winner, awarded a subscription voucher with the team.",
-    icon: React.createElement(FiAward),
-    date: "2024",
-    photo: ideathonPhoto,
-  },
-  {
-    title: "Flipkart Grid 7.0",
-    description:
-      "Reached Round 2 with Drishaak, an edge-based traffic-violation detection system, ranking 1582 of 10,000+ submissions.",
-    icon: React.createElement(FiTarget),
-    date: "2024",
-  },
-  {
-    title: "Leadership",
-    description:
-      "Core Member and Design Lead, ACM Student Chapter, MITAOE.",
-    icon: React.createElement(FiUsers),
-    date: "2024-2025",
-  },
-] as const;
-
-export const internshipsData = [
-  {
-    company: "SortUs",
-    role: "Cloud & DevOps Intern",
-    duration: "Jun 2025 - Aug 2025",
-    status: "Completed",
-    techStack: ["Node.js", "MongoDB", "AWS Lambda", "GitHub Actions", "REST APIs"],
-    highlights: [
-      "Automated serverless deployments via AWS Lambda and GitHub Actions in a real production workflow, cutting manual release effort by an estimated 30%.",
-      "Built scalable Node.js and MongoDB backend modules and documented REST APIs for frontend-backend integration.",
-    ],
-  },
-  {
-    company: "SteepGraph Systems Private Limited",
-    role: "Backend Developer Intern",
-    duration: "Feb 2026 - Jun 2026",
-    status: "Completed",
-    techStack: [
-      "Java",
-      "Spring Boot",
-      "Spring MVC",
-      "Spring Security",
-      "PostgreSQL",
-      "Gradle",
-    ],
-    highlights: [
-      "Designed 15+ production-grade REST APIs using Java, Spring MVC, and PostgreSQL for large-scale enterprise applications, secured via Spring Security, managing builds with Gradle.",
-      "Optimized ETL validation with debouncing logic that cut redundant database lookups by 50%, plus a real-time SQL table extractor auto-suggesting table names from live DB metadata.",
-      "Maintained and fixed bugs across 10+ modular service-layer components, reviewed merge requests, and contributed to enterprise data migration pipelines.",
-      "Built an ARAS-to-email bridge as a side project, integrating with the ARAS PLM platform to route and deliver item data through automated email notifications.",
-    ],
-  },
-] as const;
+];
 
 export const projectsData = [
   {
-    title: "Seva Mahila Udyog - Food Business Management App",
+    id: "01",
+    title: "SEVA MAHILA UDYOG",
+    category: "LIVE IN PRODUCTION",
+    headline: "Software that handles real orders, not demo data.",
     description:
-      "Full-stack order-management platform live in production for a home-food business: live payments, order lifecycle, and admin operations across 13 domain modules.",
-    tags: ["REST APIs", "JWT", "bcrypt", "OTP", "Rate Limiting", "2FA"],
-    icons: [
-      "mdi:api",
-      "mdi:shield-key-outline",
-      "mdi:lock-outline",
-      "mdi:cellphone-key",
-      "mdi:credit-card-outline",
-    ],
-    imageUrl: sevaImg,
+      "A full-stack order-management platform for a live food business covering ordering, payments, authentication and administration.",
+    impact: ["60+ CUSTOMERS", "45+ REST APIs", "13 DOMAIN MODULES"],
+    tech: "Java \u00B7 Spring Boot \u00B7 PostgreSQL \u00B7 JWT \u00B7 bcrypt \u00B7 OTP \u00B7 Rate Limiting \u00B7 2FA",
+    detail: "Found and fixed a payment-integrity issue through server-side validation.",
     githubLink: "",
-    liveLabel: "Live in production",
-    outcomes: [
-      "60+ customers, 45+ REST endpoints across 13 domain modules",
-      "Stateless auth with JWT and bcrypt-hashed, expiring OTPs",
-      "Rate limiting and two-factor admin authentication",
-      "Found and fixed a critical payment-integrity bug via server-side validation",
-    ],
   },
   {
-    title: "Cloud-Native Job Application Tracker",
+    id: "02",
+    title: "CLOUD-NATIVE JOB APPLICATION TRACKER",
+    category: "MICROSERVICES",
+    headline: "Three services. No direct service-to-service calls. Communication happens through events.",
     description:
-      "Event-driven microservices platform: three independent Spring Boot services that communicate exclusively through Kafka, deployed to Kubernetes with Terraform-provisioned EKS infrastructure and ArgoCD GitOps delivery.",
-    tags: [
-      "Java",
-      "Spring Boot",
-      "Apache Kafka",
-      "Kubernetes",
-      "Terraform",
-      "ArgoCD",
-      "Flyway",
-      "Prometheus",
-      "Grafana",
-    ],
-    icons: [
-      "logos:java",
-      "simple-icons:spring",
-      "logos:kafka-icon",
-      "logos:kubernetes",
-      "logos:terraform-icon",
-      "logos:argo-icon",
-      "logos:prometheus",
-      "logos:grafana",
-    ],
-    imageUrl: jobTrackerImg,
+      "Event-driven microservices platform with Kafka-only communication, deployed to Kubernetes with Terraform and ArgoCD.",
+    impact: ["3 SERVICES", "ZERO DIRECT CALLS", "EVENT-DRIVEN"],
+    tech: "Java \u00B7 Spring Boot \u00B7 Kafka \u00B7 Kubernetes \u00B7 Terraform \u00B7 ArgoCD \u00B7 Flyway \u00B7 Prometheus \u00B7 Grafana",
+    detail: "Self-healing under pod failure, verified autoscaling under load.",
     githubLink: "https://github.com/vishal-kesharwani/JOB-APPLICATION-TRACKER",
-    outcomes: [
-      "Three services, zero direct service-to-service calls",
-      "Self-healing under pod failure, verified autoscaling under load",
-      "Terraform-provisioned EKS with ArgoCD GitOps reconciliation",
-      "JWT-secured inter-service calls, schema evolution via Flyway",
-    ],
+    architecture: {
+      flow: ["SERVICE A", "KAFKA", "SERVICE B", "KAFKA", "SERVICE C"],
+    },
   },
   {
-    title: "Knowledge Nexus - Full-Stack Mentorship Platform",
+    id: "03",
+    title: "KNOWLEDGE NEXUS",
+    category: "FULL-STACK",
+    headline: "Keeping the user workflow responsive while the system works behind the scenes.",
     description:
-      "Full-stack mentorship platform with JWT/OAuth2 authentication, mentor discovery, session booking, real-time chat, and a Kafka-based notification pipeline that keeps the booking flow responsive under load.",
-    tags: [
-      "React",
-      "TypeScript",
-      "Spring Boot",
-      "Spring Data JPA",
-      "Kafka",
-      "Docker",
-      "JWT",
-      "OAuth2",
-    ],
-    icons: [
-      "skill-icons:react-dark",
-      "logos:typescript-icon",
-      "simple-icons:spring",
-      "logos:kafka-icon",
-      "logos:docker-icon",
-    ],
-    imageUrl: reportImg,
+      "Full-stack mentorship platform with JWT/OAuth2 authentication, mentor discovery, session booking, real-time chat, and Kafka-based notifications.",
+    impact: ["REAL-TIME CHAT", "KAFKA EVENTS", "OAUTH2"],
+    tech: "React \u00B7 TypeScript \u00B7 Spring Boot \u00B7 Kafka \u00B7 Docker \u00B7 JWT \u00B7 OAuth2",
+    detail: "Kafka-decoupled notifications keep booking responsive under load.",
     githubLink: "https://github.com/vishal-kesharwani/NEXUS",
-    outcomes: [
-      "JWT and Google OAuth2 authentication",
-      "Realtime chat with WebSocket",
-      "Kafka-decoupled notifications keep booking responsive under load",
-      "Automated Google Calendar scheduling, containerized via Docker Compose",
-    ],
+    eventFlow: ["USER", "BOOK SESSION", "API", "EVENT", "KAFKA", "NOTIFICATION", "CALENDAR"],
   },
   {
-    title: "CloudLens-AI - Terraform Review & Billing Suggestion Platform",
+    id: "04",
+    title: "CLOUDLENS AI",
+    category: "AI + INFRASTRUCTURE",
+    headline: "Making infrastructure easier to understand.",
     description:
-      "Backend owned end-to-end for a platform that reviews AWS Terraform infrastructure and surfaces billing and cost-optimization suggestions, with database models managed through Alembic migrations.",
-    tags: ["Python", "Terraform", "AWS", "Alembic", "REST APIs"],
-    icons: [
-      "logos:python",
-      "logos:terraform-icon",
-      "simple-icons:amazonaws",
-      "mdi:database-sync-outline",
-      "mdi:api",
-    ],
-    imageUrl: cloudlensImg,
+      "A platform that reviews AWS Terraform infrastructure and surfaces billing and cost-optimization suggestions.",
+    impact: ["TERRAFORM", "AWS", "AI ANALYSIS"],
+    tech: "Python \u00B7 Terraform \u00B7 AWS \u00B7 Alembic \u00B7 REST APIs",
+    detail: "6 core backend modules: parser, pipeline, pricing, reviewer, rules, schemas.",
     githubLink: "https://github.com/vidya-bingi-26/cloudlens-ai",
-    outcomes: [
-      "6 core backend modules: parser, pipeline, pricing, reviewer, rules, schemas",
-      "Reviews Terraform configs and surfaces pricing suggestions",
-      "Database models and schema migrations managed with Alembic",
-    ],
+    bridge: true,
   },
-] as const;
+];
 
-export const skillGroups = [
+export const labExperiments = [
   {
-    title: "Backend & Security",
-    blurb: "Where most of my day goes: services, APIs, and auth.",
-    accent: "amber",
-    items: [
-      { name: "Java", icon: "logos:java", core: true },
-      { name: "Spring Boot", icon: "simple-icons:spring", core: true },
-      { name: "Spring MVC", icon: "simple-icons:spring" },
-      { name: "Spring Security", icon: "simple-icons:springsecurity", core: true },
-      { name: "Spring Data JPA", icon: "simple-icons:spring" },
-      { name: "REST APIs", icon: "mdi:api", core: true },
-      { name: "JWT", icon: "mdi:shield-key-outline" },
-      { name: "OAuth2", icon: "mdi:account-key-outline" },
-      { name: "Flyway", icon: "mdi:database-sync-outline", core: true },
-      { name: "WebSocket", icon: "mdi:message-processing-outline" },
-      { name: "Node.js", icon: "logos:nodejs-icon" },
+    id: "01",
+    question: "Can a coding agent understand a real repository?",
+    status: "EXPLORING" as const,
+    expected: "Agent would struggle with multi-file context and cross-references.",
+    tried: "Testing agent reasoning on multi-file codebases with varying complexity.",
+    happened: "Context window management is critical \u2014 agents lose coherence beyond a threshold.",
+    learned: "RAG-based code analysis is more reliable than raw context stuffing.",
+    next: "Implement retrieval-augmented code analysis pipeline.",
+  },
+  {
+    id: "02",
+    question: "Kafka consumer behavior under burst traffic",
+    status: "TESTED" as const,
+    expected: "Consumers would lag but catch up after burst subsides.",
+    tried: "Simulated consumer lag with burst traffic patterns on a test cluster.",
+    happened: "Duplicate processing exposed an idempotency problem in message handling.",
+    learned: "Idempotent consumers are non-negotiable in event-driven systems.",
+    next: "Implement exactly-once semantics testing.",
+  },
+  {
+    id: "03",
+    question: "What happens when a pod disappears?",
+    status: "SIMULATING" as const,
+    expected: "Kubernetes would reschedule the pod with minimal disruption.",
+    tried: "Chaos engineering with pod termination during active traffic.",
+    happened: "Brief 503s before service mesh reroutes traffic \u2014 pod disruption budgets matter.",
+    learned: "Pod disruption budgets are more important than most deployment manifests assume.",
+    next: "Test graceful shutdown sequences with preStop hooks.",
+  },
+  {
+    id: "04",
+    question: "Building a CLI for infrastructure review",
+    status: "IN PROGRESS" as const,
+    expected: "A simple CLI that parses Terraform state and suggests optimizations.",
+    tried: "Building a parser for Terraform plan output with rule-based analysis.",
+    happened: "Scope expanded from billing analysis to full infrastructure review.",
+    learned: "Infrastructure-as-code has rich metadata that tools barely exploit.",
+    next: "Add cloud cost correlation and drift detection.",
+  },
+];
+
+export const systemsTabs = [
+  {
+    id: "API",
+    label: "01 API",
+    components: ["Authentication", "Database", "Event Bus", "Kafka", "Consumer"],
+    decision: "Why stateless auth? \u2014 JWTs scale horizontally without session storage.",
+  },
+  {
+    id: "EVENTS",
+    label: "02 EVENTS",
+    components: ["Producer", "Kafka Topic", "Consumer", "Offset", "Rebalance"],
+    decision: "Why Kafka? \u2014 Decoupling services lets each scale independently.",
+  },
+  {
+    id: "DATABASE",
+    label: "03 DATABASE",
+    components: ["Connection Pool", "PostgreSQL", "Flyway Migrations", "Read Replica"],
+    decision: "Why Flyway? \u2014 Schema versioning prevents deployment drift.",
+  },
+  {
+    id: "CONTAINER",
+    label: "04 CONTAINER",
+    components: ["Dockerfile", "Image", "Container", "Health Check", "Resource Limits"],
+    decision: "Why containers? \u2014 Consistent environments from dev to production.",
+  },
+  {
+    id: "CLUSTER",
+    label: "05 CLUSTER",
+    components: ["Kubernetes", "Pod", "Service", "Ingress", "Autoscaler"],
+    decision: "Why Kubernetes? \u2014 Self-healing and scaling without manual intervention.",
+  },
+  {
+    id: "DELIVERY",
+    label: "06 DELIVERY",
+    components: ["Git Push", "GitHub Actions", "ArgoCD", "Rollback", "Monitoring"],
+    decision: "Why GitOps? \u2014 Declarative infrastructure with audit trails.",
+  },
+];
+
+export const experiencesData = [
+  {
+    year: "2026",
+    company: "SteepGraph Systems",
+    role: "Backend Developer Intern",
+    duration: "Feb 2026 \u2013 Jun 2026",
+    highlights: [
+      "15+ production-grade REST APIs",
+      "ETL optimization with debouncing logic",
+      "SQL metadata tooling",
+      "Service debugging across 10+ components",
+      "Enterprise migration pipelines",
+    ],
+    keyMetric: "50% fewer redundant database lookups",
+  },
+  {
+    year: "2025",
+    company: "SortUs",
+    role: "Cloud & DevOps Intern",
+    duration: "Jun 2025 \u2013 Aug 2025",
+    highlights: [
+      "AWS Lambda serverless deployments",
+      "GitHub Actions CI/CD pipelines",
+      "Node.js and MongoDB backend modules",
+      "REST API documentation",
+    ],
+    keyMetric: "30% reduction in manual release effort",
+  },
+];
+
+export const signals = [
+  {
+    title: "AWS CERTIFIED",
+    value: "1000 / 1000",
+    subtitle: "Cloud Practitioner CLF-C02",
+    imageKey: "aws-cert",
+  },
+  {
+    title: "SIH 2024",
+    value: "GRAND FINALIST",
+    subtitle: "National-level hackathon",
+    imageKey: "sih-2024",
+  },
+  {
+    title: "CAVISTA TECH HACKATHON",
+    value: "1ST RUNNER-UP",
+    subtitle: "\u20B950,000 prize",
+    imageKey: "cavista",
+  },
+  {
+    title: "DATATHON 2025",
+    value: "RUNNER-UP",
+    subtitle: "Campus datathon",
+    imageKey: "datathon",
+  },
+  {
+    title: "MITAOE E-SUMMIT IDEATHON",
+    value: "WINNER",
+    subtitle: "Innovation competition",
+    imageKey: "ideathon",
+  },
+  {
+    title: "FLIPKART GRID 7.0",
+    value: "ROUND 2",
+    subtitle: "1582 / 10,000+",
+    imageKey: null,
+  },
+];
+
+export const buildLogEntries = [
+  {
+    date: "09 SEP 2026",
+    tag: "AI",
+    title: "Why I\u2019m looking at coding agents",
+    note: "I\u2019ve spent years building backend systems. Now I\u2019m interested in what happens when the software itself starts participating in the engineering loop.",
+  },
+  {
+    date: "08 SEP 2026",
+    tag: "SYSTEMS",
+    title: "Kafka burst test exposed duplicate processing",
+    note: "Idempotency issue discovered in consumer group \u2014 exactly-once semantics matter more than I thought.",
+  },
+  {
+    date: "05 SEP 2026",
+    tag: "KUBERNETES",
+    title: "ConfigMap key mismatch caused pod crash loop",
+    note: "Deployed another service and debugged a configuration issue that wasn\u2019t visible until runtime.",
+  },
+  {
+    date: "02 SEP 2026",
+    tag: "AI",
+    title: "Studying how inference systems work underneath LLM APIs",
+    note: "Reading about transformer architecture and attention mechanisms to understand what coding agents actually do.",
+  },
+  {
+    date: "28 AUG 2026",
+    tag: "BUILD",
+    title: "CloudLens AI backend modules complete",
+    note: "6 core modules: parser, pipeline, pricing, reviewer, rules, schemas \u2014 the real engineering started at the boundaries.",
+  },
+  {
+    date: "20 AUG 2026",
+    tag: "CLOUD",
+    title: "ArgoCD GitOps pipeline working end-to-end",
+    note: "Automated deployment from Git push to cluster update. The feedback loop is finally tight.",
+  },
+  {
+    date: "15 AUG 2026",
+    tag: "FAILURE",
+    title: "Pod failure during load test",
+    note: "Learned about pod disruption budgets the hard way. The system recovered but it shouldn\u2019t have needed to.",
+  },
+  {
+    date: "10 AUG 2026",
+    tag: "SYSTEMS",
+    title: "Kafka consumer lag simulation",
+    note: "Tested behavior when consumers fall behind during burst traffic. The lag graph tells the story.",
+  },
+];
+
+export const educationData = [
+  {
+    degree: "B.Tech in Computer Science & Engineering",
+    institution: "MIT Academy of Engineering, Pune",
+    duration: "2022 \u2013 2026",
+    cgpa: "8.63 / 10",
+    highlights: [
+      "Relevant coursework: Data Structures, Operating Systems, DBMS, Computer Networks, Cloud Computing",
     ],
   },
   {
-    title: "Languages",
-    blurb: "The languages I reach for first.",
-    accent: "slate",
-    items: [
-      { name: "Java", icon: "logos:java", core: true },
-      { name: "Python", icon: "logos:python", core: true },
-      { name: "SQL", icon: "mdi:database-outline" },
-      { name: "JavaScript", icon: "skill-icons:javascript" },
-      { name: "TypeScript", icon: "logos:typescript-icon" },
-      { name: "C++", icon: "logos:c-plusplus" },
-    ],
+    degree: "Higher Secondary (XII)",
+    institution: "DOA School",
+    duration: "2020 \u2013 2022",
+    cgpa: "71%",
+    highlights: ["Science stream with Mathematics", "JEE Mains 2022: 93.91 Percentile", "MHCET 2022: 96.46 Percentile"],
   },
   {
-    title: "Event-Driven Systems",
-    blurb: "The messaging layer behind my microservice work.",
-    accent: "orange",
-    items: [
-      { name: "Apache Kafka", icon: "logos:kafka-icon", core: true },
-      { name: "Event-driven design", icon: "mdi:transit-connection-variant", core: true },
-    ],
+    degree: "Secondary (X)",
+    institution: "BNN College",
+    duration: "2018 \u2013 2020",
+    cgpa: "85.20%",
+    highlights: [],
   },
-  {
-    title: "Cloud & DevOps",
-    blurb: "How the code actually reaches a cluster.",
-    accent: "teal",
-    items: [
-      { name: "AWS", icon: "simple-icons:amazonaws", core: true },
-      { name: "EC2", icon: "mdi:server-outline" },
-      { name: "Lambda", icon: "simple-icons:awslambda" },
-      { name: "IAM", icon: "mdi:account-key-outline" },
-      { name: "boto3", icon: "mdi:robot-outline" },
-      { name: "Terraform", icon: "logos:terraform-icon", core: true },
-      { name: "Kubernetes", icon: "logos:kubernetes", core: true },
-      { name: "ArgoCD", icon: "logos:argo-icon", core: true },
-      { name: "Docker", icon: "simple-icons:docker", core: true },
-      { name: "GitHub Actions", icon: "simple-icons:githubactions" },
-      { name: "CI/CD", icon: "mdi:pipe" },
-      { name: "Gradle", icon: "logos:gradle" },
-      { name: "Prometheus", icon: "logos:prometheus", core: true },
-      { name: "Grafana", icon: "logos:grafana", core: true },
-    ],
-  },
-  {
-    title: "Databases & Frontend",
-    blurb: "Enough full-stack reach to ship a feature end to end.",
-    accent: "sky",
-    items: [
-      { name: "PostgreSQL", icon: "logos:postgresql", core: true },
-      { name: "MySQL", icon: "logos:mysql" },
-      { name: "MongoDB", icon: "skill-icons:mongodb" },
-      { name: "Alembic", icon: "mdi:database-sync-outline" },
-      { name: "React.js", icon: "logos:react" },
-      { name: "TypeScript", icon: "logos:typescript-icon" },
-      { name: "Axios", icon: "simple-icons:axios" },
-    ],
-  },
-  {
-    title: "Core CS & Tools",
-    blurb: "The fundamentals underneath all of it.",
-    accent: "rose",
-    items: [
-      { name: "DSA", icon: "mdi:graph-outline", core: true },
-      { name: "OOP", icon: "mdi:cube-outline" },
-      { name: "SOLID", icon: "mdi:shape-outline" },
-      { name: "System Design", icon: "mdi:sitemap-outline", core: true },
-      { name: "Git", icon: "logos:git-icon" },
-      { name: "Postman", icon: "simple-icons:postman" },
-    ],
-  },
-] as const;
+];
+
+export const toolbox = [
+  { name: "JAVA", description: "Reliable backend systems" },
+  { name: "SPRING BOOT", description: "API and service architecture" },
+  { name: "KAFKA", description: "Event-driven communication" },
+  { name: "KUBERNETES", description: "Distributed workloads" },
+  { name: "TERRAFORM", description: "Infrastructure as code" },
+  { name: "AWS", description: "Cloud infrastructure" },
+  { name: "PYTHON", description: "Automation and AI experiments" },
+  { name: "REACT", description: "Product interfaces" },
+];

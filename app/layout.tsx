@@ -1,24 +1,27 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ActiveSectionContextProvider from "@/context/active-section-context";
-import ThemeSwitch from "@/components/theme-switch";
-import ThemeContextProvider from "@/context/theme-context";
 import ScrollProgress from "@/components/scroll-progress";
-import PageLoader from "@/components/page-loader";
-import { Toaster } from "react-hot-toast";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500"],
   variable: "--font-mono",
   display: "swap",
 });
@@ -26,26 +29,22 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata = {
   metadataBase: new URL("https://vishalkesharwani.in"),
   title: {
-    default: "Vishal Kesharwani | Backend / DevOps Engineer",
+    default: "Vishal Kesharwani | Systems Builder",
     template: "%s | Vishal Kesharwani",
   },
   description:
-    "Resume-aligned portfolio of Vishal Kesharwani, a backend / DevOps engineer building event-driven microservices with Spring Boot and Kafka, and automating cloud infrastructure with Kubernetes, Terraform, and AWS.",
-  alternates: {
-    canonical: "/",
-  },
+    "Vishal Kesharwani \u2014 I build things I want to understand. Backend systems, distributed infrastructure, cloud, AI experiments.",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Vishal Kesharwani | Backend / DevOps Engineer",
+    title: "Vishal Kesharwani | Systems Builder",
     description:
-      "Event-driven microservices, cloud-native delivery, research, and internship experience from Vishal Kesharwani.",
+      "I build things I want to understand. Backend systems, distributed infrastructure, cloud, AI experiments.",
     url: "https://vishalkesharwani.in",
-    siteName: "Vishal Kesharwani Portfolio",
+    siteName: "Vishal Kesharwani",
     locale: "en_IN",
     type: "website",
   },
-  icons: {
-    icon: "/icon.png",
-  },
+  icons: { icon: "/githubdp.jpg" },
 };
 
 export default function RootLayout({
@@ -56,20 +55,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`!scroll-smooth ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`!scroll-smooth ${inter.variable} ${spaceGrotesk.variable} ${ibmPlexMono.variable}`}
     >
-      <body className="relative antialiased">
-        <PageLoader />
-        <ThemeContextProvider>
-          <ActiveSectionContextProvider>
-            <ScrollProgress />
-            <Header />
-            {children}
-            <Footer />
-            <Toaster position="top-right" />
-            <ThemeSwitch />
-          </ActiveSectionContextProvider>
-        </ThemeContextProvider>
+      <body className="relative antialiased noise-bg">
+        <ActiveSectionContextProvider>
+          <ScrollProgress />
+          <Header />
+          {children}
+          <Footer />
+        </ActiveSectionContextProvider>
       </body>
     </html>
   );

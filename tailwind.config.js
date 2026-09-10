@@ -7,11 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       colors: {
         canvas: "var(--bg)",
         surface: "var(--surface)",
@@ -22,15 +17,63 @@ module.exports = {
         faint: "var(--faint)",
         accent: "var(--accent)",
         "accent-ink": "var(--accent-ink)",
+        secondary: "var(--secondary)",
         warn: "var(--warning)",
         danger: "var(--error)",
       },
       fontFamily: {
-        display: "var(--font-display)",
-        mono: "var(--font-mono)",
+        display: ["var(--font-display)", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
+      },
+      fontSize: {
+        "display-2xl": ["clamp(3.5rem, 8vw, 7rem)", { lineHeight: "0.9", letterSpacing: "-0.04em" }],
+        "display-xl": ["clamp(3rem, 7vw, 5.5rem)", { lineHeight: "0.92", letterSpacing: "-0.03em" }],
+        "display-lg": ["clamp(2.2rem, 5vw, 4rem)", { lineHeight: "0.95", letterSpacing: "-0.02em" }],
+        "display-md": ["clamp(1.6rem, 3.5vw, 2.5rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+      },
+      spacing: {
+        section: "clamp(5rem, 12vw, 9rem)",
+        "section-sm": "clamp(3rem, 6vw, 5rem)",
+      },
+      maxWidth: {
+        content: "1380px",
+        narrow: "680px",
+      },
+      borderRadius: {
+        card: "8px",
+      },
+      borderWidth: {
+        1: "1px",
+      },
+      transitionTimingFunction: {
+        "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
+      },
+      keyframes: {
+        "fade-in": {
+          from: { opacity: "0", transform: "translateY(16px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "slide-up": {
+          from: { opacity: "0", transform: "translateY(30px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "pulse-dot": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.4" },
+        },
+        "terminal-blink": {
+          "0%, 49%": { opacity: "1" },
+          "50%, 100%": { opacity: "0" },
+        },
+      },
+      animation: {
+        "fade-in": "fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "slide-up": "slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "pulse-dot": "pulse-dot 2s ease-in-out infinite",
+        "terminal-blink": "terminal-blink 1s steps(1) infinite",
       },
     },
   },
   plugins: [],
-  darkMode: "class",
 };

@@ -1,3 +1,14 @@
-import { links } from "./data";
-
-export type SectionName = (typeof links)[number]["name"];
+export type SectionName =
+  | "Home"
+  | "Currently"
+  | "HowIThink"
+  | "Work"
+  | "Lab"
+  | "Break"
+  | "Systems"
+  | "Experience"
+  | "Signal"
+  | "Log"
+  | "About"
+  | "Toolbox"
+  | "Contact";

@@ -1,197 +1,109 @@
 "use client";
 
 import React from "react";
-import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
-import MITLogo from "@/public/MIT-logo.png";
+import { educationData } from "@/lib/data";
+import Image from "next/image";
+import mitLogo from "@/public/MIT-logo.png";
 import bnnLogo from "@/public/bnn-college-logo.png";
 import doaLogo from "@/public/doa-school-logo.jpg";
-import Image from "next/image";
 
-const educationItems = [
-  {
-    title: "B.Tech - Computer Science & Engineering",
-    institution: "MIT Academy of Engineering, Pune",
-    period: "Nov 2022 - Jun 2026",
-    metric: "CGPA: 8.63/10",
-    points: [
-      "Java, backend systems, and cloud delivery focus",
-      "Consistent problem solving through DSA practice",
-    ],
-    logo: MITLogo,
-  },
-  {
-    title: "Higher Secondary (12th)",
-    institution: "B.N.N. College, Bhiwandi",
-    period: "Aug 2021 - Mar 2022",
-    metric: "Percentage: 71%",
-    points: ["MSBSHSE Board", "Science Stream (PCMB)", "JEE Mains: 93.92%ile", "MHCET: 96.46%ile"],
-    logo: bnnLogo,
-  },
-  {
-    title: "Secondary School (10th)",
-    institution: "Dr. Omprakash Agarwal English High School, Bhiwandi",
-    period: "Apr 2019 - Mar 2020",
-    metric: "Percentage: 85.20%",
-    points: ["MSBSHSE Board", "State Topper in Mathematics"],
-    logo: doaLogo,
-  },
-] as const;
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, x: -30 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      type: "spring",
-      stiffness: 80,
-      damping: 15,
-    },
-  },
+const institutionLogos: Record<string, typeof mitLogo> = {
+  "MIT Academy of Engineering, Pune": mitLogo,
+  "DOA School": bnnLogo,
+  "BNN College": doaLogo,
 };
 
 export default function Education() {
-  const { ref } = useSectionInView("Education", 0.3);
+  const { ref } = useSectionInView("About", 0.2);
 
   return (
-    <motion.section
-      id="education"
-      ref={ref}
-      className="mb-20 w-full max-w-[58rem] scroll-mt-28 sm:mb-28"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, type: "spring", stiffness: 60 }}
-      viewport={{ once: true, margin: "-100px" }}
-    >
-      <SectionHeading kicker="Academic base">Education</SectionHeading>
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-        className="mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-muted sm:text-base"
-      >
-        My academic base gives me the fundamentals I rely on while building
-        backend systems, cloud workflows, and deployment-ready products.
-      </motion.p>
+    <section ref={ref} id="education" className="py-section px-6 lg:px-10">
+      <div className="mx-auto max-w-content">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-10"
+        >
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent block mb-4">
+            // EDUCATION
+          </span>
+          <h2 className="font-display text-display-lg font-bold text-ink">
+            Where I learned
+            <br />
+            the foundations.
+          </h2>
+        </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        className="grid gap-5"
-      >
-        {educationItems.map((item, index) => (
-          <motion.article
-            key={item.title}
-            variants={cardVariants}
-            whileHover={{
-              x: 8,
-              transition: { type: "spring", stiffness: 300, damping: 20 },
-            }}
-            className="overflow-hidden rounded-3xl border border-line bg-surface transition-shadow duration-300 hover:shadow-[0_20px_40px_-15px_rgba(124,255,178,0.1)]"
-          >
-            <div className="grid gap-0 md:grid-cols-[220px_1fr]">
+        <div className="space-y-4">
+          {educationData.map((edu, i) => {
+            const logo = institutionLogos[edu.institution];
+            return (
               <motion.div
-                className="relative flex min-h-[180px] items-center justify-center bg-gradient-to-br from-neutral-950 to-neutral-800 p-6 overflow-hidden"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                key={edu.institution}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="grid gap-6 lg:grid-cols-[200px_1fr] p-6 border border-line bg-surface/50 hover:border-accent/15 transition-colors"
               >
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-accent/40 to-transparent" />
-                <motion.div
-                  className="relative h-32 w-32 overflow-hidden rounded-[1.75rem] bg-white/10 p-4 backdrop-blur"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Image
-                    src={item.logo}
-                    alt={item.institution}
-                    fill
-                    sizes="128px"
-                    className="object-contain p-4"
-                  />
-                </motion.div>
-              </motion.div>
-
-              <div className="p-6 sm:p-8">
-                <div className="flex flex-wrap items-center gap-2">
-                  <motion.span
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="rounded-full border border-accent/20 bg-accent/10 px-3 py-1 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-accent"
-                  >
-                    {item.period}
-                  </motion.span>
-                  <span className="rounded-full border border-line bg-surface-2 px-3 py-1 font-mono text-xs font-medium text-muted">
-                    Education
-                  </span>
+                {/* Left: logo + duration */}
+                <div className="flex flex-row lg:flex-col items-center lg:items-start gap-4">
+                  {logo && (
+                    <div className="relative w-16 h-16 rounded-lg overflow-hidden border border-line bg-surface shrink-0">
+                      <Image
+                        src={logo}
+                        alt={edu.institution}
+                        fill
+                        className="object-contain p-1.5"
+                        sizes="64px"
+                      />
+                    </div>
+                  )}
+                  <div className="font-mono text-[10px] text-faint">
+                    {edu.duration}
+                  </div>
                 </div>
 
-                <motion.h3
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                  className="mt-4 text-2xl font-semibold tracking-tight text-ink"
-                >
-                  {item.title}
-                </motion.h3>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.15 }}
-                  className="mt-2 text-base font-medium text-muted"
-                >
-                  {item.institution}
-                </motion.p>
+                {/* Right: content */}
+                <div>
+                  <h3 className="font-display text-lg font-semibold text-ink mb-1">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-[13px] text-muted mb-3">
+                    {edu.institution}
+                  </p>
 
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2, type: "spring" }}
-                  whileHover={{ scale: 1.05 }}
-                  className="mt-5 inline-flex rounded-2xl border border-line bg-surface-2 px-4 py-3 font-mono text-sm font-semibold text-ink"
-                >
-                  {item.metric}
-                </motion.div>
+                  {edu.cgpa && (
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-accent/20 bg-accent/5 mb-3">
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-faint">
+                        CGPA
+                      </span>
+                      <span className="font-display text-lg font-bold text-accent">
+                        {edu.cgpa}
+                      </span>
+                    </div>
+                  )}
 
-                <ul className="mt-5 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
-                  {item.points.map((point, i) => (
-                    <motion.li
-                      key={point}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.25 + i * 0.05 }}
-                      className="flex gap-2"
-                    >
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                      <span>{point}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </motion.article>
-        ))}
-      </motion.div>
-    </motion.section>
+                  {edu.highlights.length > 0 && (
+                    <div className="space-y-1.5 mt-3">
+                      {edu.highlights.map((h) => (
+                        <div key={h} className="flex items-start gap-2">
+                          <span className="text-accent mt-0.5 text-[9px]">→</span>
+                          <span className="text-[12px] text-muted">{h}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }
