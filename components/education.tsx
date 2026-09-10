@@ -11,9 +11,9 @@ import Image from "next/image";
 
 const educationItems = [
   {
-    title: "B.Tech - Computer Engineering",
+    title: "B.Tech - Computer Science & Engineering",
     institution: "MIT Academy of Engineering, Pune",
-    period: "2022 - 2026",
+    period: "Nov 2022 - Jun 2026",
     metric: "CGPA: 8.63/10",
     points: [
       "Java, backend systems, and cloud delivery focus",
@@ -24,15 +24,15 @@ const educationItems = [
   {
     title: "Higher Secondary (12th)",
     institution: "B.N.N. College, Bhiwandi",
-    period: "2022",
+    period: "Aug 2021 - Mar 2022",
     metric: "Percentage: 71%",
-    points: ["MSBSHSE Board", "Science Stream"],
+    points: ["MSBSHSE Board", "Science Stream (PCMB)", "JEE Mains: 93.92%ile", "MHCET: 96.46%ile"],
     logo: bnnLogo,
   },
   {
     title: "Secondary School (10th)",
     institution: "Dr. Omprakash Agarwal English High School, Bhiwandi",
-    period: "2020",
+    period: "Apr 2019 - Mar 2020",
     metric: "Percentage: 85.20%",
     points: ["MSBSHSE Board", "State Topper in Mathematics"],
     logo: doaLogo,
