@@ -218,14 +218,34 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
           sizes="400px"
         />
         <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/5" />
+
+        {/* Status badge - inside the circle at bottom */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.5 }}
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 border border-line bg-canvas/80 backdrop-blur-sm"
+        >
+          <div className="font-mono text-[7px] uppercase tracking-[0.2em] text-faint mb-0.5 text-center">
+            SYSTEM STATUS
+          </div>
+          <motion.div
+            key={statusIndex}
+            initial={{ opacity: 0, y: 3 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-mono text-[10px] font-medium text-accent text-center"
+          >
+            {statusMessages[statusIndex]}
+          </motion.div>
+        </motion.div>
       </div>
 
-      {/* Node labels - positioned around the circle inside the container */}
-      <div className="hidden lg:block absolute inset-0">
+      {/* Node labels - positioned around the circle */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none">
         {["IDEA", "EXPERIMENT", "CODE", "BUILD", "SHIP", "UNDERSTAND"].map(
           (label, i) => {
             const angle = (i * 60 - 90) * (Math.PI / 180);
-            const radius = 54;
+            const radius = 56;
             const x = 50 + Math.cos(angle) * radius;
             const y = 50 + Math.sin(angle) * radius;
             return (
@@ -251,39 +271,19 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
         )}
       </div>
 
-      {/* Annotations inside container */}
+      {/* Annotations below the portrait */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.9, duration: 0.5 }}
-        className="mt-4 text-center"
+        className="mt-6 text-center space-y-1"
       >
         <div className="font-mono text-[9px] text-faint/50 leading-relaxed">
           Some curiosity. Bigger systems.
         </div>
-        <div className="font-mono text-[9px] text-faint/50 leading-relaxed mt-1">
+        <div className="font-mono text-[9px] text-faint/50 leading-relaxed">
           Ideas · Code · Systems · Impact
         </div>
-      </motion.div>
-
-      {/* Status badge */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.4, duration: 0.5 }}
-        className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-1.5 border border-line bg-surface/90 backdrop-blur-sm"
-      >
-        <div className="font-mono text-[7px] uppercase tracking-[0.2em] text-faint mb-0.5 text-center">
-          SYSTEM STATUS
-        </div>
-        <motion.div
-          key={statusIndex}
-          initial={{ opacity: 0, y: 3 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="font-mono text-[10px] font-medium text-accent text-center"
-        >
-          {statusMessages[statusIndex]}
-        </motion.div>
       </motion.div>
     </div>
   );
