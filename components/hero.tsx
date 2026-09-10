@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiGithub, FiArrowDown } from "react-icons/fi";
 import { useSectionInView } from "@/lib/hooks";
@@ -8,7 +8,7 @@ import { useActiveSectionContext } from "@/context/active-section-context";
 import ResumePrint from "./resume-print";
 import Image from "next/image";
 import profilePhoto from "@/public/githubdp-removebg-preview.png";
-import { statusMessages } from "@/lib/data";
+
 
 const techStack = [
   "Java", "Spring Boot", "Kafka", "Kubernetes", "AWS",
@@ -25,14 +25,6 @@ const metrics = [
 export default function Hero() {
   const { ref } = useSectionInView("Home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
-  const [statusIndex, setStatusIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setStatusIndex((prev) => (prev + 1) % statusMessages.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section
@@ -192,7 +184,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative order-1 lg:order-2"
           >
-            <HeroPortrait statusIndex={statusIndex} />
+            <HeroPortrait />
           </motion.div>
         </div>
 
@@ -238,7 +230,7 @@ export default function Hero() {
   );
 }
 
-function HeroPortrait({ statusIndex }: { statusIndex: number }) {
+function HeroPortrait() {
   return (
     <div className="relative w-full max-w-sm mx-auto lg:max-w-md">
       {/* Orbital rings */}
@@ -267,26 +259,6 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
           sizes="400px"
         />
         <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/[0.03]" />
-
-        {/* Status badge — overlay on portrait bottom */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3, duration: 0.5 }}
-          className="absolute bottom-5 left-1/2 -translate-x-1/2 px-5 py-2 bg-surface/80 backdrop-blur-md border border-line"
-        >
-          <div className="font-mono text-[7px] uppercase tracking-[0.2em] text-faint mb-0.5 text-center">
-            SYSTEM STATUS
-          </div>
-          <motion.div
-            key={statusIndex}
-            initial={{ opacity: 0, y: 2 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-mono text-[11px] font-medium text-accent text-center"
-          >
-            {statusMessages[statusIndex]}
-          </motion.div>
-        </motion.div>
       </motion.div>
 
       {/* Node labels — positioned around the circle */}
