@@ -68,7 +68,7 @@ export default function Hero() {
                 <div>I BUILD THINGS</div>
                 <div>I WANT TO</div>
                 <div>
-                  <span className="text-accent">UNDERSTAND</span>.
+                  <span className="text-accent">UNDERSTAND</span>
                 </div>
               </motion.div>
             </div>
@@ -207,8 +207,12 @@ export default function Hero() {
 function HeroPortrait({ statusIndex }: { statusIndex: number }) {
   return (
     <div className="relative w-full max-w-xs mx-auto lg:max-w-sm">
-      {/* Main portrait */}
-      <div className="relative w-full aspect-square rounded-full overflow-hidden border-2 border-line mx-auto">
+      {/* Main portrait with hover glow */}
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.4 }}
+        className="relative w-full aspect-square rounded-full overflow-hidden border-[3px] border-line mx-auto shadow-[0_0_30px_-10px_var(--accent)] hover:shadow-[0_0_50px_-10px_var(--accent)] transition-shadow duration-500"
+      >
         <Image
           src={profilePhoto}
           alt="Vishal Kesharwani"
@@ -238,9 +242,9 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
             {statusMessages[statusIndex]}
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
-      {/* Node labels - positioned around the circle */}
+      {/* Node labels - positioned around the circle, visible */}
       <div className="hidden lg:block absolute inset-0 pointer-events-none">
         {["IDEA", "EXPERIMENT", "CODE", "BUILD", "SHIP", "UNDERSTAND"].map(
           (label, i) => {
@@ -261,8 +265,8 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
                   transform: "translate(-50%, -50%)",
                 }}
               >
-                <div className="w-1.5 h-1.5 rounded-full border border-line bg-canvas mx-auto mb-0.5" />
-                <span className="font-mono text-[7px] uppercase tracking-wider text-faint/50 whitespace-nowrap">
+                <div className="w-2 h-2 rounded-full border border-muted bg-canvas mx-auto mb-1" />
+                <span className="font-mono text-[9px] uppercase tracking-wider text-muted whitespace-nowrap">
                   {label}
                 </span>
               </motion.div>
@@ -276,12 +280,12 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.9, duration: 0.5 }}
-        className="mt-6 text-center space-y-1"
+        className="mt-8 text-center space-y-1.5"
       >
-        <div className="font-mono text-[9px] text-faint/50 leading-relaxed">
+        <div className="font-mono text-[12px] text-muted leading-relaxed">
           Some curiosity. Bigger systems.
         </div>
-        <div className="font-mono text-[9px] text-faint/50 leading-relaxed">
+        <div className="font-mono text-[12px] text-muted leading-relaxed">
           Ideas · Code · Systems · Impact
         </div>
       </motion.div>
