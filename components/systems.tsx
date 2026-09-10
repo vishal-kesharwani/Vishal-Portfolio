@@ -23,14 +23,13 @@ export default function Systems() {
           className="mb-10"
         >
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent block mb-4">
-            // SYSTEMS
+            03 / SYSTEMS
           </span>
           <h2 className="font-display text-display-lg font-bold text-ink">
-            How the things I build fit together.
+            PULL APART THE THINGS I BUILD.
           </h2>
         </motion.div>
 
-        {/* Tab navigation */}
         <div className="flex flex-wrap gap-2 mb-8">
           {systemsTabs.map((tab) => (
             <button
@@ -48,7 +47,6 @@ export default function Systems() {
           ))}
         </div>
 
-        {/* Active tab content */}
         <AnimatePresence mode="wait">
           {activeData && (
             <motion.div
@@ -59,7 +57,6 @@ export default function Systems() {
               transition={{ duration: 0.25 }}
             >
               <div className="p-6 border border-line bg-surface/50">
-                {/* Blueprint flow */}
                 <div className="mb-6">
                   <div className="font-mono text-[9px] uppercase tracking-wider text-faint mb-4">
                     ARCHITECTURE
@@ -84,7 +81,6 @@ export default function Systems() {
                   </div>
                 </div>
 
-                {/* Decision annotation */}
                 <div className="pt-4 border-t border-line">
                   <div className="font-mono text-[9px] uppercase tracking-wider text-faint mb-3">
                     WHY THIS DECISION?
@@ -95,6 +91,24 @@ export default function Systems() {
                     </p>
                   </div>
                 </div>
+
+                {activeData.usedIn && (
+                  <div className="pt-4 mt-4 border-t border-line">
+                    <div className="font-mono text-[9px] uppercase tracking-wider text-faint mb-3">
+                      USED IN
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {activeData.usedIn.map((project) => (
+                        <span
+                          key={project}
+                          className="px-2 py-1 border border-line font-mono text-[9px] text-muted bg-surface/60"
+                        >
+                          {project}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </motion.div>
           )}

@@ -19,16 +19,16 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
         >
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent block mb-4">
-            // LET&apos;S CONNECT
+            10 / NEXT
           </span>
           <h2 className="font-display text-display-lg font-bold text-ink mb-4">
-            Have an interesting
+            WHAT SHOULD WE
             <br />
-            problem?
+            BUILD NEXT?
           </h2>
           <p className="text-muted max-w-xl text-[15px] leading-relaxed mb-10">
-            I&apos;m interested in difficult technical problems, backend systems,
-            infrastructure, AI experiments and products that need serious engineering.
+            Interested in backend systems, distributed infrastructure,
+            cloud engineering, AI exploration, and difficult technical problems.
           </p>
         </motion.div>
 
@@ -56,7 +56,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 border border-line text-muted hover:text-ink hover:border-faint font-mono text-[10px] uppercase tracking-wider transition-colors"
             >
-              <FaGithub /> GITHUB
+              <FaGithub /> GITHUB ↗
             </a>
             <a
               href="https://www.linkedin.com/in/vishal-kesharwani-76708025b"
@@ -64,15 +64,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 border border-line text-muted hover:text-ink hover:border-faint font-mono text-[10px] uppercase tracking-wider transition-colors"
             >
-              <FaLinkedinIn /> LINKEDIN
-            </a>
-            <a
-              href="https://leetcode.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 border border-line text-muted hover:text-ink hover:border-faint font-mono text-[10px] uppercase tracking-wider transition-colors"
-            >
-              LEETCODE
+              <FaLinkedinIn /> LINKEDIN ↗
             </a>
             <a
               href="/Vishal_Kesharwani_Resume.pdf"

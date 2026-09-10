@@ -1,14 +1,12 @@
 export type SectionName =
   | "Home"
-  | "Currently"
-  | "HowIThink"
   | "Work"
-  | "Lab"
-  | "Break"
   | "Systems"
+  | "Break"
   | "Experience"
-  | "Signal"
+  | "Education"
+  | "Lab"
   | "Log"
+  | "Signal"
   | "About"
-  | "Toolbox"
   | "Contact";

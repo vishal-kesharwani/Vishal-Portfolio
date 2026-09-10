@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, createContext, useContext, useEffect } from "react";
+import React, { useEffect, useState, createContext, useContext } from "react";
 
 type Theme = "dark" | "light";
 
@@ -9,25 +9,16 @@ type ThemeContextType = {
   toggleTheme: () => void;
 };
 
-const ThemeContext = createContext<ThemeContextType>({
-  theme: "dark",
-  toggleTheme: () => {},
-});
-
-export function useTheme() {
-  return useContext(ThemeContext);
-}
+const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem("theme") as Theme | null;
-    if (saved) {
-      setTheme(saved);
-      document.documentElement.classList.toggle("light", saved === "light");
+    const stored = localStorage.getItem("theme") as Theme | null;
+    if (stored) {
+      setTheme(stored);
+      document.documentElement.classList.toggle("light", stored === "light");
     }
   }, []);
 
@@ -43,4 +34,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       {children}
     </ThemeContext.Provider>
   );
+}
+
+export function useTheme() {
+  const context = useContext(ThemeContext);
+  if (context === null) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+  return context;
 }

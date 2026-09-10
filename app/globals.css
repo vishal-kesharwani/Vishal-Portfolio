@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --bg: #050706;
-  --surface: #0A0E0C;
-  --surface-2: #0D1210;
-  --surface-3: #111916;
-  --border: rgba(255, 255, 255, 0.06);
-  --border-accent: rgba(184, 255, 61, 0.15);
-  --ink: #EDEEF0;
-  --muted: #8B8F8C;
-  --faint: #555A57;
+  --bg: #080A09;
+  --surface: #0F1310;
+  --surface-2: #141A16;
+  --surface-3: #1A221D;
+  --border: rgba(190, 210, 190, 0.12);
+  --border-accent: rgba(184, 255, 61, 0.2);
+  --ink: #F0F3EE;
+  --muted: #929A95;
+  --faint: #5E6761;
   --accent: #B8FF3D;
-  --accent-ink: #050706;
+  --accent-ink: #080A09;
   --secondary: #4AB3FF;
   --warning: #f5a623;
   --error: #ff5c5c;
@@ -98,8 +98,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .grid-bg {
   background-image:
-    linear-gradient(rgba(184, 255, 61, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184, 255, 61, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(184, 255, 61, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 255, 61, 0.015) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
@@ -107,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
   background-image:
     linear-gradient(rgba(94, 168, 0, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(94, 168, 0, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
 }
 
 .noise-bg {
@@ -117,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.015;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
@@ -126,6 +127,15 @@ h1, h2, h3, h4, h5, h6 {
 .section-divider {
   height: 1px;
   background: var(--border);
+}
+
+@keyframes signal-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.signal-line {
+  animation: signal-pulse 3s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -159,5 +169,5 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 section[id] {
-  scroll-margin-top: 64px;
+  scroll-margin-top: 56px;
 }

@@ -27,7 +27,7 @@ export default function BuildLog() {
       : buildLogEntries.filter((entry) => entry.tag === activeTag);
 
   return (
-    <section ref={ref} id="log" className="py-section px-6 lg:px-10">
+    <section ref={ref} id="journal" className="py-section px-6 lg:px-10">
       <div className="mx-auto max-w-content">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,18 +37,15 @@ export default function BuildLog() {
           className="mb-10"
         >
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent block mb-4">
-            // JOURNAL
+            07 / JOURNAL
           </span>
           <h2 className="font-display text-display-lg font-bold text-ink mb-3">
-            What I actually
+            WHAT I LEARN
             <br />
-            shipped, broke,
-            <br />
-            learned and changed.
+            WHILE BUILDING.
           </h2>
         </motion.div>
 
-        {/* Filters */}
         <div className="flex flex-wrap gap-2 mb-8">
           {tags.map((tag) => (
             <button
@@ -66,7 +63,6 @@ export default function BuildLog() {
           ))}
         </div>
 
-        {/* Vertical timeline */}
         <div className="relative">
           <div className="absolute left-[5px] top-0 bottom-0 w-px bg-line" />
 
@@ -81,22 +77,27 @@ export default function BuildLog() {
                   transition={{ delay: i * 0.04, duration: 0.3 }}
                   className="relative pl-8"
                 >
-                  {/* Dot */}
                   <div className="absolute left-0 top-1 w-[10px] h-[10px] rounded-full border border-line bg-canvas" />
 
                   <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
                     <div className="font-mono text-[9px] text-faint w-24 shrink-0">
                       {entry.date}
                     </div>
-                    <div className={clsx(
-                      "font-mono text-[9px] uppercase tracking-wider w-20 shrink-0",
-                      tagColors[entry.tag] || "text-faint"
-                    )}>
+                    <div
+                      className={clsx(
+                        "font-mono text-[9px] uppercase tracking-wider w-20 shrink-0",
+                        tagColors[entry.tag] || "text-faint"
+                      )}
+                    >
                       {entry.tag}
                     </div>
                     <div className="flex-1">
-                      <div className="text-[13px] text-ink mb-1">{entry.title}</div>
-                      <div className="text-[12px] text-muted leading-relaxed">{entry.note}</div>
+                      <div className="text-[13px] text-ink mb-1">
+                        {entry.title}
+                      </div>
+                      <div className="text-[12px] text-muted leading-relaxed">
+                        {entry.note}
+                      </div>
                     </div>
                   </div>
                 </motion.div>

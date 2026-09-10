@@ -1,16 +1,14 @@
 import Hero from "@/components/hero";
-import CurrentlyExploring from "@/components/currently-exploring";
-import HowIThink from "@/components/how-i-think";
+import ProofStrip from "@/components/proof-strip";
 import SelectedWork from "@/components/selected-work";
-import Lab from "@/components/lab";
-import BreakTheSystem from "@/components/break-the-system";
 import Systems from "@/components/systems";
+import BreakTheSystem from "@/components/break-the-system";
 import Experience from "@/components/experience";
 import Education from "@/components/education";
-import Signal from "@/components/signal";
+import Lab from "@/components/lab";
 import BuildLog from "@/components/build-log";
+import Signal from "@/components/signal";
 import About from "@/components/about";
-import Toolbox from "@/components/toolbox";
 import Contact from "@/components/contact";
 
 function SectionDivider() {
@@ -21,30 +19,25 @@ export default function Home() {
   return (
     <main className="mx-auto flex w-full flex-col">
       <Hero />
-      <SectionDivider />
-      <CurrentlyExploring />
-      <SectionDivider />
-      <HowIThink />
+      <ProofStrip />
       <SectionDivider />
       <SelectedWork />
       <SectionDivider />
-      <Lab />
+      <Systems />
       <SectionDivider />
       <BreakTheSystem />
-      <SectionDivider />
-      <Systems />
       <SectionDivider />
       <Experience />
       <SectionDivider />
       <Education />
       <SectionDivider />
-      <Signal />
+      <Lab />
       <SectionDivider />
       <BuildLog />
       <SectionDivider />
-      <About />
+      <Signal />
       <SectionDivider />
-      <Toolbox />
+      <About />
       <SectionDivider />
       <Contact />
     </main>

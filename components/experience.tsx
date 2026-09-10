@@ -19,16 +19,16 @@ export default function Experience() {
           className="mb-12"
         >
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent block mb-4">
-            // EXPERIENCE
+            05 / EXPERIENCE
           </span>
           <h2 className="font-display text-display-lg font-bold text-ink">
-            Where I learned
+            WHERE I LEARNED
             <br />
-            to build.
+            TO BUILD.
           </h2>
         </motion.div>
 
-        <div className="grid gap-8 lg:grid-cols-[120px_1fr]">
+        <div className="space-y-8">
           {experiencesData.map((exp, i) => (
             <motion.div
               key={exp.year}
@@ -36,14 +36,12 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12, duration: 0.6 }}
-              className="contents"
+              className="grid gap-6 lg:grid-cols-[120px_1fr]"
             >
-              {/* Year */}
               <div className="font-mono text-4xl font-bold text-line self-start pt-6">
                 {exp.year}
               </div>
 
-              {/* Content */}
               <div className="p-6 border border-line bg-surface/50 hover:border-accent/15 transition-colors">
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                   <div>
@@ -52,9 +50,14 @@ export default function Experience() {
                     </h3>
                     <p className="text-[13px] text-muted">{exp.role}</p>
                   </div>
-                  <span className="font-mono text-[9px] text-faint shrink-0">
-                    {exp.duration}
-                  </span>
+                  <div className="text-right">
+                    <span className="font-mono text-[9px] text-faint block">
+                      {exp.duration}
+                    </span>
+                    <span className="font-mono text-[9px] text-faint">
+                      {exp.location}
+                    </span>
+                  </div>
                 </div>
 
                 <div className="space-y-2 mb-4">
@@ -70,10 +73,23 @@ export default function Experience() {
                   <div className="font-mono text-[8px] uppercase tracking-wider text-faint mb-1">
                     KEY RESULT
                   </div>
-                  <p className="text-[13px] font-medium text-accent">
+                  <p className="text-[14px] font-medium text-accent">
                     {exp.keyMetric}
                   </p>
                 </div>
+
+                {exp.tech && (
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {exp.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="px-2 py-0.5 border border-line font-mono text-[8px] uppercase tracking-wider text-faint bg-surface/60"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

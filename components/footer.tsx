@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8 mb-10">
           <div>
             <div className="font-display text-sm font-semibold text-ink mb-1">
-              VISHAL.K
+              VISHAL KESHARWANI
             </div>
             <div className="font-mono text-[10px] text-faint mb-0.5">
               Systems Builder
@@ -82,8 +82,8 @@ export default function Footer() {
             <span className="text-muted">@</span>
             <span className="text-accent">lab</span>
             <span className="text-muted">:~$ </span>
-            <span className="text-ink">keep_building()</span>
-            <span className="inline-block w-1.5 h-3.5 bg-accent/60 ml-1 animate-terminal-blink" />
+            <span className="text-ink">_</span>
+            <span className="inline-block w-1.5 h-3.5 bg-accent/60 ml-0.5 animate-terminal-blink" />
           </div>
           <div className="font-mono text-[9px] text-faint">
             Built with curiosity.

@@ -2,7 +2,6 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import { ThemeProvider } from "@/context/theme-context";
-import ScrollProgress from "@/components/scroll-progress";
 import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -34,12 +33,12 @@ export const metadata = {
     template: "%s | Vishal Kesharwani",
   },
   description:
-    "Vishal Kesharwani \u2014 I build things I want to understand. Backend systems, distributed infrastructure, cloud, AI experiments.",
+    "Vishal Kesharwani — I build things I want to understand. Backend systems, distributed infrastructure, cloud, AI exploration.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Vishal Kesharwani | Systems Builder",
     description:
-      "I build things I want to understand. Backend systems, distributed infrastructure, cloud, AI experiments.",
+      "I build things I want to understand. Backend systems, distributed infrastructure, cloud, AI exploration.",
     url: "https://vishalkesharwani.in",
     siteName: "Vishal Kesharwani",
     locale: "en_IN",
@@ -62,7 +61,6 @@ export default function RootLayout({
       <body className="relative antialiased noise-bg">
         <ThemeProvider>
           <ActiveSectionContextProvider>
-            <ScrollProgress />
             <Header />
             {children}
             <Footer />

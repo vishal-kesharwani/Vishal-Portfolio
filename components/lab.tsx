@@ -9,8 +9,7 @@ import clsx from "clsx";
 const statusColors = {
   EXPLORING: "text-amber-400",
   TESTED: "text-accent",
-  SIMULATING: "text-secondary",
-  "IN PROGRESS": "text-accent",
+  "IN PROGRESS": "text-secondary",
 };
 
 export default function Lab() {
@@ -28,21 +27,17 @@ export default function Lab() {
           className="mb-12"
         >
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent block mb-4">
-            // THE LAB
+            06 / LAB
           </span>
           <h2 className="font-display text-display-lg font-bold text-ink mb-4">
-            Ideas, experiments
-            <br />
-            and unfinished work.
+            QUESTIONS BEFORE PROJECTS.
           </h2>
           <p className="text-muted max-w-lg text-[15px]">
             Not everything I build starts as a project. Sometimes it starts as a question.
           </p>
         </motion.div>
 
-        {/* Split layout: list + panel */}
         <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-          {/* Left: experiment list */}
           <div className="space-y-3">
             {labExperiments.map((exp, i) => (
               <motion.div
@@ -86,7 +81,6 @@ export default function Lab() {
             ))}
           </div>
 
-          {/* Right: featured panel */}
           <div>
             <AnimatePresence mode="wait">
               {expandedId && (
