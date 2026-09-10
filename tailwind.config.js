@@ -27,10 +27,10 @@ module.exports = {
         mono: ["var(--font-mono)", "monospace"],
       },
       fontSize: {
-        "display-2xl": ["clamp(3.5rem, 8vw, 7rem)", { lineHeight: "0.9", letterSpacing: "-0.04em" }],
-        "display-xl": ["clamp(3rem, 7vw, 5.5rem)", { lineHeight: "0.92", letterSpacing: "-0.03em" }],
-        "display-lg": ["clamp(2.2rem, 5vw, 4rem)", { lineHeight: "0.95", letterSpacing: "-0.02em" }],
-        "display-md": ["clamp(1.6rem, 3.5vw, 2.5rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+        "display-2xl": ["clamp(2.8rem, 6.5vw, 5.5rem)", { lineHeight: "0.9", letterSpacing: "-0.04em" }],
+        "display-xl": ["clamp(2.5rem, 5.5vw, 4.5rem)", { lineHeight: "0.92", letterSpacing: "-0.03em" }],
+        "display-lg": ["clamp(1.8rem, 4vw, 3.2rem)", { lineHeight: "0.95", letterSpacing: "-0.02em" }],
+        "display-md": ["clamp(1.4rem, 3vw, 2.2rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
       },
       spacing: {
         section: "clamp(5rem, 12vw, 9rem)",

@@ -32,11 +32,9 @@ export default function Hero() {
       <div className="absolute inset-0 grid-bg opacity-30" />
 
       <div className="relative mx-auto max-w-content w-full">
-        {/* Two-column: content + portrait */}
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-4">
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-6">
           {/* Left: text */}
-          <div>
-            {/* Terminal eyebrow */}
+          <div className="min-w-0">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -48,7 +46,6 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* Name */}
             <div className="mb-5">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
@@ -61,7 +58,6 @@ export default function Hero() {
               </motion.h1>
             </div>
 
-            {/* Headline */}
             <div className="mb-7">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -77,7 +73,6 @@ export default function Hero() {
               </motion.div>
             </div>
 
-            {/* Supporting text */}
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -89,7 +84,6 @@ export default function Hero() {
               and turning that understanding into software.
             </motion.p>
 
-            {/* Metadata dots */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -106,7 +100,6 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* Tech stack */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -125,7 +118,6 @@ export default function Hero() {
               ))}
             </motion.div>
 
-            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -163,7 +155,6 @@ export default function Hero() {
               />
             </motion.div>
 
-            {/* Terminal statement */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -174,7 +165,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: portrait + annotations + node system */}
+          {/* Right: portrait + annotations */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -215,9 +206,9 @@ export default function Hero() {
 
 function HeroPortrait({ statusIndex }: { statusIndex: number }) {
   return (
-    <div className="relative w-full max-w-md mx-auto">
+    <div className="relative w-full max-w-xs mx-auto lg:max-w-sm">
       {/* Main portrait */}
-      <div className="relative w-full aspect-square max-w-sm mx-auto rounded-full overflow-hidden border-2 border-line">
+      <div className="relative w-full aspect-square rounded-full overflow-hidden border-2 border-line mx-auto">
         <Image
           src={profilePhoto}
           alt="Vishal Kesharwani"
@@ -226,73 +217,52 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
           priority
           sizes="400px"
         />
-        {/* Subtle rim */}
         <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/5" />
       </div>
 
-      {/* Node system - vertical flow beside portrait */}
-      <div className="hidden lg:flex absolute -left-16 top-0 bottom-0 flex-col justify-between py-8">
+      {/* Node labels - positioned around the circle inside the container */}
+      <div className="hidden lg:block absolute inset-0">
         {["IDEA", "EXPERIMENT", "CODE", "BUILD", "SHIP", "UNDERSTAND"].map(
-          (label, i) => (
-            <motion.div
-              key={label}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.5 + i * 0.1, duration: 0.4 }}
-              className="flex items-center gap-2"
-            >
-              <div className="w-2 h-2 rounded-full border border-line bg-canvas" />
-              <span className="font-mono text-[8px] uppercase tracking-wider text-faint/50">
-                {label}
-              </span>
-            </motion.div>
-          )
+          (label, i) => {
+            const angle = (i * 60 - 90) * (Math.PI / 180);
+            const radius = 54;
+            const x = 50 + Math.cos(angle) * radius;
+            const y = 50 + Math.sin(angle) * radius;
+            return (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5 + i * 0.1, duration: 0.4 }}
+                className="absolute"
+                style={{
+                  left: `${x}%`,
+                  top: `${y}%`,
+                  transform: "translate(-50%, -50%)",
+                }}
+              >
+                <div className="w-1.5 h-1.5 rounded-full border border-line bg-canvas mx-auto mb-0.5" />
+                <span className="font-mono text-[7px] uppercase tracking-wider text-faint/50 whitespace-nowrap">
+                  {label}
+                </span>
+              </motion.div>
+            );
+          }
         )}
-        {/* Connecting line */}
-        <svg
-          className="absolute left-[3px] top-8 bottom-8 w-px pointer-events-none"
-          style={{ height: "calc(100% - 64px)" }}
-        >
-          <line
-            x1="0.5"
-            y1="0"
-            x2="0.5"
-            y2="100%"
-            stroke="var(--border)"
-            strokeWidth="1"
-            strokeDasharray="3 3"
-          />
-        </svg>
       </div>
 
-      {/* Right-side annotations */}
+      {/* Annotations inside container */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.9, duration: 0.5 }}
-        className="hidden lg:block absolute -right-24 top-12 text-right"
+        className="mt-4 text-center"
       >
         <div className="font-mono text-[9px] text-faint/50 leading-relaxed">
-          Some curiosity.
-          <br />
-          Bigger systems.
+          Some curiosity. Bigger systems.
         </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.0, duration: 0.5 }}
-        className="hidden lg:block absolute -right-24 bottom-16 text-right"
-      >
-        <div className="font-mono text-[9px] text-faint/50 leading-relaxed">
-          Ideas
-          <br />
-          Code
-          <br />
-          Systems
-          <br />
-          Impact
+        <div className="font-mono text-[9px] text-faint/50 leading-relaxed mt-1">
+          Ideas · Code · Systems · Impact
         </div>
       </motion.div>
 
@@ -301,7 +271,7 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4, duration: 0.5 }}
-        className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 border border-line bg-surface/90 backdrop-blur-sm"
+        className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-4 py-1.5 border border-line bg-surface/90 backdrop-blur-sm"
       >
         <div className="font-mono text-[7px] uppercase tracking-[0.2em] text-faint mb-0.5 text-center">
           SYSTEM STATUS

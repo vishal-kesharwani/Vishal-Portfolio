@@ -1,6 +1,7 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ActiveSectionContextProvider from "@/context/active-section-context";
+import { ThemeProvider } from "@/context/theme-context";
 import ScrollProgress from "@/components/scroll-progress";
 import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
@@ -56,14 +57,17 @@ export default function RootLayout({
     <html
       lang="en"
       className={`!scroll-smooth ${inter.variable} ${spaceGrotesk.variable} ${ibmPlexMono.variable}`}
+      suppressHydrationWarning
     >
       <body className="relative antialiased noise-bg">
-        <ActiveSectionContextProvider>
-          <ScrollProgress />
-          <Header />
-          {children}
-          <Footer />
-        </ActiveSectionContextProvider>
+        <ThemeProvider>
+          <ActiveSectionContextProvider>
+            <ScrollProgress />
+            <Header />
+            {children}
+            <Footer />
+          </ActiveSectionContextProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

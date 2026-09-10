@@ -5,11 +5,14 @@ import { navLinks } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { useTheme } from "@/context/theme-context";
 import ResumePrint from "./resume-print";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
+  const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -78,6 +81,13 @@ export default function Header() {
         </ul>
 
         <div className="flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="p-1.5 border border-line text-faint hover:text-ink hover:border-faint transition-colors"
+          >
+            {theme === "dark" ? <FiSun className="text-[13px]" /> : <FiMoon className="text-[13px]" />}
+          </button>
           <span className="hidden items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-faint sm:flex">
             <span className="status-indicator" />
             OPEN TO WORK
