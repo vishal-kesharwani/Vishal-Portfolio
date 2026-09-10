@@ -23,17 +23,23 @@ export default function Home() {
       <SectionDivider />
       <SelectedWork />
       <SectionDivider />
-      <Systems />
+      <div className="section-rhythm-alt">
+        <Systems />
+      </div>
       <SectionDivider />
       <BreakTheSystem />
       <SectionDivider />
-      <Experience />
+      <div className="section-rhythm-warm">
+        <Experience />
+      </div>
       <SectionDivider />
       <Education />
       <SectionDivider />
       <Lab />
       <SectionDivider />
-      <BuildLog />
+      <div className="section-rhythm-alt">
+        <BuildLog />
+      </div>
       <SectionDivider />
       <Signal />
       <SectionDivider />

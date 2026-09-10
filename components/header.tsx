@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { navLinks } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
+import { navLinks } from "@/lib/data";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import ResumePrint from "./resume-print";
 import ThemeSwitch from "./theme-switch";

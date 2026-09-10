@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import ScrollLine from "@/components/scroll-line";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import { ThemeProvider } from "@/context/theme-context";
 import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
@@ -61,6 +62,7 @@ export default function RootLayout({
       <body className="relative antialiased noise-bg">
         <ThemeProvider>
           <ActiveSectionContextProvider>
+            <ScrollLine />
             <Header />
             {children}
             <Footer />

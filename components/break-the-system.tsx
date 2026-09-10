@@ -192,10 +192,12 @@ export default function BreakTheSystem() {
           className="mb-8"
         >
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent block mb-4">
-            // BREAK THE SYSTEM
+            04 / FAILURE
           </span>
           <h2 className="font-display text-display-lg font-bold text-ink mb-3">
-            Because failure teaches.
+            SYSTEMS ARE EASY
+            <br />
+            UNTIL THEY FAIL.
           </h2>
           <p className="text-muted max-w-lg text-[15px]">
             Interactive simulation of a distributed system. Kill a pod, drop a message, add latency — and see what happens.

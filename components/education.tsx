@@ -29,7 +29,7 @@ export default function Education() {
           className="mb-12"
         >
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent block mb-4">
-            EDUCATION
+            06 / EDUCATION
           </span>
           <h2 className="font-display text-display-lg font-bold text-ink">
             WHERE I LEARNED

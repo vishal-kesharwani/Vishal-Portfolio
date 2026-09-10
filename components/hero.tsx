@@ -49,7 +49,7 @@ export default function Hero() {
               </motion.h1>
             </div>
 
-            <div className="mb-8">
+            <div className="mb-10">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
