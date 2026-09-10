@@ -219,12 +219,12 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
         />
         <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/5" />
 
-        {/* Status badge - inside the circle at bottom */}
+        {/* Status badge - overlay on bottom of portrait */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.5 }}
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 border border-line bg-canvas/80 backdrop-blur-sm"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 px-5 py-2 border border-line bg-surface/80 backdrop-blur-sm"
         >
           <div className="font-mono text-[7px] uppercase tracking-[0.2em] text-faint mb-0.5 text-center">
             SYSTEM STATUS
@@ -233,7 +233,7 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
             key={statusIndex}
             initial={{ opacity: 0, y: 3 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-mono text-[10px] font-medium text-accent text-center"
+            className="font-mono text-[11px] font-medium text-accent text-center"
           >
             {statusMessages[statusIndex]}
           </motion.div>
