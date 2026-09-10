@@ -11,7 +11,9 @@ module.exports = {
         canvas: "var(--bg)",
         surface: "var(--surface)",
         "surface-2": "var(--surface-2)",
+        "surface-3": "var(--surface-3)",
         line: "var(--border)",
+        "line-accent": "var(--border-accent)",
         ink: "var(--ink)",
         muted: "var(--muted)",
         faint: "var(--faint)",
@@ -27,21 +29,22 @@ module.exports = {
         mono: ["var(--font-mono)", "monospace"],
       },
       fontSize: {
-        "display-2xl": ["clamp(2.8rem, 6.5vw, 5.5rem)", { lineHeight: "0.9", letterSpacing: "-0.04em" }],
-        "display-xl": ["clamp(2.5rem, 5.5vw, 4.5rem)", { lineHeight: "0.92", letterSpacing: "-0.03em" }],
-        "display-lg": ["clamp(1.8rem, 4vw, 3.2rem)", { lineHeight: "0.95", letterSpacing: "-0.02em" }],
-        "display-md": ["clamp(1.4rem, 3vw, 2.2rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+        "display-hero": ["clamp(3rem, 7vw, 6rem)", { lineHeight: "0.88", letterSpacing: "-0.04em" }],
+        "display-2xl": ["clamp(2.5rem, 5.5vw, 4.5rem)", { lineHeight: "0.92", letterSpacing: "-0.03em" }],
+        "display-xl": ["clamp(2rem, 4.5vw, 3.5rem)", { lineHeight: "0.95", letterSpacing: "-0.02em" }],
+        "display-lg": ["clamp(1.6rem, 3.5vw, 2.8rem)", { lineHeight: "1.0", letterSpacing: "-0.02em" }],
+        "display-md": ["clamp(1.2rem, 2.5vw, 1.8rem)", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
       },
       spacing: {
-        section: "clamp(5rem, 12vw, 9rem)",
-        "section-sm": "clamp(3rem, 6vw, 5rem)",
+        section: "clamp(5rem, 10vw, 8rem)",
+        "section-sm": "clamp(3rem, 6vw, 4.5rem)",
       },
       maxWidth: {
-        content: "1380px",
-        narrow: "680px",
+        content: "1280px",
+        narrow: "640px",
       },
       borderRadius: {
-        card: "8px",
+        card: "6px",
       },
       borderWidth: {
         1: "1px",
@@ -51,27 +54,27 @@ module.exports = {
       },
       keyframes: {
         "fade-in": {
-          from: { opacity: "0", transform: "translateY(16px)" },
+          from: { opacity: "0", transform: "translateY(12px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "slide-up": {
-          from: { opacity: "0", transform: "translateY(30px)" },
+          from: { opacity: "0", transform: "translateY(24px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "pulse-dot": {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.4" },
         },
-        "terminal-blink": {
-          "0%, 49%": { opacity: "1" },
-          "50%, 100%": { opacity: "0" },
+        "orbital-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
         },
       },
       animation: {
-        "fade-in": "fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "slide-up": "slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "fade-in": "fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "slide-up": "slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "pulse-dot": "pulse-dot 2s ease-in-out infinite",
-        "terminal-blink": "terminal-blink 1s steps(1) infinite",
+        "orbital-slow": "orbital-slow 60s linear infinite",
       },
     },
   },

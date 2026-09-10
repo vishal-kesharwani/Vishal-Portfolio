@@ -9,15 +9,14 @@ export default function Footer() {
   return (
     <footer className="py-section px-6 lg:px-10 border-t border-line">
       <div className="mx-auto max-w-content">
-        {/* Large stacked text */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
+          transition={{ duration: 0.5 }}
+          className="mb-14"
         >
-          <div className="font-display text-display-xl font-bold text-ink leading-[0.9]">
+          <div className="font-display text-display-2xl font-bold text-ink leading-[0.9]">
             <div>BUILD.</div>
             <div>BREAK.</div>
             <div>UNDERSTAND.</div>
@@ -25,13 +24,12 @@ export default function Footer() {
           </div>
         </motion.div>
 
-        {/* Footer info */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8 mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8 mb-10">
           <div>
             <div className="font-display text-sm font-semibold text-ink mb-1">
               VISHAL.K
             </div>
-            <div className="font-mono text-[10px] text-faint mb-1">
+            <div className="font-mono text-[10px] text-faint mb-0.5">
               Systems Builder
             </div>
             <div className="font-mono text-[10px] text-faint">
@@ -72,13 +70,12 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Terminal line */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="pt-6 border-t border-line flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="pt-5 border-t border-line flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
         >
           <div className="font-mono text-[10px] text-faint">
             <span className="text-accent">vishal</span>

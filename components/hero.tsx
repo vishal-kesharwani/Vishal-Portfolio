@@ -2,14 +2,25 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FiArrowRight } from "react-icons/fi";
-import { FaGithub } from "react-icons/fa";
+import { FiArrowRight, FiGithub, FiArrowDown } from "react-icons/fi";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import ResumePrint from "./resume-print";
 import Image from "next/image";
 import profilePhoto from "@/public/githubdp-removebg-preview.png";
-import { statusMessages, stackLine, heroStats } from "@/lib/data";
+import { statusMessages } from "@/lib/data";
+
+const techStack = [
+  "Java", "Spring Boot", "Kafka", "Kubernetes", "AWS",
+  "PostgreSQL", "Redis", "Docker", "Terraform", "Python", "React",
+];
+
+const metrics = [
+  { value: "02+", label: "Internships" },
+  { value: "15+", label: "Production APIs" },
+  { value: "03", label: "Major Projects" },
+  { value: "80+", label: "LeetCode" },
+];
 
 export default function Hero() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -27,102 +38,71 @@ export default function Hero() {
     <section
       ref={ref}
       id="home"
-      className="relative min-h-screen flex items-center px-6 lg:px-10 pt-20 pb-8"
+      className="relative min-h-screen flex items-center px-6 lg:px-10 pt-20 pb-12"
     >
-      <div className="absolute inset-0 grid-bg opacity-30" />
+      <div className="absolute inset-0 grid-bg opacity-40" />
 
       <div className="relative mx-auto max-w-content w-full">
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-6">
-          {/* Left: text */}
-          <div className="min-w-0">
+        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-10">
+          {/* LEFT — Information */}
+          <div className="min-w-0 order-2 lg:order-1">
+            {/* Eyebrow */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-5"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mb-6"
             >
-              <span className="font-mono text-[12px] text-accent">
-                &gt;&gt; Hello, I&apos;m
+              <span className="font-mono text-[11px] tracking-wider text-accent">
+                &gt;&gt; HELLO, I&apos;M VISHAL
               </span>
             </motion.div>
 
-            <div className="mb-5">
+            {/* Name */}
+            <div className="mb-6">
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="font-display text-display-2xl font-bold leading-[0.88] tracking-tight"
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="font-display text-display-hero font-bold"
               >
-                <span className="block">VISHAL</span>
-                <span className="block">KESHARWANI</span>
+                <span className="block text-ink">VISHAL</span>
+                <span className="block text-accent">KESHARWANI</span>
               </motion.h1>
             </div>
 
-            <div className="mb-7">
+            {/* Tagline */}
+            <div className="mb-8">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-                className="font-display text-display-md font-bold leading-[1.05] tracking-tight"
+                transition={{ duration: 0.6, delay: 0.35 }}
+                className="font-display text-display-lg font-semibold leading-[1.1]"
               >
-                <div>I BUILD THINGS</div>
-                <div>I WANT TO</div>
-                <div>
-                  <span className="text-accent">UNDERSTAND</span>
-                </div>
+                <div className="text-ink">I BUILD THINGS</div>
+                <div className="text-ink">I WANT TO</div>
+                <div className="text-accent">UNDERSTAND</div>
               </motion.div>
             </div>
 
+            {/* Description */}
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="max-w-lg text-[15px] leading-relaxed text-muted mb-5"
+              transition={{ duration: 0.5, delay: 0.55 }}
+              className="max-w-lg text-[14px] leading-[1.7] text-muted mb-8"
             >
               Backend systems. Distributed infrastructure. Cloud. AI experiments.
               I like taking technology apart, understanding what happens underneath,
               and turning that understanding into software.
             </motion.p>
 
+            {/* CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.85 }}
-              className="flex flex-wrap gap-x-5 gap-y-2 mb-4"
-            >
-              <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-faint inline-flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent/60" />
-                Pune, India
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-faint inline-flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-secondary/60" />
-                Open to Backend / Systems / Cloud roles
-              </span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.95 }}
-              className="flex flex-wrap items-center gap-2 mb-7"
-            >
-              {stackLine.map((tech, i) => (
-                <React.Fragment key={tech}>
-                  <span className="font-mono text-[10px] tracking-wider text-faint">
-                    {tech}
-                  </span>
-                  {i < stackLine.length - 1 && (
-                    <span className="text-accent/30">·</span>
-                  )}
-                </React.Fragment>
-              ))}
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.1 }}
-              className="flex flex-wrap items-center gap-3 mb-6"
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="flex flex-wrap items-center gap-3 mb-10"
             >
               <motion.a
                 href="#work"
@@ -130,73 +110,127 @@ export default function Hero() {
                   setActiveSection("Work");
                   setTimeOfLastClick(Date.now());
                 }}
-                whileHover={{ x: 4 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-accent-ink font-mono text-[11px] font-semibold uppercase tracking-wider hover:-translate-y-0.5 transition-transform"
+                whileHover={{ x: 3 }}
+                className="group inline-flex items-center gap-2 px-6 py-2.5 bg-accent text-accent-ink font-mono text-[11px] font-semibold uppercase tracking-wider hover:shadow-[0_0_24px_-6px_var(--accent)] transition-all duration-300"
               >
                 EXPLORE MY WORK
-                <FiArrowRight className="text-sm" />
+                <FiArrowRight className="text-sm group-hover:translate-x-0.5 transition-transform" />
               </motion.a>
 
               <a
                 href="https://github.com/vishal-kesharwani"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-line text-muted hover:text-ink hover:border-faint font-mono text-[11px] uppercase tracking-wider transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-2.5 border border-line text-muted hover:text-ink hover:border-faint font-mono text-[11px] uppercase tracking-wider transition-all duration-300"
               >
-                <FaGithub />
+                <FiGithub className="text-[12px]" />
                 GITHUB
-                <span className="text-[9px]">↗</span>
+                <span className="text-[8px]">↗</span>
               </a>
 
               <ResumePrint
                 compact
                 label="RESUME"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-line text-muted hover:text-ink hover:border-faint font-mono text-[11px] uppercase tracking-wider transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-2.5 border border-line text-muted hover:text-ink hover:border-faint font-mono text-[11px] uppercase tracking-wider transition-all duration-300"
               />
             </motion.div>
 
+            {/* Tech Stack Strip */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1.3 }}
-              className="font-mono text-[10px] text-faint"
+              transition={{ duration: 0.5, delay: 0.85 }}
+              className="mb-10"
             >
-              <span className="text-muted/60">//</span> still figuring things out, and that&apos;s the interesting part.
+              <div className="font-mono text-[9px] uppercase tracking-[0.15em] text-faint mb-3">
+                TECH I WORK WITH
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 border border-line text-[11px] font-mono text-muted hover:text-ink hover:border-faint transition-colors duration-200 cursor-default"
+                  >
+                    {tech}
+                  </span>
+                ))}
+                <span className="px-3 py-1 border border-line-accent text-[11px] font-mono text-accent">
+                  + MORE
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Metrics Row */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.95 }}
+              className="flex flex-wrap items-center gap-0"
+            >
+              {metrics.map((m, i) => (
+                <React.Fragment key={m.label}>
+                  <div className="px-5 py-2">
+                    <div className="font-display text-2xl font-bold text-ink leading-none mb-1">
+                      {m.value}
+                    </div>
+                    <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-faint">
+                      {m.label}
+                    </div>
+                  </div>
+                  {i < metrics.length - 1 && (
+                    <div className="w-px h-8 bg-line" />
+                  )}
+                </React.Fragment>
+              ))}
             </motion.div>
           </div>
 
-          {/* Right: portrait + annotations */}
+          {/* RIGHT — Visual Identity */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="relative"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative order-1 lg:order-2"
           >
             <HeroPortrait statusIndex={statusIndex} />
           </motion.div>
         </div>
 
-        {/* Hero stats */}
+        {/* Bottom status bar */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.4 }}
-          className="mt-10 pt-8 border-t border-line"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1.2 }}
+          className="mt-12 pt-6 border-t border-line flex flex-wrap items-center justify-between gap-4"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {heroStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="p-3.5 border border-line bg-surface/50 hover:border-accent/20 transition-colors"
-              >
-                <div className="font-display text-xl font-bold text-ink mb-1">
-                  {stat.value}
-                </div>
-                <div className="font-mono text-[8px] uppercase tracking-wider text-faint">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+          <div className="flex items-center gap-4 font-mono text-[9px] uppercase tracking-[0.12em] text-faint">
+            <span className="inline-flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent/60" />
+              PUNE, INDIA
+            </span>
+            <span className="text-line">|</span>
+            <span>OPEN TO BACKEND / SYSTEMS / CLOUD ROLES</span>
+          </div>
+
+          <div className="flex items-center gap-4 font-mono text-[9px] uppercase tracking-[0.12em] text-faint">
+            <span>SYS.STATUS // ONLINE</span>
+            <span className="text-line">|</span>
+            <span>VERSION // 2026</span>
+          </div>
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1.5 }}
+          className="mt-8 flex flex-col items-center"
+        >
+          <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-faint mb-2">
+            SCROLL TO EXPLORE
+          </span>
+          <div className="w-px h-6 bg-line relative overflow-hidden">
+            <div className="absolute inset-0 w-full bg-accent animate-scroll-line" />
           </div>
         </motion.div>
       </div>
@@ -206,12 +240,23 @@ export default function Hero() {
 
 function HeroPortrait({ statusIndex }: { statusIndex: number }) {
   return (
-    <div className="relative w-full max-w-xs mx-auto lg:max-w-sm">
-      {/* Main portrait with hover glow */}
+    <div className="relative w-full max-w-sm mx-auto lg:max-w-md">
+      {/* Orbital rings */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[105%] aspect-square rounded-full border border-line/40 animate-orbital-slow" />
+      </div>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[115%] aspect-square rounded-full border border-line/20" style={{ animationDuration: "90s", animationDirection: "reverse" }} />
+      </div>
+
+      {/* Main portrait */}
       <motion.div
-        whileHover={{ scale: 1.02 }}
-        transition={{ duration: 0.4 }}
-        className="relative w-full aspect-square rounded-full overflow-hidden border-[3px] border-line mx-auto shadow-[0_0_30px_-10px_var(--accent)] hover:shadow-[0_0_50px_-10px_var(--accent)] transition-shadow duration-500"
+        whileHover={{ scale: 1.015 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="relative w-full aspect-square rounded-full overflow-hidden border border-line mx-auto"
+        style={{
+          boxShadow: "0 0 60px -15px rgba(184, 255, 61, 0.08), inset 0 0 40px -20px rgba(0,0,0,0.5)",
+        }}
       >
         <Image
           src={profilePhoto}
@@ -221,21 +266,21 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
           priority
           sizes="400px"
         />
-        <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/5" />
+        <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/[0.03]" />
 
-        {/* Status badge - overlay on bottom of portrait */}
+        {/* Status badge — overlay on portrait bottom */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.4, duration: 0.5 }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 px-5 py-2 border border-line bg-surface/80 backdrop-blur-sm"
+          transition={{ delay: 1.3, duration: 0.5 }}
+          className="absolute bottom-5 left-1/2 -translate-x-1/2 px-5 py-2 bg-surface/80 backdrop-blur-md border border-line"
         >
           <div className="font-mono text-[7px] uppercase tracking-[0.2em] text-faint mb-0.5 text-center">
             SYSTEM STATUS
           </div>
           <motion.div
             key={statusIndex}
-            initial={{ opacity: 0, y: 3 }}
+            initial={{ opacity: 0, y: 2 }}
             animate={{ opacity: 1, y: 0 }}
             className="font-mono text-[11px] font-medium text-accent text-center"
           >
@@ -244,12 +289,12 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
         </motion.div>
       </motion.div>
 
-      {/* Node labels - positioned around the circle, visible */}
+      {/* Node labels — positioned around the circle */}
       <div className="hidden lg:block absolute inset-0 pointer-events-none">
         {["IDEA", "EXPERIMENT", "CODE", "BUILD", "SHIP", "UNDERSTAND"].map(
           (label, i) => {
             const angle = (i * 60 - 90) * (Math.PI / 180);
-            const radius = 56;
+            const radius = 57;
             const x = 50 + Math.cos(angle) * radius;
             const y = 50 + Math.sin(angle) * radius;
             return (
@@ -257,7 +302,7 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
                 key={label}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 + i * 0.1, duration: 0.4 }}
+                transition={{ delay: 1.5 + i * 0.08, duration: 0.4 }}
                 className="absolute"
                 style={{
                   left: `${x}%`,
@@ -265,8 +310,8 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
                   transform: "translate(-50%, -50%)",
                 }}
               >
-                <div className="w-2 h-2 rounded-full border border-muted bg-canvas mx-auto mb-1" />
-                <span className="font-mono text-[9px] uppercase tracking-wider text-muted whitespace-nowrap">
+                <div className="w-1.5 h-1.5 rounded-full border border-muted/60 bg-canvas mx-auto mb-1" />
+                <span className="font-mono text-[8px] uppercase tracking-wider text-muted/70 whitespace-nowrap">
                   {label}
                 </span>
               </motion.div>
@@ -275,18 +320,19 @@ function HeroPortrait({ statusIndex }: { statusIndex: number }) {
         )}
       </div>
 
-      {/* Annotations below the portrait */}
+      {/* Floating info card */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.9, duration: 0.5 }}
-        className="mt-8 text-center space-y-1.5"
+        initial={{ opacity: 0, x: 10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 2.0, duration: 0.5 }}
+        className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 px-4 py-3 bg-surface/60 backdrop-blur-sm border border-line max-w-[180px]"
       >
-        <div className="font-mono text-[12px] text-muted leading-relaxed">
-          Some curiosity. Bigger systems.
-        </div>
-        <div className="font-mono text-[12px] text-muted leading-relaxed">
-          Ideas · Code · Systems · Impact
+        <div className="font-mono text-[9px] text-muted leading-relaxed space-y-0.5">
+          <div>Some curiosity.</div>
+          <div>Bigger systems.</div>
+          <div className="pt-1 border-t border-line mt-1">
+            <span className="text-accent">Ideas</span> → <span className="text-accent">Code</span> → <span className="text-accent">Impact</span>
+          </div>
         </div>
       </motion.div>
     </div>

@@ -25,24 +25,23 @@ export default function SelectedWork() {
     <section ref={ref} id="work" className="py-section px-6 lg:px-10">
       <div className="mx-auto max-w-content">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
+          transition={{ duration: 0.5 }}
+          className="mb-14"
         >
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent block mb-4">
-                // SELECTED WORK
+                01 / SELECTED WORK
               </span>
-              <h2 className="font-display text-display-lg font-bold text-ink">
-                Projects that made
-                <br />
-                me a better engineer.
+              <h2 className="font-display text-display-2xl font-bold text-ink leading-[0.95]">
+                SYSTEMS I&apos;VE BUILT.
               </h2>
-              <p className="mt-4 text-muted max-w-md text-[15px]">
-                Real software, real challenges, real learning.
+              <p className="mt-4 text-muted max-w-lg text-[14px] leading-relaxed">
+                Production APIs, distributed services, cloud infrastructure,
+                and experiments built to understand how systems behave.
               </p>
             </div>
             <a
@@ -56,8 +55,7 @@ export default function SelectedWork() {
           </div>
         </motion.div>
 
-        {/* Projects grid */}
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2">
           {projectsData.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
@@ -79,23 +77,22 @@ function ProjectCard({
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ delay: index * 0.08, duration: 0.6 }}
-      className="border border-line bg-surface/50 hover:border-accent/15 transition-colors duration-300 flex flex-col"
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ delay: index * 0.06, duration: 0.5 }}
+      className="border border-line bg-surface/40 hover:border-line-accent transition-all duration-300 flex flex-col group"
     >
-      {/* Image */}
       {img && (
         <div className="relative aspect-[16/10] overflow-hidden border-b border-line">
           <Image
             src={img}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-500 hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             sizes="(max-width: 768px) 100vw, 500px"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60" />
           <div className="absolute bottom-3 left-4">
             <span className="font-mono text-[8px] uppercase tracking-wider text-faint">
               PROJECT {project.id}
@@ -104,7 +101,6 @@ function ProjectCard({
         </div>
       )}
 
-      {/* Content */}
       <div className="p-5 flex-1 flex flex-col">
         <div className="font-mono text-[9px] uppercase tracking-wider text-accent mb-2">
           {project.category}
@@ -116,25 +112,20 @@ function ProjectCard({
           {project.description}
         </p>
 
-        {/* Impact */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 mb-3">
           {project.impact.map((m) => (
             <span
               key={m}
-              className="px-2 py-1 border border-line font-mono text-[8px] uppercase tracking-wider text-ink bg-surface/80"
+              className="px-2 py-0.5 border border-line font-mono text-[8px] uppercase tracking-wider text-muted bg-surface/60"
             >
               {m}
             </span>
           ))}
         </div>
 
-        {/* Tech */}
-        <p className="font-mono text-[9px] text-faint mb-3">{project.tech}</p>
+        <p className="font-mono text-[9px] text-faint mb-2">{project.tech}</p>
+        <p className="text-[12px] text-muted/80 italic mb-3">{project.detail}</p>
 
-        {/* Detail */}
-        <p className="text-[12px] text-muted italic mb-4">{project.detail}</p>
-
-        {/* Architecture diagrams */}
         {project.architecture && (
           <button
             onClick={() => setShowArch(!showArch)}
@@ -152,7 +143,7 @@ function ProjectCard({
               exit={{ opacity: 0, height: 0 }}
               className="overflow-hidden"
             >
-              <div className="p-3 border border-line bg-canvas/50 mb-4">
+              <div className="p-3 border border-line bg-canvas/50 mb-3">
                 <div className="flex items-center gap-2 flex-wrap justify-center">
                   {project.architecture.flow.map((node, ni) => (
                     <React.Fragment key={node}>
@@ -171,7 +162,7 @@ function ProjectCard({
         </AnimatePresence>
 
         {project.eventFlow && (
-          <div className="p-3 border border-line bg-canvas/50 mb-4">
+          <div className="p-3 border border-line bg-canvas/50 mb-3">
             <div className="flex items-center gap-2 flex-wrap justify-center">
               {project.eventFlow.map((node, ni) => (
                 <React.Fragment key={node}>
@@ -188,7 +179,7 @@ function ProjectCard({
         )}
 
         {project.bridge && (
-          <div className="p-3 border border-line bg-canvas/50 mb-4 text-center">
+          <div className="p-3 border border-line bg-canvas/50 mb-3 text-center">
             <div className="font-mono text-[10px] text-ink">
               TERRAFORM <span className="text-accent">+</span> AWS <span className="text-accent">+</span> AI
             </div>
@@ -198,7 +189,6 @@ function ProjectCard({
           </div>
         )}
 
-        {/* Actions */}
         <div className="mt-auto flex flex-wrap gap-3 pt-3 border-t border-line">
           {project.githubLink && (
             <a
