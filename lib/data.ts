@@ -98,6 +98,26 @@ export const projectsData = [
     bridge: true,
     githubLink: "https://github.com/vidya-bingi-26/cloudlens-ai",
   },
+  {
+    id: "05",
+    title: "OM SAI MITRA MANDAL",
+    category: "LIVE IN PRODUCTION",
+    label: "05 / COMMUNITY PWA",
+    headline: "A festival app the whole community opens every day.",
+    description:
+      "Bilingual PWA for a 7-day Ganpati Mahotsav with live schedule, multi-language aartis, announcements, gallery, donations and an admin dashboard.",
+    impact: ["7-DAY SCHEDULE", "3-LANGUAGE AARTIS", "PWA + ADMIN"],
+    tech: "Next.js · React · TypeScript · Tailwind CSS · Supabase · PWA",
+    proof: [
+      "Live for the 13th year Ganpati Mahotsav, 14–20 Sep 2026",
+      "7-day schedule with live 'up next' countdown",
+      "Aarti lyrics in Marathi, Hindi and Hinglish",
+      "Real-time announcements, gallery and visitor heartbeat tracking",
+      "Admin dashboard for schedule, aartis and notices",
+    ],
+    liveLink: "https://omsaimitramandal.vercel.app/",
+    githubLink: "https://github.com/vishal-kesharwani/ganpatibappamandal",
+  },
 ];
 
 export const labExperiments = [

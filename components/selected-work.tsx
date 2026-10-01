@@ -10,12 +10,14 @@ import sevaImg from "@/public/seva-mahila-udyog.png";
 import jobtrackerImg from "@/public/jobtracker.png";
 import nexusImg from "@/public/reportease.png";
 import cloudlensImg from "@/public/cloudlens-ai.png";
+import mandalImg from "@/public/MandalManagementApp.png";
 
 const projectImages: Record<string, typeof sevaImg> = {
   "01": jobtrackerImg,
   "02": sevaImg,
   "03": nexusImg,
   "04": cloudlensImg,
+  "05": mandalImg,
 };
 
 const categoryColors: Record<string, string> = {
@@ -194,6 +196,17 @@ function FeaturedProject({
           )}
 
           <div className="mt-auto flex flex-wrap gap-3 pt-4 border-t border-line">
+            {project.liveLink && (
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-accent hover:text-accent/80 transition-colors"
+              >
+                <FiExternalLink className="text-[12px]" />
+                Live Site
+              </a>
+            )}
             {project.githubLink && (
               <a
                 href={project.githubLink}
@@ -311,6 +324,17 @@ function ProjectCard({
         )}
 
         <div className="mt-auto flex flex-wrap gap-3 pt-3 border-t border-line">
+          {project.liveLink && (
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-accent hover:text-accent/80 transition-colors"
+            >
+              <FiExternalLink className="text-[11px]" />
+              Live Site
+            </a>
+          )}
           {project.githubLink && (
             <a
               href={project.githubLink}
