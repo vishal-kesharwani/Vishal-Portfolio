@@ -118,6 +118,25 @@ export const projectsData = [
     liveLink: "https://omsaimitramandal.vercel.app/",
     githubLink: "https://github.com/vishal-kesharwani/ganpatibappamandal",
   },
+  {
+    id: "06",
+    title: "VEG-ORE",
+    category: "CLIENT WORK",
+    label: "06 / CLIENT WEBSITE",
+    headline: "Client work. A food brand site that sells the food.",
+    description:
+      "Client website for Veg-Ore, a Bhiwandi healthy vegetarian food brand — menu, reviews, gallery, location and ordering flows.",
+    impact: ["5.0 GOOGLE RATING", "62+ REVIEWS", "100% VEG"],
+    tech: "Next.js · React · TypeScript · Tailwind CSS · Responsive Design",
+    proof: [
+      "Live client demo for a Bhiwandi food brand",
+      "Menu, why-us, reviews, gallery and visit-us sections",
+      "5.0 rating from 62+ Google reviews surfaced on the page",
+      "Order Now, WhatsApp and directions actions on mobile",
+    ],
+    liveLink: "https://vegore-three.vercel.app/",
+    githubLink: "https://github.com/vishal-kesharwani/WC-WEBSITE",
+  },
 ];
 
 export const labExperiments = [

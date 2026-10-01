@@ -11,6 +11,7 @@ import jobtrackerImg from "@/public/jobtracker.png";
 import nexusImg from "@/public/reportease.png";
 import cloudlensImg from "@/public/cloudlens-ai.png";
 import mandalImg from "@/public/MandalManagementApp.png";
+import vegoreImg from "@/public/VEGORE.png";
 
 const projectImages: Record<string, typeof sevaImg> = {
   "01": jobtrackerImg,
@@ -18,17 +19,28 @@ const projectImages: Record<string, typeof sevaImg> = {
   "03": nexusImg,
   "04": cloudlensImg,
   "05": mandalImg,
+  "06": vegoreImg,
 };
 
 const categoryColors: Record<string, string> = {
   FEATURED: "text-accent",
   "LIVE IN PRODUCTION": "text-accent",
+  "CLIENT WORK": "text-accent",
   "FULL-STACK": "text-secondary",
   EXPLORING: "text-muted",
 };
 
+const INITIAL_PROJECTS = 5;
+
 export default function SelectedWork() {
   const { ref } = useSectionInView("Work", 0.2);
+  const [showAll, setShowAll] = useState(false);
+
+  const gridProjects = projectsData.slice(1);
+  const visibleProjects = showAll
+    ? gridProjects
+    : gridProjects.slice(0, INITIAL_PROJECTS - 1);
+  const hiddenCount = gridProjects.length - visibleProjects.length;
 
   return (
     <section ref={ref} id="work" className="py-section px-6 lg:px-10">
@@ -55,10 +67,28 @@ export default function SelectedWork() {
 
         {/* Remaining Projects - Grid */}
         <div className="mt-5 grid gap-5 lg:grid-cols-2">
-          {projectsData.slice(1).map((project, i) => (
+          {visibleProjects.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i + 1} />
           ))}
         </div>
+
+        {hiddenCount > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-8 flex justify-center"
+          >
+            <button
+              onClick={() => setShowAll(true)}
+              className="group inline-flex items-center gap-2.5 border border-line bg-surface/40 px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted hover:border-line-accent hover:text-ink transition-colors"
+            >
+              MORE
+              <span className="text-accent">+{hiddenCount}</span>
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   );
