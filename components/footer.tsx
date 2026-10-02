@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
+import LocationLink from "@/components/location-link";
 
 export default function Footer() {
   return (
@@ -33,7 +34,7 @@ export default function Footer() {
               Systems Builder
             </div>
             <div className="font-mono text-[10px] text-faint">
-              Pune, India
+              <LocationLink className="text-faint hover:text-accent" />
             </div>
           </div>
 

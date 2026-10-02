@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Icon } from "@iconify/react";
 import profilePhoto from "@/public/githubdp-removebg-preview.png";
 import { educationData } from "@/lib/data";
+import LocationLink from "@/components/location-link";
 
 const techIcons = [
   { name: "java", icon: "logos:java", x: -30, y: -35, delay: 0 },
@@ -110,7 +111,7 @@ export default function About() {
           >
             <div className="space-y-4 text-[15px] text-muted leading-relaxed">
               <p>
-                I&apos;m a Computer Engineering graduate based in Pune.
+                I&apos;m a Computer Engineering graduate based in Bhiwandi, Thane.
               </p>
               <p>
                 I started with software development, moved deeper into backend
@@ -141,7 +142,9 @@ export default function About() {
                   <div className="font-mono text-[8px] uppercase tracking-wider text-faint mb-1">
                     LOCATION
                   </div>
-                  <div className="text-[13px] text-ink">Pune, India</div>
+                  <div className="text-[13px] text-ink">
+                    <LocationLink />
+                  </div>
                 </div>
                 <div>
                   <div className="font-mono text-[8px] uppercase tracking-wider text-faint mb-1">
