@@ -193,7 +193,7 @@ section[id] {
 
 html.vk-intro {
   overflow: hidden;
-  animation: vk-intro-unlock 0.01s linear 9s forwards;
+  animation: vk-intro-unlock 0.01s linear 12s forwards;
 }
 
 @keyframes vk-intro-unlock {
@@ -207,13 +207,13 @@ html.vk-no-intro #vk-loader {
 }
 
 #vk-loader {
-  animation: vk-loader-failsafe 0.01s linear 9s forwards;
+  animation: vk-loader-failsafe 0.01s linear 12s forwards;
   transition: background-color 0.45s ease;
 }
 
 #vk-loader.vk-loader-exit {
   transform: translate3d(0, -100%, 0);
-  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.08s;
   pointer-events: none;
 }
 
@@ -229,7 +229,7 @@ html.vk-no-intro #vk-loader {
   opacity: 0;
   transform: translate3d(0, -6%, 0);
   transition:
-    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.45s ease;
 }
 
@@ -239,30 +239,32 @@ html.vk-no-intro #vk-loader {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.3em;
   opacity: 0;
-  filter: blur(12px);
-  transform: translate3d(0, 120%, 0);
+  transform: translate3d(0, 40px, 0);
   transition:
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.45s ease,
-    filter 0.55s ease;
-  will-change: transform, opacity, filter;
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.28s ease-out;
+  will-change: transform, opacity;
+}
+
+.vk-identity-emoji {
+  display: inline-block;
+  font-size: 1.2em;
+  line-height: 1;
 }
 
 .vk-identity[data-state="active"] {
   opacity: 1;
-  filter: blur(0);
   transform: translate3d(0, 0, 0);
 }
 
 .vk-identity[data-state="exited"] {
   opacity: 0;
-  filter: blur(8px);
-  transform: translate3d(0, -120%, 0);
+  transform: translate3d(0, -40px, 0);
   transition:
-    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.3s ease,
-    filter 0.35s ease;
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+    opacity 0.26s ease-out 0.1s;
 }
 
 .vk-progress-fill {

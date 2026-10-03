@@ -3,24 +3,25 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const INTRO_KEY = "vk-intro-seen";
-const LOAD_DURATION = 2800;
-const HOLD_DURATION = 450;
+const LOAD_DURATION = 5800;
+const HOLD_DURATION = 500;
 const EXIT_DURATION = 950;
 
 type Phase = "run" | "hold" | "exit" | "done";
 
-const IDENTITIES: { label: string; from: number; to: number }[] = [
-  { label: "VISHAL KESARWANI", from: 0, to: 15 },
-  { label: "TECH ENTHUSIAST ⚡", from: 15, to: 30 },
-  { label: "MONEY & BUSINESS 💰", from: 30, to: 45 },
-  { label: "RESEARCH ANALYST 🔬", from: 45, to: 60 },
-  { label: "BUILDER 🚀", from: 60, to: 72 },
-  { label: "CREATOR 🎥", from: 72, to: 84 },
-  { label: "FITNESS ENTHUSIAST 🏋️", from: 84, to: 94 },
-  { label: "CRICKET 🏏", from: 94, to: 100 },
+const IDENTITIES: { emoji: string; label: string; from: number; to: number }[] = [
+  { emoji: "👋", label: "VISHAL KESARWANI", from: 0, to: 12 },
+  { emoji: "⚡", label: "TECH ENTHUSIAST", from: 12, to: 25 },
+  { emoji: "💰", label: "MONEY & BUSINESS", from: 25, to: 38 },
+  { emoji: "🔬", label: "RESEARCH ANALYST", from: 38, to: 51 },
+  { emoji: "🚀", label: "BUILDER", from: 51, to: 64 },
+  { emoji: "🎥", label: "CREATOR", from: 64, to: 77 },
+  { emoji: "🏋️", label: "FITNESS ENTHUSIAST", from: 77, to: 90 },
+  { emoji: "🏏", label: "CRICKET", from: 90, to: 100 },
 ];
 
-const easeInOutSine = (t: number) => -(Math.cos(Math.PI * t) - 1) / 2;
+const easeProgress = (t: number) =>
+  0.75 * t + 0.125 * (1 - Math.cos(Math.PI * t));
 
 function identityIndexFor(progress: number, fallback: number) {
   if (progress >= 100) return IDENTITIES.length - 1;
@@ -73,7 +74,6 @@ export default function PortfolioLoader() {
         try {
           sessionStorage.setItem(INTRO_KEY, "1");
         } catch {
-          /* storage unavailable */
         }
         document.documentElement.classList.remove("vk-intro");
         setPhase("exit");
@@ -83,7 +83,7 @@ export default function PortfolioLoader() {
 
     const tick = (now: number) => {
       const t = Math.min(1, (now - start) / LOAD_DURATION);
-      const progress = easeInOutSine(t) * 100;
+      const progress = easeProgress(t) * 100;
 
       if (counterRef.current) {
         counterRef.current.textContent = String(Math.round(progress));
@@ -151,44 +151,49 @@ export default function PortfolioLoader() {
           </span>
         </div>
 
-        <div className="flex flex-1 flex-col items-center justify-center gap-4 sm:gap-5">
-          <div className="flex items-baseline justify-center font-display font-bold leading-[0.85] tracking-[-0.04em]">
+        <div className="flex flex-1 flex-col items-center justify-center">
+          <div className="flex items-baseline justify-center font-display font-semibold leading-[0.9] tracking-[-0.03em]">
             <span
               ref={counterRef}
-              className="tabular-nums text-ink text-[clamp(4.5rem,18vw,12rem)]"
+              className="tabular-nums text-ink text-[clamp(1.4rem,4.2vw,3.4rem)]"
             >
               0
             </span>
-            <span className="ml-1 text-accent text-[clamp(1.5rem,4.5vw,3.5rem)] sm:ml-2">
-              %
-            </span>
+            <span className="ml-0.5 text-accent text-[0.5em]">%</span>
           </div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.35em] text-faint sm:text-[10px]">
-            Loading Experience
+
+          <div className="mt-4 h-px w-10 bg-accent sm:mt-5" />
+
+          <div className="mt-4 flex w-full justify-center overflow-hidden text-[clamp(1.5rem,7.4vw,4.25rem)] sm:mt-5">
+            <div className="relative h-[clamp(3.5rem,12vw,6.5rem)] w-full">
+              {IDENTITIES.map((item, i) => (
+                <div
+                  key={item.label}
+                  data-state={
+                    i < activeIndex
+                      ? "exited"
+                      : i === activeIndex
+                      ? "active"
+                      : "waiting"
+                  }
+                  className="vk-identity"
+                >
+                  <span className="vk-identity-emoji" aria-hidden="true">
+                    {item.emoji}
+                  </span>
+                  <span className="font-display font-bold uppercase leading-[1.05] tracking-[-0.02em] whitespace-nowrap text-ink">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-3 pb-5 sm:gap-4">
-          <div className="h-px w-10 bg-accent" />
-          <div className="relative h-[clamp(2.75rem,9vw,4.5rem)] w-full overflow-hidden">
-            {IDENTITIES.map((item, i) => (
-              <div
-                key={item.label}
-                data-state={
-                  i < activeIndex
-                    ? "exited"
-                    : i === activeIndex
-                    ? "active"
-                    : "waiting"
-                }
-                className="vk-identity"
-              >
-                <span className="whitespace-nowrap font-display font-bold uppercase text-display-md text-ink sm:text-display-lg">
-                  {item.label}
-                </span>
-              </div>
-            ))}
-          </div>
+        <div className="flex justify-center pb-4 sm:pb-5">
+          <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-faint sm:text-[10px]">
+            Loading Experience
+          </span>
         </div>
       </div>
 
