@@ -1,10 +1,13 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ScrollLine from "@/components/scroll-line";
+import PortfolioLoader from "@/components/portfolio-loader";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import { ThemeProvider } from "@/context/theme-context";
 import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+
+const introGate = `(function(){var d=document.documentElement;try{if(localStorage.getItem("theme")==="light"){d.classList.add("light")}}catch(e){}try{var r=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;if(r||sessionStorage.getItem("vk-intro-seen")){d.classList.add("vk-no-intro")}}catch(e){}})();`;
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,6 +63,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="relative antialiased noise-bg">
+        <script dangerouslySetInnerHTML={{ __html: introGate }} />
+        <noscript>
+          <style>{`#vk-loader{display:none!important}`}</style>
+        </noscript>
+        <PortfolioLoader />
         <ThemeProvider>
           <ActiveSectionContextProvider>
             <ScrollLine />

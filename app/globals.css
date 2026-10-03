@@ -188,3 +188,92 @@ section[id] {
     clip-path: circle(150% at var(--tx, 50%) var(--ty, 50%));
   }
 }
+
+/* ---------- Portfolio intro loader ---------- */
+
+html.vk-intro {
+  overflow: hidden;
+  animation: vk-intro-unlock 0.01s linear 9s forwards;
+}
+
+@keyframes vk-intro-unlock {
+  to {
+    overflow: auto;
+  }
+}
+
+html.vk-no-intro #vk-loader {
+  display: none !important;
+}
+
+#vk-loader {
+  animation: vk-loader-failsafe 0.01s linear 9s forwards;
+  transition: background-color 0.45s ease;
+}
+
+#vk-loader.vk-loader-exit {
+  transform: translate3d(0, -100%, 0);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+  pointer-events: none;
+}
+
+@keyframes vk-loader-failsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.vk-loader-content-exit {
+  opacity: 0;
+  transform: translate3d(0, -6%, 0);
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.45s ease;
+}
+
+.vk-identity {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translate3d(0, 120%, 0);
+  transition:
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.45s ease,
+    filter 0.55s ease;
+  will-change: transform, opacity, filter;
+}
+
+.vk-identity[data-state="active"] {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0);
+}
+
+.vk-identity[data-state="exited"] {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translate3d(0, -120%, 0);
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease,
+    filter 0.35s ease;
+}
+
+.vk-progress-fill {
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.vk-noise {
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
